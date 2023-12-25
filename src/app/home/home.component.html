@@ -1,0 +1,16 @@
+<div class="container">
+  <ngb-carousel [showNavigationArrows]="true" [showNavigationIndicators]="false">
+    <div *ngFor="let image of images">
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img [src]="image.src" [alt]="image.alt" />
+        </div>
+        <div class="carousel-caption">
+          <span>Fashion Sale</span>
+          <h3>{{image.title}}</h3>
+          <p>{{image.description}}</p>
+        </div>
+      </ng-template>
+    </div>
+  </ngb-carousel>
+</div>

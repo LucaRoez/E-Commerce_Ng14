@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavigatorsComponent } from './navigators/navigators.component';
 import { MainBodyComponent } from './main-body/main-body.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigatorsComponent,
-    MainBodyComponent
+    MainBodyComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
