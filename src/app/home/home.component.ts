@@ -6,8 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  images: ImageKeeper[] = [
-
+  carouselImages: CarouselImages[] = [
     {
       src: "home-carousel-male.png",
       alt: "menswear kind",
@@ -21,14 +20,39 @@ export class HomeComponent {
       title: "Minimal Ladies Style",
       description: "Velit qui est adipisicing excepteur ut ullamco labore pariatur proident. Nulla anim enim aliquip qui voluptate in velit minim commodo qui ad occaecat dolore. Ex proident laborum nisi exercitation aliquip. In laborum labore minim esse incididunt eiusmod exercitation ea sint. Lorem esse excepteur laborum labore. Ex quis eu veniam adipisicing."
     }
-
   ]
 
+  cardImages: CardImages[] = [
+    {
+      src: "home-card-male.png",
+      alt: "male more popular garment",
+      text: "Men's Fashion"
+    },
+
+    {
+      src: "home-card-female.png",
+      alt: "female more popular garment",
+      text: "Women's Fashion"
+    },
+
+    {
+      src: "home-card-baby.png",
+      alt: "baby more popular garment",
+      text: "Baby Fashion"
+    }
+  ]
 }
 
-export class ImageKeeper {
+class CarouselImages {
   src: string = "";
   alt: string = "";
   title: string = "";
   description: string = "";
+}
+
+class CardImages {
+  src: string = "";
+  alt: string = "";
+  text: string = "";
+  
 }
