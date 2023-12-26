@@ -1,16 +1,16 @@
-<div class="container">
-  <ngb-carousel [showNavigationArrows]="true" [showNavigationIndicators]="false">
-    <div *ngFor="let image of images">
-      <ng-template ngbSlide>
-        <div class="picsum-img-wrapper">
-          <img [src]="image.src" [alt]="image.alt" />
-        </div>
-        <div class="carousel-caption">
+<ngb-carousel [interval]="3000" [showNavigationIndicators]="false">
+  <ng-template ngbSlide *ngFor="let image of images, let i = index">
+    <div class="carousel-wrapper">
+      <img id="carousel-img" src="assets/img/{{image.src}}" [class.female-img]="i%2" [alt]="image.alt" />
+      <div class="carousel-caption">
+        <div [class.is-male]="i%2==0" [class.is-female]="i%2">
           <span>Fashion Sale</span>
           <h3>{{image.title}}</h3>
           <p>{{image.description}}</p>
         </div>
-      </ng-template>
+      </div>
     </div>
-  </ngb-carousel>
+  </ng-template>
+</ngb-carousel>
+<div class="container">
 </div>

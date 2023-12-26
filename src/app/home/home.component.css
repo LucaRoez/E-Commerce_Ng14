@@ -1,0 +1,27 @@
+.carousel-wrapper {
+  width: 100%;
+  height: 25rem;
+  position: relative;
+  overflow: hidden;
+}
+.is-male {
+  position: absolute;
+  color: #fff;
+  right: 60%;
+  bottom: 10%;
+}
+.is-female {
+  position: absolute;
+  color: #000;
+  left: 60%;
+  bottom: 10%;
+}
+
+img {
+  max-width: 100%;
+  object-fit: cover;
+  aspect-ratio: 9 / 5;
+}
+.female-img {
+  aspect-ratio: 20 / 9;
+}
