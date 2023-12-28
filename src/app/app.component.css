@@ -2,18 +2,29 @@ footer {
   margin-top: 3rem;
   padding-top: 2rem;
   background-color: #1d1a1a;
-  color: #000;
+  color: #fff;
 }
-footer ul {  
+footer ul {
   list-style-type: none;
 }
+footer hr {
+  color: #000;
+}
+
 footer .footer-search {
   display: flex;
 }
 footer .brands-footer {
   display: flex;
   justify-content: space-around;
+  color: #7972bb;
 }
+
+footer .last-links-icon {
+  display: flex;
+  justify-content: center;
+}
+
 footer .copyright-line {
   display: flex;
   justify-content: center;
