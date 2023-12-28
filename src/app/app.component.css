@@ -1,8 +1,20 @@
 footer {
   margin-top: 3rem;
+  padding-top: 2rem;
   background-color: #1d1a1a;
-}
-
-hr {
   color: #000;
+}
+footer ul {  
+  list-style-type: none;
+}
+footer .footer-search {
+  display: flex;
+}
+footer .brands-footer {
+  display: flex;
+  justify-content: space-around;
+}
+footer .copyright-line {
+  display: flex;
+  justify-content: center;
 }

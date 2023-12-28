@@ -1,6 +1,6 @@
-<ngb-carousel [interval]="3000" [showNavigationIndicators]="false">
+<ngb-carousel class="carousel-wrapper" [interval]="3000" [showNavigationIndicators]="false">
   <ng-template ngbSlide *ngFor="let image of carouselImages, let i = index">
-    <div class="carousel-wrapper">
+    <div class="carousel-img-wrapper">
       <img id="carousel-img" src="assets/img/{{image.src}}" [class.female-img]="i%2" [alt]="image.alt" />
       <div class="carousel-caption">
         <div [class.is-male]="i%2==0" [class.is-female]="i%2">
