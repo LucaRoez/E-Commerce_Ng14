@@ -7,13 +7,21 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavigatorsComponent } from './navigators/navigators.component';
 import { MainBodyComponent } from './main-body/main-body.component';
 import { HomeComponent } from './home/home.component';
+import { TrendingComponent } from './home/trending/trending.component';
+import { TestimonialsComponent } from './home/testimonials/testimonials.component';
+import { SuggestedComponent } from './home/suggested/suggested.component';
+import { LatestComponent } from './home/latest/latest.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigatorsComponent,
     MainBodyComponent,
-    HomeComponent
+    HomeComponent,
+    TrendingComponent,
+    TestimonialsComponent,
+    SuggestedComponent,
+    LatestComponent
   ],
   imports: [
     BrowserModule,

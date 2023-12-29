@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: '', component: MainBodyComponent, pathMatch: 'full' },
   { path: 'navigators', component: NavigatorsComponent, pathMatch: 'full' },
   { path: 'home', component: HomeComponent }
+
 ];
 
 @NgModule({

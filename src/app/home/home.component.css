@@ -1,3 +1,6 @@
+.carousel-wrapper {
+  position: relative;
+}
 .carousel-img-wrapper
 {
   width: 100%;
