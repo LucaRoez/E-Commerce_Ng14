@@ -11,6 +11,8 @@ import { TrendingComponent } from './home/trending/trending.component';
 import { TestimonialsComponent } from './home/testimonials/testimonials.component';
 import { SuggestedComponent } from './home/suggested/suggested.component';
 import { LatestComponent } from './home/latest/latest.component';
+import { NextBtnDirective } from './home/trending/btns/next-btn.directive';
+import { PrevBtnDirective } from './home/trending/btns/prev-btn.directive';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { LatestComponent } from './home/latest/latest.component';
     TrendingComponent,
     TestimonialsComponent,
     SuggestedComponent,
-    LatestComponent
+    LatestComponent,
+    NextBtnDirective,
+    PrevBtnDirective
   ],
   imports: [
     BrowserModule,

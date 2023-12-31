@@ -33,16 +33,21 @@
   transform: translate(-50%, -50%);
   background-color: blue;
 }
-.slider-btn {
-  background-color: bisque;
+.slider-btn-prev, .slider-btn-next {
+  position: absolute;
+  top: 50%;
+  background-color: transparent;
+  border: none;
 }
 .slider-btn-prev {
-  position: absolute;
   left: 0;
-  top: 50%;
+  transform: translate(+50%, -50%);
 }
 .slider-btn-next {
-  position: absolute;
   right: 0;
-  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.slider-btn-prev i,
+.slider-btn-next i {
+  font-size: 2em;
 }
