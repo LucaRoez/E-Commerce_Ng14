@@ -1,7 +1,7 @@
 <ngb-carousel class="carousel-wrapper" [interval]="3000" [showNavigationIndicators]="false">
   <ng-template ngbSlide *ngFor="let image of carouselImages, let i = index">
     <div class="carousel-img-wrapper">
-      <img id="carousel-img" src="assets/img/{{image.src}}" [class.female-img]="i%2" [alt]="image.alt" />
+      <img id="carousel-img" src="assets/img/home/hero-carousel/{{image.src}}" [class.female-img]="i%2" [alt]="image.alt" />
       <div class="carousel-caption">
         <div [class.is-male]="i%2==0" [class.is-female]="i%2">
           <span class="span-text">Fashion Sale</span>
@@ -16,7 +16,7 @@
   <div class="row">
     <div class="col-4" *ngFor="let image of cardImages">
       <div class="full-card">
-          <img class="card-img" src="../../assets/img/{{image.src}}" [alt]="image.alt" />
+          <img class="card-img" src="../../assets/img/home/categories-card/{{image.src}}" [alt]="image.alt" />
           <a><p class="card-text">{{image.text}}</p></a>
       </div>
     </div>

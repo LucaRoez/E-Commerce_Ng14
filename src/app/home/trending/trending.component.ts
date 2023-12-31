@@ -10,42 +10,42 @@ export class TrendingComponent {
     {
       src: "",
       alt: "",
-      title: "",
+      title: "1",
       price: 0,
       discount: 0
     },
     {
       src: "",
       alt: "",
-      title: "",
+      title: "2",
       price: 0,
       discount: 0
     },
     {
       src: "",
       alt: "",
-      title: "",
+      title: "3",
       price: 0,
       discount: 0
     },
     {
       src: "",
       alt: "",
-      title: "",
+      title: "4",
       price: 0,
       discount: 0
     },
     {
       src: "",
       alt: "",
-      title: "",
+      title: "5",
       price: 0,
       discount: 0
     },
     {
       src: "",
       alt: "",
-      title: "",
+      title: "6",
       price: 0,
       discount: 0
     }

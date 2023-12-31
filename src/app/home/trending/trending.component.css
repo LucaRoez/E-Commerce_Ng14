@@ -1,0 +1,48 @@
+.trending-title {
+  padding-top: 2rem;
+}
+.trending-main {
+  padding: 5% 0;
+  background-color: black;
+}
+.slider-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 50vh;
+  background-color: red;
+}
+.slider-body {
+  position: absolute;
+  width: 200%;
+  background-color: blueviolet;
+}
+.slider-item {
+  position: relative;
+  display: inline-block;
+  width: 15%;
+  height: 50vh;
+  margin: 0 1rem;
+  background-color: aqua;
+}
+.slider-text {
+  position: absolute;
+  font-size: 1em;
+  font-weight: bolder;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: blue;
+}
+.slider-btn {
+  background-color: bisque;
+}
+.slider-btn-prev {
+  position: absolute;
+  left: 0;
+  top: 50%;
+}
+.slider-btn-next {
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
