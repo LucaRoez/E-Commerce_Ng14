@@ -8,46 +8,46 @@ import { Component } from '@angular/core';
 export class TrendingComponent {
   items: TrendingItems[] = [
     {
-      src: "",
-      alt: "",
-      title: "1",
-      price: 0,
-      discount: 0
+      src: "Super-Sexy-Work-Outfits-For-Modern-Women.png",
+      alt: "sexy-work-woman-outfit",
+      title: "Super Sexy Work Outfit for Modern Women",
+      price: 350,
+      discount: 436
     },
     {
-      src: "",
-      alt: "",
-      title: "2",
-      price: 0,
-      discount: 0
+      src: "Leather-Luxury-Handbags-Women.png",
+      alt: "leather-luxury-handbag-for-woman",
+      title: "Leather Luxury Women's Handbag",
+      price: 110,
+      discount: 169
     },
     {
-      src: "",
-      alt: "",
-      title: "3",
-      price: 0,
-      discount: 0
+      src: "Trendy-Outfit-Woman.png",
+      alt: "trendy-woman-outfit",
+      title: "Trendy Women's Outfit",
+      price: 250,
+      discount: 399
     },
     {
-      src: "",
-      alt: "",
-      title: "4",
-      price: 0,
-      discount: 0
+      src: "baby-trendy-tender-coat.png",
+      alt: "baby-tender-coat",
+      title: "Trendy Baby's Tender Coat",
+      price: 120,
+      discount: 210
     },
     {
-      src: "",
-      alt: "",
-      title: "5",
-      price: 0,
-      discount: 0
+      src: "men-casual-accessories.png",
+      alt: "casual-man-outfit",
+      title: "Trendy Casual Men's Outfit",
+      price: 250,
+      discount: 389
     },
     {
-      src: "",
-      alt: "",
-      title: "6",
-      price: 0,
-      discount: 0
+      src: "woman-boots-trendy.png",
+      alt: "woman-boots-trendy",
+      title: "Trendy Leather Wader Like Women's Boots",
+      price: 130,
+      discount: 199
     }
   ]
 }

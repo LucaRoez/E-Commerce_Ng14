@@ -6,9 +6,10 @@
     <div class="slider-wrapper">
       <div class="slider-body">
         <div class="slider-item" *ngFor="let item of items">
+          <img src="../../../assets/img/home/trending/{{item.src}}" alt="{{item.alt}}" />
           <div class="slider-text">
             {{item.title}}
-            <div class="row">
+            <div class="row slider-subtext">
               <div class="slider-price">{{item.price}}</div>
               <div class="slider-discount">{{item.discount}}</div>
             </div>
