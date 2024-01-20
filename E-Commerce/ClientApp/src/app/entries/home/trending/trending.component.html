@@ -1,0 +1,25 @@
+<div class="row trending-title">
+  <h1>Trending This Week</h1>
+</div>
+<div class="row">
+  <div class="container-fluid trending-main">
+    <div class="slider-wrapper">
+      <div class="slider-body">
+        <div class="slider-item" *ngFor="let item of items">
+          <img src="../../../assets/img/home/trending/{{item.src}}" alt="{{item.alt}}" />
+          <div class="slider-text">
+            {{item.title}}
+            <div class="row slider-subtext">
+              <div class="slider-price">{{item.price}}</div>
+              <div class="slider-discount">{{item.discount}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="items.length > 4" class="slider-btn">
+        <button type="button" class="slider-btn-prev" PrevBtn><i class="fas fa-chevron-left"></i></button>
+        <button type="button" class="slider-btn-next" NextBtn><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
