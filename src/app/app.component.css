@@ -1,0 +1,32 @@
+footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    background-color: #1d1a1a;
+    color: #fff;
+  }
+  footer ul {
+    list-style-type: none;
+  }
+  footer hr {
+    color: #000;
+  }
+  
+  footer .footer-search {
+    display: flex;
+  }
+  footer .brands-footer {
+    padding: 25% 25% 0;
+    display: flex;
+    justify-content: space-between;
+    color: #7972bb;
+  }
+  
+  footer .last-links-icon {
+    display: flex;
+    justify-content: center;
+  }
+  
+  footer .copyright-line {
+    display: flex;
+    justify-content: center;
+  }

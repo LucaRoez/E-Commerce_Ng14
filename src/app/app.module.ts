@@ -3,14 +3,26 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeModule } from './entries/home/home.module';
+import { ProductsModule } from './entries/products/products.module';
+import { CartModule } from './entries/cart/cart.module';
+import { SaleModule } from './entries/sale/sale.module';
+import { NavigationComponent } from './shared/navigation/navigation.component';
+import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavigationComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HomeModule,
+    ProductsModule,
+    CartModule,
+    SaleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
