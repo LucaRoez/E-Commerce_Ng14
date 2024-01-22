@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using E_Commerce.Models;
+﻿using E_Commerce.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace E_Commerce.Repository;
 
-public partial class CommercialContext : DbContext
+public partial class CommercialContext : DbContext, ICommercialContext
 {
     public CommercialContext()
     {
@@ -34,9 +32,6 @@ public partial class CommercialContext : DbContext
 
     public virtual DbSet<DUser> DUsers { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=E-Commerce Database;Integrated Security=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
