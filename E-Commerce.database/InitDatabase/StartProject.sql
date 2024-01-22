@@ -29,7 +29,7 @@ create table [d.Users] (
 
 create table [d.Authors] (
 	Id smallint identity(1,1) primary key,
-	AuthorName varchar(20),
+	AuthorName varchar(20) not null,
 	Presentation varchar(50),
 	Email varchar(50) not null,
 	Password varchar(250) not null
@@ -64,7 +64,7 @@ create table [d.Reviews] (
 	Author varchar(20) not null,
 	AuthorId smallint foreign key references [d.Authors](Id),
 	Body varchar(5000) not null,
-	Rate decimal(2,1)
+	Rate decimal(2,1) not null
 );
 
 create table [d.Commentaries] (
