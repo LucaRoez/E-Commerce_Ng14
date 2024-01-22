@@ -1,26 +1,18 @@
-﻿using E_Commerce.Repository;
+﻿using E_Commerce.Services.HttpCalls;
 using Microsoft.AspNetCore.Mvc;
 
 namespace E_Commerce.Controllers
 {
+    [ApiController]
     public class MainController : Controller
     {
-        private readonly ICommercialContext _DbContext;
-        public MainController(ICommercialContext dbContext)
+        private readonly IHttpService _Http;
+        public MainController(IHttpService http)
         {
-            _DbContext = dbContext;
+            _Http = http;
         }
 
-        [HttpPost("selectinentity")]
-        public async Task<IActionResult> SelectInEntity(Entity entity)
-        {
-            string[] response = await _DbContext.SelectInOldEntity(entity);
-            var finalResponse = new
-            {
-                StatusMessage = response[0],
-                Data = response.Skip(1).ToArray()
-            };
-            return Ok(finalResponse);
-        }
+        [HttpPost]
+        public IActionResult GetProducts([FromQuery] int init, [FromQuery] int end) => Ok(_Http.GetAllProducts(init, end));
     }
 }

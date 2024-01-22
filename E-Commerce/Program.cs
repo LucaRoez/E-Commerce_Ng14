@@ -1,16 +1,19 @@
 using E_Commerce.Repository;
+using E_Commerce.Services.HttpCalls;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var services = builder.Services;
 // Add services to the container.
-services.AddMvc();
+services.AddControllers();
 services.AddRouting(config => config.LowercaseUrls = true);
 
 services.AddDbContext<ICommercialContext,CommercialContext>(op =>
     op.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
+
+services.AddTransient<IHttpService, HttpService>();
 
 services.AddEndpointsApiExplorer();
 services.AddSwaggerGen();
