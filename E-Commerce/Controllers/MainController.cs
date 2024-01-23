@@ -14,19 +14,19 @@ namespace E_Commerce.Controllers
 
         [HttpPost]
         [Route("products")]
-        public IActionResult GetAllProducts([FromQuery] int init, [FromQuery] int end) => Ok(_Http.GetAllProducts(init, end));
+        public IActionResult GetAllProducts([FromQuery] int init, [FromQuery] int length) => Ok(_Http.GetAllProducts(init, length));
 
         [HttpPost]
         [Route("products/male")]
-        public IActionResult GetMaleProducts([FromQuery] int init, [FromQuery] int end) => Ok(_Http.GetMaleProducts(init, end));
+        public IActionResult GetMaleProducts([FromQuery] int init, [FromQuery] int length) => Ok(_Http.GetMaleProducts(init, length));
 
         [HttpPost]
         [Route("products/female")]
-        public IActionResult GetFemaleProducts([FromQuery] int init, [FromQuery] int end) => Ok(_Http.GetFemaleProducts(init, end));
+        public IActionResult GetFemaleProducts([FromQuery] int init, [FromQuery] int length) => Ok(_Http.GetFemaleProducts(init, length));
 
         [HttpPost]
         [Route("products/babyfashion")]
-        public IActionResult GetBabyProducts([FromQuery] int init, [FromQuery] int end) => Ok(_Http.GetBabyProducts(init, end));
+        public IActionResult GetBabyProducts([FromQuery] int init, [FromQuery] int length) => Ok(_Http.GetBabyProducts(init, length));
 
         [HttpPost]
         [Route("products/search")]
