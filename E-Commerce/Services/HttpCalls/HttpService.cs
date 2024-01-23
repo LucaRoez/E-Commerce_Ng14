@@ -13,6 +13,7 @@ namespace E_Commerce.Services.HttpCalls
             _DbContext = dbContext;
         }
 
+        ////////////////////    Get Methods    ////////////////////
         public List<DProduct> GetAllProducts(int init, int length) => _DbContext.DProducts.OrderBy(p => p.Name)
             .Skip((init - 1) * length).Take(length).ToList();
 
@@ -23,6 +24,21 @@ namespace E_Commerce.Services.HttpCalls
             .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
 
         public List<DProduct> GetBabyProducts(int init, int length) => _DbContext.DProducts.Where(p => p.Gender.Name == "Baby")
+            .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
+
+        public List<DProduct> GetSummerProducts(int init, int length) => _DbContext.DProducts.Where(p => p.Category.Name == "Summer")
+            .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
+
+        public List<DProduct> GetWinterProducts(int init, int length) => _DbContext.DProducts.Where(p => p.Category.Name == "Winter")
+            .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
+
+        public List<DProduct> GetCasualProducts(int init, int length) => _DbContext.DProducts.Where(p => p.Category.Name == "Casual")
+            .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
+
+        public List<DProduct> GetFormalProducts(int init, int length) => _DbContext.DProducts.Where(p => p.Category.Name == "Formal")
+            .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
+
+        public List<DProduct> GetFashionProducts(int init, int length) => _DbContext.DProducts.Where(p => p.Category.Name == "Fashion")
             .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
 
         public List<DProduct> GetFilteredProducts(string? genderFilter, string? categoryFilter) => genderFilter.IsNullOrEmpty() ?
