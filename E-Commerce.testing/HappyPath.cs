@@ -148,5 +148,51 @@ namespace E_Commerce.testing
             result.StatusCode.Should().Be(200);
             result.Value.Should().BeOfType<List<DProduct>>();
         }
+
+
+
+        [Fact]
+        public async void Post200_PostProduct()
+        {
+            Mock<IHttpService> serviceMock = new();
+            serviceMock.Setup(x => x.PostProduct(It.IsAny<DProduct>())).ReturnsAsync("Product loaded successfully.");
+            AdminController systemUnderTest = new(serviceMock.Object);
+            DProduct product = new();
+
+            var result = await systemUnderTest.PostProduct(product) as OkObjectResult;
+
+            result.Should().NotBeNull();
+            result.StatusCode.Should().Be(200);
+            result.Value.Should().BeOfType<string>().And.Be("Product loaded successfully.");
+        }
+
+        [Fact]
+        public async void Post200_PostGender()
+        {
+            Mock<IHttpService> serviceMock = new();
+            serviceMock.Setup(x => x.PostGender(It.IsAny<CGender>())).ReturnsAsync("Product loaded successfully.");
+            AdminController systemUnderTest = new(serviceMock.Object);
+            CGender gender = new();
+
+            var result = await systemUnderTest.PostGender(gender) as OkObjectResult;
+
+            result.Should().NotBeNull();
+            result.StatusCode.Should().Be(200);
+            result.Value.Should().BeOfType<string>().And.Be("Product loaded successfully.");
+        }
+        [Fact]
+        public async void Post200_PostCategory()
+        {
+            Mock<IHttpService> serviceMock = new();
+            serviceMock.Setup(x => x.PostCategory(It.IsAny<CCategory>())).ReturnsAsync("Product loaded successfully.");
+            AdminController systemUnderTest = new(serviceMock.Object);
+            CCategory category = new();
+
+            var result = await systemUnderTest.PostCategory(category) as OkObjectResult;
+
+            result.Should().NotBeNull();
+            result.StatusCode.Should().Be(200);
+            result.Value.Should().BeOfType<string>().And.Be("Product loaded successfully.");
+        }
     }
 }

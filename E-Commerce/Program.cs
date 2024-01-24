@@ -9,7 +9,7 @@ var services = builder.Services;
 services.AddControllers();
 services.AddRouting(config => config.LowercaseUrls = true);
 
-services.AddDbContext<ICommercialContext,CommercialContext>(op =>
+services.AddDbContext<CommercialContext>(op =>
     op.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
 

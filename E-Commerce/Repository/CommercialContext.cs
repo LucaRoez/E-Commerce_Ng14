@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace E_Commerce.Repository;
 
-public partial class CommercialContext : DbContext, ICommercialContext
+public partial class CommercialContext : DbContext
 {
     public CommercialContext()
     {

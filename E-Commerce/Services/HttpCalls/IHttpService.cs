@@ -14,5 +14,9 @@ namespace E_Commerce.Services.HttpCalls
         List<DProduct> GetFormalProducts(int init, int length);
         List<DProduct> GetFashionProducts(int init, int length);
         List<DProduct> GetFilteredProducts(string? genderFilter, string? categoryFilter);
+
+        Task<string> PostProduct(DProduct product);
+        Task<string> PostGender(CGender gender);
+        Task<string> PostCategory(CCategory category);
     }
 }

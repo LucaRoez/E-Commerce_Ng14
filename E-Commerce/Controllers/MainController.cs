@@ -33,19 +33,19 @@ namespace E_Commerce.Controllers
         public IActionResult GetSummerProducts([FromQuery] int init, [FromQuery] int length) => Ok(_Http.GetSummerProducts(init, length));
 
         [HttpPost]
-        [Route("products/summer")]
+        [Route("products/winter")]
         public IActionResult GetWinterProducts([FromQuery] int init, [FromQuery] int length) => Ok(_Http.GetWinterProducts(init, length));
 
         [HttpPost]
-        [Route("products/summer")]
+        [Route("products/casual")]
         public IActionResult GetCasualProducts([FromQuery] int init, [FromQuery] int length) => Ok(_Http.GetCasualProducts(init, length));
 
         [HttpPost]
-        [Route("products/summer")]
+        [Route("products/formal")]
         public IActionResult GetFormalProducts([FromQuery] int init, [FromQuery] int length) => Ok(_Http.GetFormalProducts(init, length));
 
         [HttpPost]
-        [Route("products/summer")]
+        [Route("products/fashion")]
         public IActionResult GetFashionProducts([FromQuery] int init, [FromQuery] int length) => Ok(_Http.GetFashionProducts(init, length));
 
         [HttpPost]
