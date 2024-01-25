@@ -1,7 +1,6 @@
-﻿using E_Commerce.Models;
+﻿using E_Commerce.Repository.Entities;
 using E_Commerce.Services.HttpCalls;
 using Microsoft.AspNetCore.Mvc;
-using System.Reflection;
 
 namespace E_Commerce.Controllers
 {

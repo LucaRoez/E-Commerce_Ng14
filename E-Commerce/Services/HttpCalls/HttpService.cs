@@ -1,17 +1,21 @@
-﻿using E_Commerce.Models;
-using E_Commerce.Repository;
+﻿using E_Commerce.Repository;
 using E_Commerce.Services.Utilities;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Mvc;
+using E_Commerce.Repository.Entities;
+using E_Commerce.Models;
+using E_Commerce.Services.DataTransfer;
 
 namespace E_Commerce.Services.HttpCalls
 {
     public class HttpService : IHttpService
     {
         private readonly CommercialContext _DbContext;
-        public HttpService(CommercialContext dbContext)
+        private readonly IFactory _Factory;
+        public HttpService(CommercialContext dbContext, IFactory factory)
         {
             _DbContext = dbContext;
+            _Factory = factory;
         }
 
         ////////////////////    Get Methods    ////////////////////
@@ -47,7 +51,7 @@ namespace E_Commerce.Services.HttpCalls
             _DbContext.DProducts.Where(Verifications.GenderFilterIsNotNullOrEmpty(genderFilter, categoryFilter)).OrderBy(p => p.Name).ToList();
 
         ////////////////////    Post Methods    ////////////////////
-        public async Task<string> PostProduct(DProduct product)
+        public async Task<string> PostProduct(Product product)
         {
             try
             {
@@ -61,7 +65,7 @@ namespace E_Commerce.Services.HttpCalls
             }
         }
 
-        public async Task<string> PostGender(CGender gender)
+        public async Task<string> PostGender(Gender gender)
         {
             try
             {
@@ -75,7 +79,7 @@ namespace E_Commerce.Services.HttpCalls
             }
         }
 
-        public async Task<string> PostCategory(CCategory category)
+        public async Task<string> PostCategory(Category category)
         {
             try
             {

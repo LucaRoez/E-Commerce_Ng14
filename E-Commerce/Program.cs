@@ -8,6 +8,8 @@ var services = builder.Services;
 // Add services to the container.
 services.AddControllers();
 services.AddRouting(config => config.LowercaseUrls = true);
+string corsConfig = "CORS_CONFIG";
+services.AddCors(op => op.AddPolicy(name: corsConfig, builder => { builder.WithOrigins("https://localhost.com", "*"); }));
 
 services.AddDbContext<CommercialContext>(op =>
     op.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))

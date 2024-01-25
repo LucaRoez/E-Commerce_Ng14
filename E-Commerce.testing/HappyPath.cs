@@ -3,7 +3,7 @@ using E_Commerce.Services.HttpCalls;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using FluentAssertions;
-using E_Commerce.Models;
+using E_Commerce.Repository.Entities;
 
 namespace E_Commerce.testing
 {

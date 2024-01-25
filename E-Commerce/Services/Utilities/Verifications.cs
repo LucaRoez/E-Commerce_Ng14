@@ -1,4 +1,4 @@
-﻿using E_Commerce.Models;
+﻿using E_Commerce.Repository.Entities;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Any;
 
