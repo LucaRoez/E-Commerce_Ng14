@@ -1,4 +1,5 @@
-﻿using E_Commerce.Repository.Entities;
+﻿using E_Commerce.Models;
+using E_Commerce.Repository.Entities;
 
 namespace E_Commerce.Services.HttpCalls
 {
@@ -15,8 +16,9 @@ namespace E_Commerce.Services.HttpCalls
         List<DProduct> GetFashionProducts(int init, int length);
         List<DProduct> GetFilteredProducts(string? genderFilter, string? categoryFilter);
 
-        Task<string> PostProduct(DProduct product);
-        Task<string> PostGender(CGender gender);
-        Task<string> PostCategory(CCategory category);
+        Task<string> PostProduct(Product product);
+        Task<string> PostGender(Gender gender);
+        Task<string> PostCategory(Category category);
+        Task<string> PostCurrency(Currency currency);
     }
 }

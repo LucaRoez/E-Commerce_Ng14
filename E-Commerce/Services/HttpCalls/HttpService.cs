@@ -55,7 +55,7 @@ namespace E_Commerce.Services.HttpCalls
         {
             try
             {
-                await _DbContext.DProducts.AddAsync(product);
+                await _DbContext.DProducts.AddAsync(_Factory.CreateModel<DProduct>(product));
                 await _DbContext.SaveChangesAsync();
                 return "Product loaded successfully.";
             }
@@ -69,7 +69,7 @@ namespace E_Commerce.Services.HttpCalls
         {
             try
             {
-                await _DbContext.CGenders.AddAsync(gender);
+                await _DbContext.CGenders.AddAsync(_Factory.CreateModel<CGender>(gender));
                 await _DbContext.SaveChangesAsync();
                 return "Catalog loaded successfully.";
             }
@@ -83,7 +83,21 @@ namespace E_Commerce.Services.HttpCalls
         {
             try
             {
-                await _DbContext.CCategories.AddAsync(category);
+                await _DbContext.CCategories.AddAsync(_Factory.CreateModel<CCategory>(category));
+                await _DbContext.SaveChangesAsync();
+                return "Catalog loaded successfully.";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        public async Task<string> PostCurrency(Currency currency)
+        {
+            try
+            {
+                await _DbContext.CCurrencies.AddAsync(_Factory.CreateModel<CCurrency>(currency));
                 await _DbContext.SaveChangesAsync();
                 return "Catalog loaded successfully.";
             }

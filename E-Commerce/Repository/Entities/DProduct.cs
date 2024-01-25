@@ -2,7 +2,7 @@
 
 namespace E_Commerce.Repository.Entities;
 
-public partial class DProduct
+public partial class DProduct : EntityBase
 {
     [Key]
     public long Id { get; set; }

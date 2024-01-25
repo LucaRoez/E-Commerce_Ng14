@@ -2,20 +2,15 @@
 
 namespace E_Commerce.Repository.Entities;
 
-public partial class CCurrency
+public partial class CCurrency : EntityBase
 {
     [Key]
     public byte Id { get; set; }
 
-    [Required]
-    [MaxLength(5)]
     public string Symbol { get; set; } = null!;
 
-    [Required]
-    [MaxLength(20)]
     public string Name { get; set; } = null!;
 
-    [MaxLength(20)]
     public string? Issuer { get; set; }
 
     public virtual ICollection<DProduct> DProducts { get; } = new List<DProduct>();

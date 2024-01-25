@@ -1,4 +1,5 @@
 using E_Commerce.Repository;
+using E_Commerce.Services.DataTransfer;
 using E_Commerce.Services.HttpCalls;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,6 +17,7 @@ services.AddDbContext<CommercialContext>(op =>
 );
 
 services.AddTransient<IHttpService, HttpService>();
+services.AddTransient<IFactory, DTOFactory>();
 
 services.AddEndpointsApiExplorer();
 services.AddSwaggerGen();
