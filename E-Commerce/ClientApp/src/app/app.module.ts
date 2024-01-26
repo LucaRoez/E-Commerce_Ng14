@@ -9,6 +9,7 @@ import { CartModule } from './entries/cart/cart.module';
 import { SaleModule } from './entries/sale/sale.module';
 import { NavigationComponent } from './shared/navigation/navigation.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { NotFoundComponent } from './shared/not-found/not-found.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     HomeModule,
     ProductsModule,
     CartModule,

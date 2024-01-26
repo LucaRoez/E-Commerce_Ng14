@@ -9,10 +9,10 @@ namespace E_Commerce.Models
         public string Symbol { get; set; }
 
         [Required]
-        [MaxLength(20)]
+        [MaxLength(50)]
         public string Name { get; set; }
 
-        [MaxLength(20)]
+        [MaxLength(50)]
         public string? Issuer { get; set; }
     }
 }

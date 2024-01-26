@@ -2,10 +2,10 @@
 use [E-Commerce Database];
 
 create table [c.Currencies] (
-	Id tinyint primary key,
+	Id int identity(1,1) primary key,
 	Symbol varchar(5) not null,
-	Name varchar(20) not null,
-	Issuer varchar(20)
+	Name varchar(50) not null,
+	Issuer varchar(50)
 );
 
 create table [c.Categories] (
