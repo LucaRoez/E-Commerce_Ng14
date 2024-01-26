@@ -11,11 +11,11 @@ namespace E_Commerce.Services.DataTransfer
             {
                 case Product product when typeof(T) == typeof(DProduct):
                     return RecordNewProduct(product as Product) as T;
-                case Gender gender when typeof(T) == typeof(Gender):
+                case Gender gender when typeof(T) == typeof(CGender):
                     return RecordNewGender(gender as Gender) as T;
-                case Category category when typeof(T) == typeof(Category):
+                case Category category when typeof(T) == typeof(CCategory):
                     return RecordNewCategory(category as Category) as T;
-                case Currency currency when typeof(T) == typeof(Currency):
+                case Currency currency when typeof(T) == typeof(CCurrency):
                     return RecordNewCurrency(currency as Currency) as T;
                 default: return null;
             }
@@ -44,6 +44,7 @@ namespace E_Commerce.Services.DataTransfer
         {
             CGender gender = new()
             {
+                Id = model.Id,
                 Name = model.Name
             };
             return gender;
@@ -53,6 +54,7 @@ namespace E_Commerce.Services.DataTransfer
         {
             CCategory category = new()
             {
+                Id = model.Id,
                 Name = model.Name
             };
             return category;

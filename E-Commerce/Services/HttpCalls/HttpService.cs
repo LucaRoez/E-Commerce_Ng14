@@ -1,7 +1,6 @@
 ﻿using E_Commerce.Repository;
 using E_Commerce.Services.Utilities;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.AspNetCore.Mvc;
 using E_Commerce.Repository.Entities;
 using E_Commerce.Models;
 using E_Commerce.Services.DataTransfer;

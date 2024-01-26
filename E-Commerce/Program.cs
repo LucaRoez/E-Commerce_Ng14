@@ -10,7 +10,7 @@ var services = builder.Services;
 services.AddControllers();
 services.AddRouting(config => config.LowercaseUrls = true);
 string corsConfig = "CORS_CONFIG";
-services.AddCors(op => op.AddPolicy(name: corsConfig, builder => { builder.WithOrigins("https://localhost.com", "*"); }));
+services.AddCors(op => op.AddPolicy(name: corsConfig, builder => { builder.WithOrigins("*"); }));
 
 services.AddDbContext<CommercialContext>(op =>
     op.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
