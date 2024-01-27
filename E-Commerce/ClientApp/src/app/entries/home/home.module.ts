@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home.component';
 import { TrendingComponent } from './trending/trending.component';
 import { LatestComponent } from './latest/latest.component';

@@ -9,7 +9,7 @@ public partial class DProduct : EntityBase
     public string Name { get; set; }
     public string Description { get; set; }
     public decimal? Price { get; set; }
-    public byte? CurrencyId { get; set; }
+    public int? CurrencyId { get; set; }
     public decimal? Discount { get; set; }
     public short? QuantityAvailable { get; set; }
     public short SalesAmount { get; set; }

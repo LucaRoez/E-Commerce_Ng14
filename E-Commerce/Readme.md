@@ -1,0 +1,2 @@
+﻿database first update:
+Scaffold-DbContext "Server=(localdb)\MSSQLLocalDB;Database=[E-Commerce Database];Integrated Security=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Repository.Entities -Context E_Commerce.Repository.CommercialContext -Force

@@ -13,7 +13,7 @@ namespace E_Commerce.Models
         public string Description { get; set; } = null!;
 
         public decimal? Price { get; set; }
-        public byte? CurrencyId { get; set; }
+        public int? CurrencyId { get; set; }
         public decimal? Discount { get; set; }
         public short? QuantityAvailable { get; set; }
 

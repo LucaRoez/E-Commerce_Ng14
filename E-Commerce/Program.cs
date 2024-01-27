@@ -10,7 +10,14 @@ var services = builder.Services;
 services.AddControllers();
 services.AddRouting(config => config.LowercaseUrls = true);
 string corsConfig = "CORS_CONFIG";
-services.AddCors(op => op.AddPolicy(name: corsConfig, builder => { builder.WithOrigins("*"); }));
+services.AddCors(op =>
+    op.AddPolicy(name: corsConfig, builder => {
+        builder
+                .WithOrigins("http://localhost:4200")
+                .AllowAnyMethod()
+                .WithHeaders("Content-Type", "Authorization")
+                .AllowCredentials(); })
+    );
 
 services.AddDbContext<CommercialContext>(op =>
     op.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))

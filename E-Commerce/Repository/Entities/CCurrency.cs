@@ -5,7 +5,7 @@ namespace E_Commerce.Repository.Entities;
 public partial class CCurrency : EntityBase
 {
     [Key]
-    public byte Id { get; set; }
+    public int? Id { get; set; }
 
     public string Symbol { get; set; } = null!;
 

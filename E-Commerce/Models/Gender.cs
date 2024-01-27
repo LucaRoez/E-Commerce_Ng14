@@ -4,6 +4,7 @@ namespace E_Commerce.Models
 {
     public class Gender : ModelBase
     {
+        [Required]
         public byte Id { get; set; }
 
         [Required]

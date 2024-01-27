@@ -10,6 +10,7 @@ import { SaleModule } from './entries/sale/sale.module';
 import { NavigationComponent } from './shared/navigation/navigation.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminModule } from './entries/admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -24,9 +25,11 @@ import { HttpClientModule } from '@angular/common/http';
     HomeModule,
     ProductsModule,
     CartModule,
-    SaleModule
+    SaleModule,
+    AdminModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

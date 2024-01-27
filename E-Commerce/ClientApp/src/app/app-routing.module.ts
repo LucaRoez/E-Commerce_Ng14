@@ -5,12 +5,14 @@ import { HomeComponent } from './entries/home/home.component';
 import { ProductsComponent } from './entries/products/products.component';
 import { SaleComponent } from './entries/sale/sale.component';
 import { CartComponent } from './entries/cart/cart.component';
+import { AdminComponent } from './entries/admin/admin.component';
 
 const routes: Routes = [
   { path: '', pathMatch: "full", component: HomeComponent },
   { path: 'product-search', component: ProductsComponent },
-  { path: 'cart', component: CartComponent},
+  { path: 'cart', component: CartComponent },
   { path: 'checkout', component: SaleComponent },
+  { path: 'admin', component: AdminComponent },
   { path: '**', component: NotFoundComponent }
 ];
 

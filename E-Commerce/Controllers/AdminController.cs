@@ -1,5 +1,6 @@
 ﻿using E_Commerce.Models;
 using E_Commerce.Services.HttpCalls;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace E_Commerce.Controllers
@@ -20,6 +21,7 @@ namespace E_Commerce.Controllers
             return Ok(response);
         }
 
+        [EnableCors("CORS_CONFIG")]
         [HttpPost]
         [Route("admin/gender")]
         public async Task<IActionResult> PostGender([FromBody] Gender gender)
@@ -28,6 +30,7 @@ namespace E_Commerce.Controllers
             return Ok(response);
         }
 
+        [EnableCors("CORS_CONFIG")]
         [HttpPost]
         [Route("admin/category")]
         public async Task<IActionResult> PostCategory([FromBody] Category category)
@@ -36,6 +39,7 @@ namespace E_Commerce.Controllers
             return Ok(response);
         }
 
+        [EnableCors("CORS_CONFIG")]
         [HttpPost]
         [Route("admin/currency")]
         public async Task<IActionResult> PostCurrency([FromBody] Currency currency)
