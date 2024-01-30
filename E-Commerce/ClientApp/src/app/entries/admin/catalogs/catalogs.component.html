@@ -1,49 +1,33 @@
-<div class="card form-box" *ngFor="let formCard of formBoxes">
-  <div class="row card-title">
-    <h3 class="form-title">Add New {{formCard.formTitle}}</h3>
-    <div *ngIf="formCard.responseMessage != ''" class="alert"
-      [class.alert-success]="formCard.responseMessage.startsWith(formCard.responseStartsWith)"
-      [class.alert-danger]="!formCard.responseMessage.startsWith(formCard.responseStartsWith)"
-    >
-      <p>{{formCard.responseMessage}}</p>
+<mat-card class="form-box" *ngFor="let formCard of formBoxes">
+  <mat-card-header class="row">
+    <mat-card-title class="form-title">Add New {{formCard.formTitle}}</mat-card-title>
+    <ngb-alert *ngIf="formCard.responseMessage != ''" [ngClass]="{'success': formCard.isSuccess, 'error': !formCard.isSuccess}">
+      {{formCard.responseMessage}}
+    </ngb-alert>
+  </mat-card-header>
+  <mat-card-content class="card-body">
+    <div class="input-container">
+      <mat-form-field *ngIf="!formCard.isThird; else thirdFirstParameter">
+        <mat-label>{{formCard.firstLabel}}</mat-label>
+        <input matInput name="first-input" type="number" [(ngModel)]="formCard.firstNgModel" />
+      </mat-form-field>
+      <ng-template #thirdFirstParameter>
+        <mat-form-field>
+          <mat-label>{{formCard.firstLabel}}</mat-label>
+          <input matInput name="first-input" type="text" [(ngModel)]="formCard.currencySymbol" />
+        </mat-form-field>
+      </ng-template>
+      <mat-form-field>
+        <mat-label>{{formCard.secondLabel}}</mat-label>
+        <input matInput name="second-input" type="text" [(ngModel)]="formCard.secondNgModel" />
+      </mat-form-field>
+      <mat-form-field *ngIf="formCard.isThird">
+        <mat-label>{{formCard.thirdLabel}}</mat-label>
+        <input matInput name="third-input" type="text" [(ngModel)]="formCard.thirdNgModel" />
+      </mat-form-field>
+      <button mat-raised-button type="button" color="warn" (click)="formCard.buttonFunction ? formCard.buttonFunction(formCard) : null">
+        Add {{formCard.buttonLabel}}
+      </button>
     </div>
-  </div>
-  <div class="row card-body">
-    <form class="row m-3 align-item-center justify-content-center">
-      <div class="col">
-				<div class="row" *ngIf="!formCard.isThird; else thirdFirstParameter">
-					<label>{{formCard.firstLabel}}</label>
-					<input
-						name="first-input" type="number" class="form-control"
-						[(ngModel)]="formCard.firstNgModel"
-					/>
-				</div>
-				<ng-template #thirdFirstParameter>
-					<label>{{formCard.firstLabel}}</label>
-					<input
-						name="first-input" type="text" class="form-control"
-						[(ngModel)]="formCard.currencySymbol" (ngModelChange)="formCard.currencySymbol = $event"
-					/>
-				</ng-template>
-				<div class="row">
-					<label>{{formCard.secondLabel}}</label>
-					<input
-						name="second-input" type="text" class="form-control"
-						[(ngModel)]="formCard.secondNgModel" (ngModelChange)="formCard.secondNgModel = $event"
-					/>
-				</div>
-				<div *ngIf="formCard.isThird" class="row">
-					<label>{{formCard.thirdLabel}}</label>
-					<input
-						name="third-input" type="text" class="form-control"
-						[(ngModel)]="formCard.thirdNgModel"
-					/>
-				</div>
-        <button type="submit" class="btn btn-danger"
-        	(click)="formCard.buttonFunction ? formCard.buttonFunction(formCard) : null"
-				>
-				Add {{formCard.buttonLabel}}</button>
-      </div>
-    </form>
-  </div>
-</div>
+  </mat-card-content>
+</mat-card>

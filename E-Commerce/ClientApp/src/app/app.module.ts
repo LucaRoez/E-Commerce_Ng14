@@ -11,12 +11,15 @@ import { NavigationComponent } from './shared/navigation/navigation.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminModule } from './entries/admin/admin.module';
+import { GlobalDialogsComponent } from './shared/global-dialogs/global-dialogs.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    GlobalDialogsComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,8 @@ import { AdminModule } from './entries/admin/admin.module';
     ProductsModule,
     CartModule,
     SaleModule,
-    AdminModule
+    AdminModule,
+    BrowserAnimationsModule
   ],
   providers: [
   ],

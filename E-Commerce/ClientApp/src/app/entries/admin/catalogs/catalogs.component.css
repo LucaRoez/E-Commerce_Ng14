@@ -6,31 +6,22 @@
 .form-title {
 	display: flex;
 	justify-content: center;
-	margin-top: 2rem;
-	margin-bottom: 0;
-}
-
-.alert {
-	margin-top: 1.5rem;
-	margin-bottom: 0;
+	margin-bottom: 1.2rem;
 }
 
 .card-body {
-	padding: 0;
-	align-items: center;
+	padding: 0rem 2rem;
 	width: 100%;
 }
 
-label {
-	margin-top: 1rem;
-	margin-bottom: .5rem;
+.input-container {
+	display: flex;
 }
 
-input {
-	width: 100%;
+mat-form-field {
+	margin: 0 .5rem;
 }
 
-.btn {
-	margin-top: 1.5rem;
-	margin-bottom: 2rem;
+button {
+	margin: .5rem 0 .5rem;
 }

@@ -1,1 +1,18 @@
-<app-catalogs/>
+<mat-tab-group preserveContent dynamicHeight>
+	<mat-tab>
+		<ng-template mat-tab-label>
+			<h5>Catalogs</h5>
+		</ng-template>
+    <ng-template matTabContent>
+			<app-catalogs />
+		</ng-template>
+	</mat-tab>
+	<mat-tab>
+		<ng-template mat-tab-label>
+			<h5>Product</h5>
+		</ng-template>
+    <ng-template matTabContent>
+			<app-product />
+		</ng-template>	
+	</mat-tab>
+</mat-tab-group>

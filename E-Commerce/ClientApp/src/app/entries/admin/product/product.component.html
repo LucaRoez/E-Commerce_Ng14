@@ -1,1 +1,60 @@
-<p>product works!</p>
+<mat-card class="form-box">
+  <mat-card-header class="row">
+    <mat-card-title class="form-title">Add New </mat-card-title>
+    <ngb-alert *ngIf="responseMessage != ''" [ngClass]="{'success': isSuccess, 'error': !isSuccess}">
+      {{responseMessage}}
+    </ngb-alert>
+  </mat-card-header>
+  <mat-card-content class="card-body">
+    <div class="input-container">
+      <mat-form-field>
+        <mat-label>Item</mat-label>
+        <input matInput name="input" type="text" [(ngModel)]="product.name" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input matInput name="input" type="text" [(ngModel)]="product.description" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Price</mat-label>
+        <input matInput name="input" type="number" [(ngModel)]="product.price" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Currency</mat-label>
+        <mat-select [(ngModel)]="product" name="currency">
+          @for (currency of currencies; track currency) {
+            <mat-option [value]="currency.symbol">{{ currency.name }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Discount</mat-label>
+        <input matInput name="input" type="number" [(ngModel)]="product.discount" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Gender</mat-label>
+        <mat-select [(ngModel)]="product" name="gender">
+          @for (gender of genders; track gender) {
+            <mat-option [value]="gender.name">{{ gender.name }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Category</mat-label>
+        <mat-select [(ngModel)]="product" name="category">
+          @for (category of categories; track category) {
+            <mat-option [value]="category.name">{{ category.name }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Quantity Available</mat-label>
+        <input matInput name="input" type="number" [(ngModel)]="product.quantityAvailable" />
+      </mat-form-field>
+      <button mat-raised-button type="button" color="warn" (click)="PublishProduct(product)">
+        Publish Product
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>
+  

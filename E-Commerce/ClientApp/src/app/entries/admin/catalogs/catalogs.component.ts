@@ -8,7 +8,7 @@ import { AdminService } from 'OpenApi/schema/services';
   styleUrl: './catalogs.component.css'
 })
 export class CatalogsComponent {
-  constructor(private http : AdminService){
+  constructor(private http : AdminService) {
   }
 
   responseMessage = '';
@@ -20,7 +20,7 @@ export class CatalogsComponent {
     {
       responseMessage: '',
       formTitle: "Gender Category",
-      responseStartsWith: "Gender category was send successfully",
+      isSuccess: false,
       firstLabel: "Customizable ID",
       firstNgModel: this.GenderId,
       currencySymbol: '',
@@ -35,7 +35,7 @@ export class CatalogsComponent {
     {
       responseMessage: '',
       formTitle: "Clothing Category",
-      responseStartsWith: "Clothing category was send successfully",
+      isSuccess: false,
       firstLabel: "Customizable ID",
       firstNgModel: this.CategoryId,
       currencySymbol: '',
@@ -50,7 +50,7 @@ export class CatalogsComponent {
     {
       responseMessage: '',
       formTitle: "Merchantable Currency",
-      responseStartsWith: "New currency was successfully loaded",
+      isSuccess: false,
       firstNgModel: 0,
       firstLabel: "Currency Symbol",
       currencySymbol: this.CurrencySymbol,
@@ -71,6 +71,7 @@ export class CatalogsComponent {
         this.http.adminGenderPost({ body: gender }).subscribe(
           result => {
             formCard.responseMessage = "Gender category was send successfully to the server.\n" + result;
+            formCard.isSuccess = true;
             formCard.firstNgModel = 0;
             formCard.secondNgModel = '';
           },
@@ -83,10 +84,12 @@ export class CatalogsComponent {
         this.http.adminCategoryPost({ body: category }).subscribe(
           result => {
             formCard.responseMessage = "Clothing category was send successfully to the server.\n" + result;
+            formCard.isSuccess = true;
             formCard.firstNgModel = 0;
             formCard.secondNgModel = '';
+            formCard.thirdNgModel = '';
           },
-          error => (formCard.responseMessage = error.message)
+          error => { formCard.responseMessage = error.message; }
         );
         break;
       }
@@ -95,6 +98,7 @@ export class CatalogsComponent {
         this.http.adminCurrencyPost({ body: currency }).subscribe(
           result => {
             formCard.responseMessage = "New currency was successfully loaded to the server\n" + result;
+            formCard.isSuccess = true;
             formCard.secondNgModel = '';
             formCard.currencySymbol = '';
             formCard.thirdNgModel = '';
@@ -104,7 +108,7 @@ export class CatalogsComponent {
         break;
       }
       default: {
-        console.error("Invalid form title:", formCard.formTitle);
+        console.error("Invalid title: ", formCard.formTitle);
         break;
       }
     }
@@ -114,7 +118,7 @@ export class CatalogsComponent {
 class CatalogFormCard {
   responseMessage: string = '';
   formTitle: string = '';
-  responseStartsWith: string = '';
+  isSuccess: boolean = false;
   firstLabel: string = '';
   firstNgModel: number = 0;
   currencySymbol: string = '';
