@@ -16,6 +16,11 @@ namespace E_Commerce.Services.HttpCalls
         List<DProduct> GetFashionProducts(int init, int length);
         List<DProduct> GetFilteredProducts(string? genderFilter, string? categoryFilter);
 
+        List<Gender> GetAllGenders();
+        List<Category> GetAllCategories();
+        List<Currency> GetAllCurrencies();
+
+
         Task<string> PostProduct(Product product);
         Task<string> PostGender(Gender gender);
         Task<string> PostCategory(Category category);

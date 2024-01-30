@@ -5,7 +5,7 @@ namespace E_Commerce.Services.DataTransfer
 {
     public class DTOFactory : IFactory
     {
-        public T CreateModel<T>(ModelBase model) where T : EntityBase
+        public T CreateEntity<T>(ModelBase model) where T : EntityBase
         {
             switch(model)
             {
@@ -19,6 +19,72 @@ namespace E_Commerce.Services.DataTransfer
                     return RecordNewCurrency(currency as Currency) as T;
                 default: return null;
             }
+        }
+
+        public T CreateModel<T>(EntityBase entity) where T : ModelBase
+        {
+            switch(entity)
+            {
+                case DProduct product when typeof(T) == typeof(Product):
+                    return ShowRecordedProduct(product as DProduct) as T;
+                case CGender gender when typeof(T) == typeof(Product):
+                    return ShowRecordedGender(gender as CGender) as T;
+                case CCategory category when typeof(T) == typeof(Product):
+                    return ShowRecordedCategory(category as CCategory) as T;
+                case CCurrency currency when typeof(T) == typeof(Product):
+                    return ShowRecordedCurrency(currency as CCurrency) as T;
+                default: return null;
+            }
+        }
+
+        private Product ShowRecordedProduct(DProduct dProduct)
+        {
+            Product product = new()
+            {
+                Name = dProduct.Name,
+                Description = dProduct.Description,
+                Price = dProduct.Price,
+                Discount = dProduct.Discount,
+                CurrencyId = dProduct.CurrencyId,
+                QuantityAvailable = dProduct.QuantityAvailable,
+                CategoryId = dProduct.CategoryId,
+                GenderId = dProduct.GenderId,
+                Visits = dProduct.Visits,
+                Rate = dProduct.Rate,
+                CreationDate = dProduct.CreationDate
+            };
+            return product;
+        }
+
+        private Gender ShowRecordedGender(CGender cGender)
+        {
+            Gender gender = new()
+            {
+                Id = cGender.Id,
+                Name = cGender.Name
+            };
+            return gender;
+        }
+
+        private Category ShowRecordedCategory(CCategory cCategory)
+        {
+            Category category = new()
+            {
+                Id = cCategory.Id,
+                Name = cCategory.Name
+            };
+            return category;
+        }
+
+        private Currency ShowRecordedCurrency(CCurrency cCurrency)
+        {
+            Currency currency = new()
+            {
+                Name = cCurrency.Name,
+                Symbol = cCurrency.Symbol,
+                Issuer = cCurrency.Issuer
+            };
+            return currency;
         }
 
         private DProduct RecordNewProduct(Product model)

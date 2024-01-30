@@ -22,5 +22,8 @@ namespace E_Commerce.Models
 
         [Required(ErrorMessage = "This is a mandatory field.")]
         public byte GenderId { get; set; }
+        public int Visits { get; set; }
+        public decimal? Rate { get; set; }
+        public DateTime CreationDate { get; set; }
     }
 }

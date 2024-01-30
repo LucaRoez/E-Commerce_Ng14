@@ -5,6 +5,7 @@ namespace E_Commerce.Services.DataTransfer
 {
     public interface IFactory
     {
-        T CreateModel<T>(ModelBase model) where T : EntityBase;
+        T CreateEntity<T>(ModelBase model) where T : EntityBase;
+        T CreateModel<T>(EntityBase entity) where T : ModelBase;
     }
 }
