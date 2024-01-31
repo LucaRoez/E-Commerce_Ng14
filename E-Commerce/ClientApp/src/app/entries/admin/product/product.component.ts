@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'OpenApi/schema/models';
+import { Category, Currency, Gender, Product } from 'OpenApi/schema/models';
 import { AdminService, MainService } from 'OpenApi/schema/services';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-product',
@@ -12,7 +13,23 @@ export class ProductComponent {
   }
 
   ngOnInit(): void {
-
+    this.genderSuscription = this.GetAllGenders().subscribe(
+      (genders: Gender[]) => { this.genders = genders },
+      error => console.error(error.message)
+    );
+    this.categorySuscription = this.GetAllCategories().subscribe(
+      (categories: Category[]) => { this.categories = categories },
+      error => console.error(error.message)
+    );
+    this.currencySuscription = this.GetAllCurrencies().subscribe(
+      (currencies: Currency[]) => { this.currencies = currencies },
+      error => console.error(error.message)
+    );
+  }
+  ngOnDestroy(): void {
+    this.genderSuscription.unsubscribe();
+    this.categorySuscription.unsubscribe();
+    this.currencySuscription.unsubscribe();
   }
 
   product: Product = {
@@ -50,7 +67,16 @@ export class ProductComponent {
     )
   }
 
-  GetAllCatalogs() {
-    this.GetService.
+  genders: Gender[] = []; genderSuscription: Subscription = new Subscription;
+  GetAllGenders(): Observable<Gender[]> {
+    return this.GetService.gendersPost();
+  }
+  categories: Category[] = []; categorySuscription: Subscription = new Subscription;
+  GetAllCategories(): Observable<Category[]> {
+    return this.GetService.categoriesPost();
+  }
+  currencies: Currency[] = []; currencySuscription: Subscription = new Subscription;
+  GetAllCurrencies(): Observable<Currency[]> {
+    return this.GetService.currenciesPost();
   }
 }

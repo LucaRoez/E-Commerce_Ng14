@@ -4,11 +4,9 @@
       "title": "E-Commerce",
       "version": "1.0"
     },
-    "servers": [
-        {
-            "url": "https://localhost:7255"
-        }
-    ],
+    "server": {
+        "url": "https://localhost:7255/"
+    },
     "paths": {
       "/admin/product": {
         "post": {
@@ -431,12 +429,49 @@
             }
           }
         }
+      },
+      "/genders": {
+        "post": {
+          "tags": [
+            "Main"
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/categories": {
+        "post": {
+          "tags": [
+            "Main"
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/currencies": {
+        "post": {
+          "tags": [
+            "Main"
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
       }
     },
     "components": {
       "schemas": {
         "Category": {
           "required": [
+            "id",
             "name"
           ],
           "type": "object",
@@ -480,6 +515,7 @@
         },
         "Gender": {
           "required": [
+            "id",
             "name"
           ],
           "type": "object",
@@ -542,6 +578,19 @@
             "genderId": {
               "type": "integer",
               "format": "int32"
+            },
+            "visits": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "rate": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "creationDate": {
+              "type": "string",
+              "format": "date-time"
             }
           },
           "additionalProperties": false

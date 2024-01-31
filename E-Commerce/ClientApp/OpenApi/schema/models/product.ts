@@ -2,6 +2,7 @@
 /* eslint-disable */
 export interface Product {
   categoryId: number;
+  creationDate?: string;
   currencyId?: null | number;
   description: string;
   discount?: null | number;
@@ -9,4 +10,6 @@ export interface Product {
   name: string;
   price?: null | number;
   quantityAvailable?: null | number;
+  rate?: null | number;
+  visits?: number;
 }
