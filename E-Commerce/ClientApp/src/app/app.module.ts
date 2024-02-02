@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdminModule } from './entries/admin/admin.module';
 import { GlobalDialogsComponent } from './shared/global-dialogs/global-dialogs.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AdminService, MainService } from './services/services';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule
   ],
   providers: [
+    MainService,
+    AdminService
   ],
   bootstrap: [AppComponent]
 })

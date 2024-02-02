@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Category, Currency, Gender } from 'OpenApi/schema/models';
-import { AdminService } from 'OpenApi/schema/services';
+import { Category, Currency, Gender } from 'src/app/models/models';
+import { AdminService } from 'src/app/services/services';
 
 @Component({
   selector: 'app-catalogs',
@@ -8,7 +8,7 @@ import { AdminService } from 'OpenApi/schema/services';
   styleUrl: './catalogs.component.css'
 })
 export class CatalogsComponent {
-  constructor(private http : AdminService) {
+  constructor(private _Http : AdminService) {
   }
 
   responseMessage = '';
@@ -60,7 +60,7 @@ export class CatalogsComponent {
       thirdLabel: 'Currency Issuer',
       thirdNgModel: this.CurrencyIssuer ?? '',
       buttonFunction: this.buttonFunction.bind(this),
-      buttonLabel: "Clothing Category"
+      buttonLabel: "Currency"
     }
   ];
   
@@ -68,7 +68,7 @@ export class CatalogsComponent {
     switch (formCard.formTitle) {
       case "Gender Category": {
         const gender: Gender = { id: formCard.firstNgModel, name: formCard.secondNgModel };
-        this.http.adminGenderPost({ body: gender }).subscribe(
+        this._Http.adminGenderPost(gender).subscribe(
           result => {
             formCard.responseMessage = "Gender category was send successfully to the server.\n" + result;
             formCard.isSuccess = true;
@@ -81,7 +81,7 @@ export class CatalogsComponent {
       }
       case "Clothing Category": {
         const category: Category = { id: formCard.firstNgModel, name: formCard.secondNgModel };
-        this.http.adminCategoryPost({ body: category }).subscribe(
+        this._Http.adminCategoryPost(category).subscribe(
           result => {
             formCard.responseMessage = "Clothing category was send successfully to the server.\n" + result;
             formCard.isSuccess = true;
@@ -95,7 +95,7 @@ export class CatalogsComponent {
       }
       case "Merchantable Currency": {
         const currency: Currency = { name: formCard.secondNgModel, symbol: formCard.currencySymbol, issuer: formCard.thirdNgModel };
-        this.http.adminCurrencyPost({ body: currency }).subscribe(
+        this._Http.adminCurrencyPost(currency).subscribe(
           result => {
             formCard.responseMessage = "New currency was successfully loaded to the server\n" + result;
             formCard.isSuccess = true;

@@ -75,7 +75,8 @@
               "buildTarget": "E-Commerce_Ng14:build:production"
             },
             "development": {
-              "buildTarget": "E-Commerce_Ng14:build:development"
+              "buildTarget": "E-Commerce_Ng14:build:development",
+              "proxyConfig": "proxy.conf.js"
             }
           },
           "defaultConfiguration": "development"

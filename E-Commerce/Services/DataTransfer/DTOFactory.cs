@@ -27,11 +27,11 @@ namespace E_Commerce.Services.DataTransfer
             {
                 case DProduct product when typeof(T) == typeof(Product):
                     return ShowRecordedProduct(product as DProduct) as T;
-                case CGender gender when typeof(T) == typeof(Product):
+                case CGender gender when typeof(T) == typeof(Gender):
                     return ShowRecordedGender(gender as CGender) as T;
-                case CCategory category when typeof(T) == typeof(Product):
+                case CCategory category when typeof(T) == typeof(Category):
                     return ShowRecordedCategory(category as CCategory) as T;
-                case CCurrency currency when typeof(T) == typeof(Product):
+                case CCurrency currency when typeof(T) == typeof(Currency):
                     return ShowRecordedCurrency(currency as CCurrency) as T;
                 default: return null;
             }

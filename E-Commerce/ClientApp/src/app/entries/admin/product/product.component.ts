@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Category, Currency, Gender, Product } from 'OpenApi/schema/models';
-import { AdminService, MainService } from 'OpenApi/schema/services';
-import { Observable, Subscription } from 'rxjs';
+import { Component } from '@angular/core';
+import { Category, Currency, Gender, Product } from 'src/app/models/models';
+import { AdminService, MainService } from 'src/app/services/services';
 
 @Component({
   selector: 'app-product',
@@ -9,28 +8,24 @@ import { Observable, Subscription } from 'rxjs';
   styleUrl: './product.component.css'
 })
 export class ProductComponent {
-  constructor(private GetService: MainService, private PostService: AdminService) {
+  constructor(private _GetService: MainService, private _PostService: AdminService) {
+    this._GetService.GetGenders().subscribe(
+      result => { this.genders = result; },
+      error => { console.error(error) }
+    )
+    this._GetService.GetCategories().subscribe(
+      result => { this.categories = result; },
+      error => { console.error(error) }
+    )
+    this._GetService.GetCurrencies().subscribe(
+      result => { this.currencies = result; },
+      error => { console.error(error) }
+    )
   }
 
-  ngOnInit(): void {
-    this.genderSuscription = this.GetAllGenders().subscribe(
-      (genders: Gender[]) => { this.genders = genders },
-      error => console.error(error.message)
-    );
-    this.categorySuscription = this.GetAllCategories().subscribe(
-      (categories: Category[]) => { this.categories = categories },
-      error => console.error(error.message)
-    );
-    this.currencySuscription = this.GetAllCurrencies().subscribe(
-      (currencies: Currency[]) => { this.currencies = currencies },
-      error => console.error(error.message)
-    );
-  }
-  ngOnDestroy(): void {
-    this.genderSuscription.unsubscribe();
-    this.categorySuscription.unsubscribe();
-    this.currencySuscription.unsubscribe();
-  }
+  genders: Gender[] = [];
+  categories: Category[] = [];
+  currencies: Currency[] = [];
 
   product: Product = {
     categoryId: 0,
@@ -56,27 +51,5 @@ export class ProductComponent {
       categoryId: productSent.categoryId,
       quantityAvailable: productSent.quantityAvailable
     }
-
-    this.PostService.adminProductPost({ body: newProduct }).subscribe(
-      result => {
-        this.responseMessage = "Product published successfully.\n" + result;
-        this.isSuccess = true;
-
-      },
-      error => { this.responseMessage = error.message; }
-    )
-  }
-
-  genders: Gender[] = []; genderSuscription: Subscription = new Subscription;
-  GetAllGenders(): Observable<Gender[]> {
-    return this.GetService.gendersPost();
-  }
-  categories: Category[] = []; categorySuscription: Subscription = new Subscription;
-  GetAllCategories(): Observable<Category[]> {
-    return this.GetService.categoriesPost();
-  }
-  currencies: Currency[] = []; currencySuscription: Subscription = new Subscription;
-  GetAllCurrencies(): Observable<Currency[]> {
-    return this.GetService.currenciesPost();
   }
 }

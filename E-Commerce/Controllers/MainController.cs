@@ -12,56 +12,56 @@ namespace E_Commerce.Controllers
             _Http = http;
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("products")]
         public IActionResult GetAllProducts(int init, int length) => Ok(_Http.GetAllProducts(init, length));
 
-        [HttpPost]
+        [HttpGet]
         [Route("products/male")]
         public IActionResult GetMaleProducts(int init, int length) => Ok(_Http.GetMaleProducts(init, length));
 
-        [HttpPost]
+        [HttpGet]
         [Route("products/female")]
         public IActionResult GetFemaleProducts(int init, int length) => Ok(_Http.GetFemaleProducts(init, length));
 
-        [HttpPost]
+        [HttpGet]
         [Route("products/babyfashion")]
         public IActionResult GetBabyProducts(int init, int length) => Ok(_Http.GetBabyProducts(init, length));
 
-        [HttpPost]
+        [HttpGet]
         [Route("products/summer")]
         public IActionResult GetSummerProducts(int init, int length) => Ok(_Http.GetSummerProducts(init, length));
 
-        [HttpPost]
+        [HttpGet]
         [Route("products/winter")]
         public IActionResult GetWinterProducts(int init, int length) => Ok(_Http.GetWinterProducts(init, length));
 
-        [HttpPost]
+        [HttpGet]
         [Route("products/casual")]
         public IActionResult GetCasualProducts(int init, int length) => Ok(_Http.GetCasualProducts(init, length));
 
-        [HttpPost]
+        [HttpGet]
         [Route("products/formal")]
         public IActionResult GetFormalProducts(int init, int length) => Ok(_Http.GetFormalProducts(init, length));
 
-        [HttpPost]
+        [HttpGet]
         [Route("products/fashion")]
         public IActionResult GetFashionProducts(int init, int length) => Ok(_Http.GetFashionProducts(init, length));
 
-        [HttpPost]
+        [HttpGet]
         [Route("products/search")]
         public IActionResult GetFilteredProducts(string? genderFilter, string? categoryFilter) => Ok(_Http.GetFilteredProducts(genderFilter, categoryFilter));
 
 
-        [HttpPost]
+        [HttpGet]
         [Route("genders")]
         public IActionResult GetGenders() => Ok(_Http.GetAllGenders());
 
-        [HttpPost]
+        [HttpGet]
         [Route("categories")]
         public IActionResult GetCategories() => Ok(_Http.GetAllCategories());
 
-        [HttpPost]
+        [HttpGet]
         [Route("currencies")]
         public IActionResult GetCurrencies() => Ok(_Http.GetAllCurrencies());
     }
