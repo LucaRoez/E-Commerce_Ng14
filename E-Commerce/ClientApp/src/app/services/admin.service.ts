@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Category, Currency, Gender } from "../models/models";
+import { Category, Currency, Gender, Product } from "../models/models";
 import { Observable } from "rxjs";
 
 const httpOp = {
@@ -16,16 +16,20 @@ export class AdminService {
   constructor(private _Http: HttpClient) {
   }
   private url = 'https://localhost:7255/admin/';
-  
+
   adminGenderPost(gender: Gender): Observable<Gender> {
-    return this._Http.post<Gender>(this.url + 'gender', httpOp);
+    return this._Http.post<Gender>(this.url + 'gender', gender, httpOp);
   }
 
   adminCategoryPost(category: Category): Observable<Category> {
-    return this._Http.post<Category>(this.url + 'category', httpOp);
+    return this._Http.post<Category>(this.url + 'category', category, httpOp);
   }
 
   adminCurrencyPost(currency: Currency): Observable<Currency> {
-    return this._Http.post<Currency>(this.url + 'currency', httpOp)
+    return this._Http.post<Currency>(this.url + 'currency', currency, httpOp);
+  }
+
+  adminProductPost(product: Product): Observable<Product> {
+    return this._Http.post<Product>(this.url + 'product', product, httpOp);
   }
 }

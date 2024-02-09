@@ -4,6 +4,9 @@ namespace E_Commerce.Models
 {
     public class Currency : ModelBase
     {
+        [Key]
+        public int? Id { get; set; }
+
         [Required]
         [MaxLength(5)]
         public string Symbol { get; set; }

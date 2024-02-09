@@ -4,6 +4,9 @@ namespace E_Commerce.Models
 {
     public class Product : ModelBase
     {
+        [Key]
+        public long? Id { get; set; }
+
         [Required(ErrorMessage = "This is a mandatory field.")]
         [MaxLength(50, ErrorMessage = "It can not have more than 50 characters.")]
         public string Name { get; set; } = null!;

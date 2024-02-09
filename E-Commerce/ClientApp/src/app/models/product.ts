@@ -1,12 +1,13 @@
 /* tslint:disable */
 /* eslint-disable */
 export interface Product {
-  categoryId: number;
+  id?: null | number;
+  categoryId?: null | number;
   creationDate?: string;
   currencyId?: null | number;
   description: string;
   discount?: null | number;
-  genderId: number;
+  genderId?: null | number;
   name: string;
   price?: null | number;
   quantityAvailable?: null | number;

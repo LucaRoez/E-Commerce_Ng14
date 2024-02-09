@@ -35,7 +35,8 @@ import { AdminService, MainService } from './services/services';
   ],
   providers: [
     MainService,
-    AdminService
+    AdminService,
+    { provide: 'BASE_URL', useValue: 'https://localhost:7255.com' }
   ],
   bootstrap: [AppComponent]
 })

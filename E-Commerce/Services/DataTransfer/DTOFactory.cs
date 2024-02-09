@@ -41,6 +41,7 @@ namespace E_Commerce.Services.DataTransfer
         {
             Product product = new()
             {
+                Id = dProduct.Id,
                 Name = dProduct.Name,
                 Description = dProduct.Description,
                 Price = dProduct.Price,
@@ -80,6 +81,7 @@ namespace E_Commerce.Services.DataTransfer
         {
             Currency currency = new()
             {
+                Id = cCurrency.Id,
                 Name = cCurrency.Name,
                 Symbol = cCurrency.Symbol,
                 Issuer = cCurrency.Issuer
