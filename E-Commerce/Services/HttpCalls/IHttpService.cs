@@ -4,6 +4,7 @@ namespace E_Commerce.Services.HttpCalls
 {
     public interface IHttpService
     {
+        Product GetProduct(int id);
         List<Product> GetAllProducts(int init, int length);
         List<Product> GetMaleProducts(int init, int length);
         List<Product> GetFemaleProducts(int init, int length);

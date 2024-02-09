@@ -18,6 +18,14 @@ namespace E_Commerce.Services.HttpCalls
         }
 
         ////////////////////    Get Methods    ////////////////////
+        public Product GetProduct(int id)
+        {
+            DProduct dProduct = _DbContext.DProducts.FirstOrDefault(p => p.Id == id);
+            Product product = _Factory.CreateModel<Product>(dProduct);
+
+            return product;
+        }
+        
         public List<Product> GetAllProducts(int init, int length)
         {
             List<DProduct> dProducts = _DbContext.DProducts.OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();

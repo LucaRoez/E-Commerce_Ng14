@@ -13,6 +13,10 @@ namespace E_Commerce.Controllers
         }
 
         [HttpGet]
+        [Route("products/{id}")]
+        public IActionResult GetProduct(int id) => Ok(_Http.GetProduct(id));
+
+        [HttpGet]
         [Route("products")]
         public IActionResult GetAllProducts(int init, int length) => Ok(_Http.GetAllProducts(init, length));
 
