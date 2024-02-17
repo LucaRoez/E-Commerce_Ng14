@@ -1,6 +1,0 @@
-C:\Users\lucae\OneDrive\Documents\My Web Sites\E-Commerce\E-Commerce.database\bin\Debug\E-Commerce.database.dacpac
-C:\Users\lucae\OneDrive\Documents\My Web Sites\E-Commerce\E-Commerce.database\bin\Debug\E_Commerce.database.dll
-C:\Users\lucae\OneDrive\Documents\My Web Sites\E-Commerce\E-Commerce.database\bin\Debug\E_Commerce.database.pdb
-C:\Users\lucae\OneDrive\Documents\My Web Sites\E-Commerce\E-Commerce.database\obj\Debug\E-Commerce.database.sqlproj.AssemblyReference.cache
-C:\Users\lucae\OneDrive\Documents\My Web Sites\E-Commerce\E-Commerce.database\obj\Debug\E_Commerce.database.dll
-C:\Users\lucae\OneDrive\Documents\My Web Sites\E-Commerce\E-Commerce.database\obj\Debug\E_Commerce.database.pdb

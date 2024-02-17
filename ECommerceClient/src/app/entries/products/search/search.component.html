@@ -1,0 +1,16 @@
+<mat-sidenav-container>
+  <mat-sidenav>
+    <app-searcher/>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-card *ngFor="let product of products">
+      <mat-card-content>
+        <img />
+      </mat-card-content>
+      <mat-card-header>
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.price }}</p><p>{{ product.discount }}</p>
+      </mat-card-header>
+    </mat-card>
+  </mat-sidenav-content>
+</mat-sidenav-container>

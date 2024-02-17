@@ -1,0 +1,322 @@
+[
+  {
+    "ContainingType": "ECommerce.Controllers.AdminController",
+    "Method": "PostCategory",
+    "RelativePath": "admin/category",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "category",
+        "Type": "ECommerce.Models.Category",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ECommerce.Controllers.AdminController",
+    "Method": "PostCurrency",
+    "RelativePath": "admin/currency",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "currency",
+        "Type": "ECommerce.Models.Currency",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ECommerce.Controllers.AdminController",
+    "Method": "PostGender",
+    "RelativePath": "admin/gender",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "gender",
+        "Type": "ECommerce.Models.Gender",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ECommerce.Controllers.AdminController",
+    "Method": "PostProduct",
+    "RelativePath": "admin/product",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "product",
+        "Type": "ECommerce.Models.Product",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ECommerce.Controllers.MainController",
+    "Method": "GetCategories",
+    "RelativePath": "categories",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ECommerce.Controllers.MainController",
+    "Method": "GetCurrencies",
+    "RelativePath": "currencies",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ECommerce.Controllers.MainController",
+    "Method": "GetGenders",
+    "RelativePath": "genders",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ECommerce.Controllers.MainController",
+    "Method": "GetAllProducts",
+    "RelativePath": "products",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "init",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "length",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ECommerce.Controllers.MainController",
+    "Method": "GetProduct",
+    "RelativePath": "products/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ECommerce.Controllers.MainController",
+    "Method": "GetBabyProducts",
+    "RelativePath": "products/babyfashion",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "init",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "length",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ECommerce.Controllers.MainController",
+    "Method": "GetCasualProducts",
+    "RelativePath": "products/casual",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "init",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "length",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ECommerce.Controllers.MainController",
+    "Method": "GetFashionProducts",
+    "RelativePath": "products/fashion",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "init",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "length",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ECommerce.Controllers.MainController",
+    "Method": "GetFemaleProducts",
+    "RelativePath": "products/female",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "init",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "length",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ECommerce.Controllers.MainController",
+    "Method": "GetFormalProducts",
+    "RelativePath": "products/formal",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "init",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "length",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ECommerce.Controllers.MainController",
+    "Method": "GetMaleProducts",
+    "RelativePath": "products/male",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "init",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "length",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ECommerce.Controllers.MainController",
+    "Method": "GetFilteredProducts",
+    "RelativePath": "products/search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "genderFilter",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "categoryFilter",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ECommerce.Controllers.MainController",
+    "Method": "GetSummerProducts",
+    "RelativePath": "products/summer",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "init",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "length",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ECommerce.Controllers.MainController",
+    "Method": "GetWinterProducts",
+    "RelativePath": "products/winter",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "init",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "length",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
