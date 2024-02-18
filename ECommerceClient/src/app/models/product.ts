@@ -1,5 +1,4 @@
-/* tslint:disable */
-/* eslint-disable */
+
 export interface Product {
   id?: null | number;
   categoryId?: null | number;

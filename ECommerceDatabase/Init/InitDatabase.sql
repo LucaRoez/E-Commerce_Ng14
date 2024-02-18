@@ -13,7 +13,7 @@ create table [c.Categories] (
 	Name varchar(10) not null
 );
 
-create table [c.Gender] (
+create table [c.Genders] (
 	Id tinyint primary key,
 	Name varchar(5) not null
 );

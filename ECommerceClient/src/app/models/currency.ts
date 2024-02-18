@@ -1,5 +1,4 @@
-/* tslint:disable */
-/* eslint-disable */
+
 export interface Currency {
   id?: null | number;
   issuer?: null | string;

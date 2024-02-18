@@ -12,12 +12,12 @@ namespace ECommerce.Repository
             _connectionString = config.GetConnectionString("DefaultConnection");
         }
 
-        public async Task<List<CCategory>> GetCategories()
+        public List<CCategory> GetCategories()
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 _query = "SELECT * FROM [c.Categories]";
-                IEnumerable<CCategory> cCategories = await connection.QueryAsync<CCategory>(_query);
+                IEnumerable<CCategory> cCategories = connection.Query<CCategory>(_query);
                 return cCategories.ToList();
             }
         }
@@ -32,12 +32,12 @@ namespace ECommerce.Repository
             }
         }
 
-        public async Task<List<CCurrency>> GetCurrencies()
+        public List<CCurrency> GetCurrencies()
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 _query = "SELECT * FROM [c.Currencies]";
-                IEnumerable<CCurrency> cCurrencies = await connection.QueryAsync<CCurrency>(_query);
+                IEnumerable<CCurrency> cCurrencies = connection.Query<CCurrency>(_query);
                 return cCurrencies.ToList();
             }
         }
@@ -52,12 +52,12 @@ namespace ECommerce.Repository
             }
         }
 
-        public async Task<List<CGender>> GetGenders()
+        public List<CGender> GetGenders()
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 _query = "SELECT * FROM [c.Genders]";
-                IEnumerable<CGender> cGenders = await connection.QueryAsync<CGender>(_query);
+                IEnumerable<CGender> cGenders = connection.Query<CGender>(_query);
                 return cGenders.ToList();
             }
         }
@@ -66,18 +66,18 @@ namespace ECommerce.Repository
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                _query = @"INSERT INTO [c.Gender](Id, Name) VALUES (@Id, @Name)";
+                _query = @"INSERT INTO [c.Genders](Id, Name) VALUES (@Id, @Name)";
                 int affectedRows = await connection.ExecuteAsync(_query, gender);
                 return affectedRows;
             }
         }
 
-        public async Task<List<DAuthor>> GetAuthors()
+        public List<DAuthor> GetAuthors()
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 _query = "SELECT * FROM [d.Authors]";
-                IEnumerable<DAuthor> dAuthors = await connection.QueryAsync<DAuthor>(_query);
+                IEnumerable<DAuthor> dAuthors = connection.Query<DAuthor>(_query);
                 return dAuthors.ToList();
             }
         }
@@ -93,12 +93,12 @@ namespace ECommerce.Repository
             }
         }
 
-        public async Task<List<DCommentary>> GetCommentaries()
+        public List<DCommentary> GetCommentaries()
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 _query = "SELECT * FROM [d.Commentaries]";
-                IEnumerable<DCommentary> dCommentaries = await connection.QueryAsync<DCommentary>(_query);
+                IEnumerable<DCommentary> dCommentaries = connection.Query<DCommentary>(_query);
                 return dCommentaries.ToList();
             }
         }
@@ -114,12 +114,12 @@ namespace ECommerce.Repository
             }
         }
 
-        public async Task<List<DImage>> GetImages()
+        public List<DImage> GetImages()
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 _query = "SELECT * FROM [d.Images]";
-                IEnumerable<DImage> dImages = await connection.QueryAsync<DImage>(_query);
+                IEnumerable<DImage> dImages = connection.Query<DImage>(_query);
                 return dImages.ToList();
             }
         }
@@ -135,12 +135,12 @@ namespace ECommerce.Repository
             }
         }
 
-        public async Task<List<DProduct>> GetProducts()
+        public List<DProduct> GetProducts()
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 _query = "SELECT * FROM [d.Products]";
-                IEnumerable<DProduct> dProducts = await connection.QueryAsync<DProduct>(_query);
+                IEnumerable<DProduct> dProducts = connection.Query<DProduct>(_query);
                 return dProducts.ToList();
             }
         }
@@ -158,12 +158,12 @@ namespace ECommerce.Repository
             }
         }
 
-        public async Task<List<DReview>> GetReviews()
+        public List<DReview> GetReviews()
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 _query = "SELECT * FROM [d.Reviews]";
-                IEnumerable<DReview> dReviews = await connection.QueryAsync<DReview>(_query);
+                IEnumerable<DReview> dReviews = connection.Query<DReview>(_query);
                 return dReviews.ToList();
             }
         }
@@ -179,12 +179,12 @@ namespace ECommerce.Repository
             }
         }
 
-        public async Task<List<DUser>> GetUsers()
+        public List<DUser> GetUsers()
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 _query = "SELECT * FROM [d.Users]";
-                IEnumerable<DUser> dUsers = await connection.QueryAsync<DUser>(_query);
+                IEnumerable<DUser> dUsers = connection.Query<DUser>(_query);
                 return dUsers.ToList();
             }
         }

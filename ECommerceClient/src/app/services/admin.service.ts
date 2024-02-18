@@ -15,7 +15,7 @@ const httpOp = {
 export class AdminService {
   constructor(private _Http: HttpClient) {
   }
-  private url = 'https://localhost:7255/admin/';
+  private url = 'https://localhost:7103/admin/';
 
   adminGenderPost(gender: Gender): Observable<Gender> {
     return this._Http.post<Gender>(this.url + 'gender', gender, httpOp);

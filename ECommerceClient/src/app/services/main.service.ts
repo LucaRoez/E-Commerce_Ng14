@@ -9,7 +9,7 @@ import { Category, Currency, Gender, Product } from "../models/models";
 export class MainService {
   constructor(private _Http: HttpClient) {
   }    
-  private url = 'https://localhost:7255/';
+  private url = 'https://localhost:7103/';
 
   GetProducts(): Observable<Product[]> {
     return this._Http.get<Product[]>(this.url + 'products');

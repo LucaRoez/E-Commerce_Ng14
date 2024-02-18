@@ -4,23 +4,23 @@ namespace ECommerce.Repository
 {
     public interface IRepository
     {
-        Task<List<CCategory>> GetCategories();
+        List<CCategory> GetCategories();
         Task<int> CreateCategory(CCategory category);
-        Task<List<CCurrency>> GetCurrencies();
+        List<CCurrency> GetCurrencies();
         Task<int> CreateCurrency(CCurrency currency);
-        Task<List<CGender>> GetGenders();
+        List<CGender> GetGenders();
         Task<int> CreateGender(CGender gender);
-        Task<List<DAuthor>> GetAuthors();
+        List<DAuthor> GetAuthors();
         Task<int> CreateAuthor(DAuthor author);
-        Task<List<DCommentary>> GetCommentaries();
+        List<DCommentary> GetCommentaries();
         Task<int> CreateCommentary(DCommentary commentary);
-        Task<List<DImage>> GetImages();
+        List<DImage> GetImages();
         Task<int> CreateImage(DImage image);
-        Task<List<DProduct>> GetProducts();
+        List<DProduct> GetProducts();
         Task<int> CreateProduct(DProduct product);
-        Task<List<DReview>> GetReviews();
+        List<DReview> GetReviews();
         Task<int> CreateReview(DReview review);
-        Task<List<DUser>> GetUsers();
+        List<DUser> GetUsers();
         Task<int> CreateUser(DUser user);
     }
 }

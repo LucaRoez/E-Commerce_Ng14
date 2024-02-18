@@ -17,27 +17,27 @@ namespace ECommerce.Services.HttpCalls
         }
 
         ////////////////////    Get Methods    ////////////////////
-        public async Task<Product> GetProduct(int id)
+        public Product GetProduct(int id)
         {
-            List<DProduct> dProducts = await _DbContext.GetProducts();
+            List<DProduct> dProducts = _DbContext.GetProducts();
             DProduct dProduct = dProducts.FirstOrDefault(p => p.Id == id);
             Product product = _Factory.CreateModel<Product>(dProduct);
 
             return product;
         }
         
-        public async Task<List<Product>> GetAllProducts(int init, int length)
+        public List<Product> GetAllProducts(int init, int length)
         {
-            List<DProduct> dProducts = await _DbContext.GetProducts();
+            List<DProduct> dProducts = _DbContext.GetProducts();
             dProducts.OrderBy(p => p.Name).Skip((init - 1) * length).Take(length);
             List<Product> products = dProducts.Select(dP => _Factory.CreateModel<Product>(dP)).ToList();
 
             return products;
         }
 
-        public async Task<List<Product>> GetMaleProducts(int init, int length)
+        public List<Product> GetMaleProducts(int init, int length)
         {
-            List<DProduct> dProducts = await _DbContext.GetProducts();
+            List<DProduct> dProducts = _DbContext.GetProducts();
             dProducts.Where(p => p.Gender.Name == "Male")
                 .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
             List<Product> products = dProducts.Select(dP => _Factory.CreateModel<Product>(dP)).ToList();
@@ -45,9 +45,9 @@ namespace ECommerce.Services.HttpCalls
             return products;
         }
 
-        public async Task<List<Product>> GetFemaleProducts(int init, int length)
+        public List<Product> GetFemaleProducts(int init, int length)
         {
-            List<DProduct> dProducts = await _DbContext.GetProducts();
+            List<DProduct> dProducts = _DbContext.GetProducts();
             dProducts.Where(p => p.Gender.Name == "Female")
                 .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
             List<Product> products = dProducts.Select(dP => _Factory.CreateModel<Product>(dP)).ToList();
@@ -55,9 +55,9 @@ namespace ECommerce.Services.HttpCalls
             return products;
         }
 
-        public async Task<List<Product>> GetBabyProducts(int init, int length)
+        public List<Product> GetBabyProducts(int init, int length)
         {
-            List<DProduct> dProducts = await _DbContext.GetProducts();
+            List<DProduct> dProducts = _DbContext.GetProducts();
             dProducts.Where(p => p.Gender.Name == "Baby")
                 .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
             List<Product> products = dProducts.Select(dP => _Factory.CreateModel<Product>(dP)).ToList();
@@ -65,9 +65,9 @@ namespace ECommerce.Services.HttpCalls
             return products;
         }
 
-        public async Task<List<Product>> GetSummerProducts(int init, int length)
+        public List<Product> GetSummerProducts(int init, int length)
         {
-            List<DProduct> dProducts = await _DbContext.GetProducts();
+            List<DProduct> dProducts = _DbContext.GetProducts();
             dProducts.Where(p => p.Category.Name == "Summer")
                 .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
             List<Product> products = dProducts.Select(dP => _Factory.CreateModel<Product>(dP)).ToList();
@@ -75,9 +75,9 @@ namespace ECommerce.Services.HttpCalls
             return products;
         }
 
-        public async Task<List<Product>> GetWinterProducts(int init, int length)
+        public List<Product> GetWinterProducts(int init, int length)
         {
-            List<DProduct> dProducts = await _DbContext.GetProducts();
+            List<DProduct> dProducts = _DbContext.GetProducts();
             dProducts.Where(p => p.Category.Name == "Winter")
                 .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
             List<Product> products = dProducts.Select(dP => _Factory.CreateModel<Product>(dP)).ToList();
@@ -85,9 +85,9 @@ namespace ECommerce.Services.HttpCalls
             return products;
         }
 
-        public async Task<List<Product>> GetCasualProducts(int init, int length)
+        public List<Product> GetCasualProducts(int init, int length)
         {
-            List<DProduct> dProducts = await _DbContext.GetProducts();
+            List<DProduct> dProducts = _DbContext.GetProducts();
             dProducts.Where(p => p.Category.Name == "Casual")
                 .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
             List<Product> products = dProducts.Select(dP => _Factory.CreateModel<Product>(dP)).ToList();
@@ -95,9 +95,9 @@ namespace ECommerce.Services.HttpCalls
             return products;
         }
 
-        public async Task<List<Product>> GetFormalProducts(int init, int length)
+        public List<Product> GetFormalProducts(int init, int length)
         {
-            List<DProduct> dProducts = await _DbContext.GetProducts();
+            List<DProduct> dProducts = _DbContext.GetProducts();
             dProducts.Where(p => p.Category.Name == "Formal")
                 .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
             List<Product> products = dProducts.Select(dP => _Factory.CreateModel<Product>(dP)).ToList();
@@ -105,9 +105,9 @@ namespace ECommerce.Services.HttpCalls
             return products;
         }
 
-        public async Task<List<Product>> GetFashionProducts(int init, int length)
+        public List<Product> GetFashionProducts(int init, int length)
         {
-            List<DProduct> dProducts = await _DbContext.GetProducts();
+            List<DProduct> dProducts = _DbContext.GetProducts();
             dProducts.Where(p => p.Category.Name == "Fashion")
                 .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
             List<Product> products = dProducts.Select(dP => _Factory.CreateModel<Product>(dP)).ToList();
@@ -115,9 +115,9 @@ namespace ECommerce.Services.HttpCalls
             return products;
         }
 
-        public async Task<List<Product>> GetFilteredProducts(string? genderFilter, string? categoryFilter)
+        public List<Product> GetFilteredProducts(string? genderFilter, string? categoryFilter)
         {
-            List<DProduct> dProducts = await _DbContext.GetProducts();
+            List<DProduct> dProducts = _DbContext.GetProducts();
             dProducts = genderFilter == null || genderFilter == "" ?
                 dProducts.Where(Verifications.GenderFilterIsNullOrEmpty(categoryFilter)).OrderBy(p => p.Name).ToList() :
                 dProducts.Where(Verifications.GenderFilterIsNotNullOrEmpty(genderFilter, categoryFilter)).OrderBy(p => p.Name).ToList();
@@ -127,25 +127,25 @@ namespace ECommerce.Services.HttpCalls
         }
 
 
-        public async Task<List<Gender>> GetAllGenders()
+        public List<Gender> GetAllGenders()
         {
-            List<CGender> cGenders = await _DbContext.GetGenders();
+            List<CGender> cGenders = _DbContext.GetGenders();
             List<Gender> genders = cGenders.Select(cG => _Factory.CreateModel<Gender>(cG)).ToList();
 
             return genders;
         }
 
-        public async Task<List<Category>> GetAllCategories()
+        public List<Category> GetAllCategories()
         {
-            List<CCategory> cCategories = await _DbContext.GetCategories();
+            List<CCategory> cCategories = _DbContext.GetCategories();
             List<Category> categories = cCategories.Select(cC => _Factory.CreateModel<Category>(cC)).ToList();
 
             return categories;
         }
 
-        public async Task<List<Currency>> GetAllCurrencies()
+        public List<Currency> GetAllCurrencies()
         {
-            List<CCurrency> cCurrencies = await _DbContext.GetCurrencies();
+            List<CCurrency> cCurrencies = _DbContext.GetCurrencies();
             List<Currency> currencies = cCurrencies.Select(cC => _Factory.CreateModel<Currency>(cC)).ToList();
 
             return currencies;

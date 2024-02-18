@@ -14,7 +14,9 @@ services.AddRouting(config => config.LowercaseUrls = true);
 string corsConfig = "CORS_CONFIG";
 services.AddCors(op =>
     op.AddPolicy(name: corsConfig, builder => {
-        builder.WithOrigins("https//localhost:4400");
+        builder.WithOrigins("http://localhost:4200", "https://localhost:4200")
+               .AllowAnyMethod()
+               .AllowAnyHeader();
     })
 );
 
@@ -32,6 +34,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors(corsConfig);
 
 app.UseAuthorization();
 
