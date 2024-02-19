@@ -1,6 +1,6 @@
-﻿using ECommerce.Repository.Entities;
+﻿using ECommerceApi.Repository.Entities;
 
-namespace ECommerce.Services.Utilities
+namespace ECommerceApi.Services.Utilities
 {
     public static class Verifications
     {
@@ -14,16 +14,16 @@ namespace ECommerce.Services.Utilities
         public static bool IsBadRequest(string result) => result.Contains("request message");
         public static bool IsUnableToProcess(string result) => result.ToLower().Contains("unable to process");
 
-        public static Predicate<DProduct> GenderFilterIsNullOrEmpty(string? category)
+        public static Func<DProduct, bool> GenderFilterIsNullOrEmpty(string? category)
         {
-            if (category == null || category == "") { return p => p.Name != null || p.Name != ""; }
-            else { return p => p.Category.Name == category; }
+            if (category == null || category == "") return p => p.Name != null && p.Name != "";
+            else return p => p.Category.Name == category;
         }
 
-        public static Predicate<DProduct> GenderFilterIsNotNullOrEmpty(string gender, string? category)
+        public static Func<DProduct, bool> GenderFilterIsNotNullOrEmpty(string gender, string? category)
         {
-            if (category == null || category == "") { return p => p.Gender.Name == gender; }
-            else { return p => p.Gender.Name == gender && p.Category.Name == category; }
+            if (category == null || category == "") return p => p.Gender.Name == gender;
+            else return p => p.Gender.Name == gender && p.Category.Name == category;
         }
     }
 }

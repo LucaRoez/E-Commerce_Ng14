@@ -1,8 +1,8 @@
 ﻿using Dapper;
-using ECommerce.Repository.Entities;
+using ECommerceApi.Repository.Entities;
 using Microsoft.Data.SqlClient;
 
-namespace ECommerce.Repository
+namespace ECommerceApi.Repository
 {
     public class CommercialContext : IRepository
     {

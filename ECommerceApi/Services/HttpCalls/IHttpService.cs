@@ -1,24 +1,24 @@
-﻿using ECommerce.Models;
+﻿using ECommerceApi.Models;
 
-namespace ECommerce.Services.HttpCalls
+namespace ECommerceApi.Services.HttpCalls
 {
     public interface IHttpService
     {
-        Product GetProduct(int id);
-        List<Product> GetAllProducts(int init, int length);
-        List<Product> GetMaleProducts(int init, int length);
-        List<Product> GetFemaleProducts(int init, int length);
-        List<Product> GetBabyProducts(int init, int length);
-        List<Product> GetSummerProducts(int init, int length);
-        List<Product> GetWinterProducts(int init, int length);
-        List<Product> GetCasualProducts(int init, int length);
-        List<Product> GetFormalProducts(int init, int length);
-        List<Product> GetFashionProducts(int init, int length);
-        List<Product> GetFilteredProducts(string? genderFilter, string? categoryFilter);
+        object GetProduct(int id);
+        List<object> GetAllProducts(int init, int length);
+        List<object> GetMaleProducts(int init, int length);
+        List<object> GetFemaleProducts(int init, int length);
+        List<object> GetBabyProducts(int init, int length);
+        List<object> GetSummerProducts(int init, int length);
+        List<object> GetWinterProducts(int init, int length);
+        List<object> GetCasualProducts(int init, int length);
+        List<object> GetFormalProducts(int init, int length);
+        List<object> GetFashionProducts(int init, int length);
+        List<object> GetFilteredProducts(string? genderFilter, string? categoryFilter);
 
-        List<Gender> GetAllGenders();
-        List<Category> GetAllCategories();
-        List<Currency> GetAllCurrencies();
+        List<object> GetAllGenders();
+        List<object> GetAllCategories();
+        List<object> GetAllCurrencies();
 
 
         Task<string> PostProduct(Product product);

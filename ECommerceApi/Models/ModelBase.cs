@@ -1,4 +1,4 @@
-﻿namespace ECommerce.Models
+﻿namespace ECommerceApi.Models
 {
     public abstract class ModelBase
     {

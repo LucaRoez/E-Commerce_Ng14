@@ -1,6 +1,7 @@
-using ECommerce.Repository;
-using ECommerce.Services.DataTransfer;
-using ECommerce.Services.HttpCalls;
+using ECommerceApi.Repository;
+using ECommerceApi.Services.DataTransfer;
+using ECommerceApi.Services.HttpCalls;
+using ECommerceApi.Services.Utilities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,7 @@ services.AddCors(op =>
 services.AddTransient<IRepository, CommercialContext>();
 services.AddTransient<IHttpService, HttpService>();
 services.AddTransient<IFactory, DTOFactory>();
+services.AddTransient<ResponseManager>();
 
 var app = builder.Build();
 

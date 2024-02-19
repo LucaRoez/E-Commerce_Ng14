@@ -1,10 +1,10 @@
-﻿using ECommerce.Repository;
-using ECommerce.Services.Utilities;
-using ECommerce.Repository.Entities;
-using ECommerce.Models;
-using ECommerce.Services.DataTransfer;
+﻿using ECommerceApi.Repository;
+using ECommerceApi.Services.Utilities;
+using ECommerceApi.Repository.Entities;
+using ECommerceApi.Models;
+using ECommerceApi.Services.DataTransfer;
 
-namespace ECommerce.Services.HttpCalls
+namespace ECommerceApi.Services.HttpCalls
 {
     public class HttpService : IHttpService
     {
@@ -17,138 +17,249 @@ namespace ECommerce.Services.HttpCalls
         }
 
         ////////////////////    Get Methods    ////////////////////
-        public Product GetProduct(int id)
+        public object GetProduct(int id)
         {
-            List<DProduct> dProducts = _DbContext.GetProducts();
-            DProduct dProduct = dProducts.FirstOrDefault(p => p.Id == id);
-            Product product = _Factory.CreateModel<Product>(dProduct);
+            try
+            {
+                List<DProduct> dProducts = _DbContext.GetProducts();
+                DProduct dProduct = dProducts.FirstOrDefault(p => p.Id == id);
+                Product product = _Factory.CreateModel<Product>(dProduct);
 
-            return product;
+                return product;
+            }
+            catch (Exception ex)
+            {
+                return ex;
+            }
         }
         
-        public List<Product> GetAllProducts(int init, int length)
+        public List<object> GetAllProducts(int init, int length)
         {
-            List<DProduct> dProducts = _DbContext.GetProducts();
-            dProducts.OrderBy(p => p.Name).Skip((init - 1) * length).Take(length);
-            List<Product> products = dProducts.Select(dP => _Factory.CreateModel<Product>(dP)).ToList();
+            try
+            {
+                List<DProduct> dProducts = _DbContext.GetProducts();
+                dProducts.OrderBy(p => p.Name).Skip((init - 1) * length).Take(length);
+                List<object> products = dProducts.Select(dP => (object)_Factory.CreateModel<Product>(dP)).ToList();
 
-            return products;
+                return products;
+            }
+            catch (Exception ex)
+            {
+                List<object> exList = new() { ex };
+                return exList;
+            }
         }
 
-        public List<Product> GetMaleProducts(int init, int length)
+        public List<object> GetMaleProducts(int init, int length)
         {
-            List<DProduct> dProducts = _DbContext.GetProducts();
-            dProducts.Where(p => p.Gender.Name == "Male")
-                .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
-            List<Product> products = dProducts.Select(dP => _Factory.CreateModel<Product>(dP)).ToList();
+            try
+            {
+                List<DProduct> dProducts = _DbContext.GetProducts();
+                dProducts.Where(p => p.Gender.Name == "Male")
+                    .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
+                List<object> products = dProducts.Select(dP => (object)_Factory.CreateModel<Product>(dP)).ToList();
 
-            return products;
+                return products;
+            }
+            catch (Exception ex)
+            {
+                List<object> exList = new() { ex };
+                return exList;
+            }
         }
 
-        public List<Product> GetFemaleProducts(int init, int length)
+        public List<object> GetFemaleProducts(int init, int length)
         {
-            List<DProduct> dProducts = _DbContext.GetProducts();
-            dProducts.Where(p => p.Gender.Name == "Female")
-                .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
-            List<Product> products = dProducts.Select(dP => _Factory.CreateModel<Product>(dP)).ToList();
+            try
+            {
+                List<DProduct> dProducts = _DbContext.GetProducts();
+                dProducts.Where(p => p.Gender.Name == "Female")
+                    .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
+                List<object> products = dProducts.Select(dP => (object)_Factory.CreateModel<Product>(dP)).ToList();
 
-            return products;
+                return products;
+            }
+            catch (Exception ex)
+            {
+                List<object> exList = new() { ex };
+                return exList;
+            }
         }
 
-        public List<Product> GetBabyProducts(int init, int length)
+        public List<object> GetBabyProducts(int init, int length)
         {
-            List<DProduct> dProducts = _DbContext.GetProducts();
-            dProducts.Where(p => p.Gender.Name == "Baby")
-                .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
-            List<Product> products = dProducts.Select(dP => _Factory.CreateModel<Product>(dP)).ToList();
+            try
+            {
+                List<DProduct> dProducts = _DbContext.GetProducts();
+                dProducts.Where(p => p.Gender.Name == "Baby")
+                    .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
+                List<object> products = dProducts.Select(dP => (object)_Factory.CreateModel<Product>(dP)).ToList();
 
-            return products;
+                return products;
+            }
+            catch (Exception ex)
+            {
+                List<object> exList = new() { ex };
+                return exList;
+            }
         }
 
-        public List<Product> GetSummerProducts(int init, int length)
+        public List<object> GetSummerProducts(int init, int length)
         {
-            List<DProduct> dProducts = _DbContext.GetProducts();
-            dProducts.Where(p => p.Category.Name == "Summer")
-                .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
-            List<Product> products = dProducts.Select(dP => _Factory.CreateModel<Product>(dP)).ToList();
+            try
+            {
+                List<DProduct> dProducts = _DbContext.GetProducts();
+                dProducts.Where(p => p.Category.Name == "Summer")
+                    .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
+                List<object> products = dProducts.Select(dP => (object)_Factory.CreateModel<Product>(dP)).ToList();
 
-            return products;
+                return products;
+            }
+            catch (Exception ex)
+            {
+                List<object> exList = new() { ex };
+                return exList;
+            }
         }
 
-        public List<Product> GetWinterProducts(int init, int length)
+        public List<object> GetWinterProducts(int init, int length)
         {
-            List<DProduct> dProducts = _DbContext.GetProducts();
-            dProducts.Where(p => p.Category.Name == "Winter")
-                .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
-            List<Product> products = dProducts.Select(dP => _Factory.CreateModel<Product>(dP)).ToList();
+            try
+            {
+                List<DProduct> dProducts = _DbContext.GetProducts();
+                dProducts.Where(p => p.Category.Name == "Winter")
+                    .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
+                List<object> products = dProducts.Select(dP => (object)_Factory.CreateModel<Product>(dP)).ToList();
 
-            return products;
+                return products;
+            }
+            catch (Exception ex)
+            {
+                List<object> exList = new() { ex };
+                return exList;
+            }
         }
 
-        public List<Product> GetCasualProducts(int init, int length)
+        public List<object> GetCasualProducts(int init, int length)
         {
-            List<DProduct> dProducts = _DbContext.GetProducts();
-            dProducts.Where(p => p.Category.Name == "Casual")
-                .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
-            List<Product> products = dProducts.Select(dP => _Factory.CreateModel<Product>(dP)).ToList();
+            try
+            {
+                List<DProduct> dProducts = _DbContext.GetProducts();
+                dProducts.Where(p => p.Category.Name == "Casual")
+                    .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
+                List<object> products = dProducts.Select(dP => (object)_Factory.CreateModel<Product>(dP)).ToList();
 
-            return products;
+                return products;
+            }
+            catch (Exception ex)
+            {
+                List<object> exList = new() { ex };
+                return exList;
+            }
         }
 
-        public List<Product> GetFormalProducts(int init, int length)
+        public List<object> GetFormalProducts(int init, int length)
         {
-            List<DProduct> dProducts = _DbContext.GetProducts();
-            dProducts.Where(p => p.Category.Name == "Formal")
-                .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
-            List<Product> products = dProducts.Select(dP => _Factory.CreateModel<Product>(dP)).ToList();
+            try
+            {
+                List<DProduct> dProducts = _DbContext.GetProducts();
+                dProducts.Where(p => p.Category.Name == "Formal")
+                    .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
+                List<object> products = dProducts.Select(dP => (object)_Factory.CreateModel<Product>(dP)).ToList();
 
-            return products;
+                return products;
+            }
+            catch (Exception ex)
+            {
+                List<object> exList = new() { ex };
+                return exList;
+            }
         }
 
-        public List<Product> GetFashionProducts(int init, int length)
+        public List<object> GetFashionProducts(int init, int length)
         {
-            List<DProduct> dProducts = _DbContext.GetProducts();
-            dProducts.Where(p => p.Category.Name == "Fashion")
-                .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
-            List<Product> products = dProducts.Select(dP => _Factory.CreateModel<Product>(dP)).ToList();
+            try
+            {
+                List<DProduct> dProducts = _DbContext.GetProducts();
+                dProducts.Where(p => p.Category.Name == "Fashion")
+                    .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
+                List<object> products = dProducts.Select(dP => (object)_Factory.CreateModel<Product>(dP)).ToList();
 
-            return products;
+                return products;
+            }
+            catch (Exception ex)
+            {
+                List<object> exList = new() { ex };
+                return exList;
+            }
         }
 
-        public List<Product> GetFilteredProducts(string? genderFilter, string? categoryFilter)
+        public List<object> GetFilteredProducts(string? genderFilter, string? categoryFilter)
         {
-            List<DProduct> dProducts = _DbContext.GetProducts();
-            dProducts = genderFilter == null || genderFilter == "" ?
-                dProducts.Where(Verifications.GenderFilterIsNullOrEmpty(categoryFilter)).OrderBy(p => p.Name).ToList() :
-                dProducts.Where(Verifications.GenderFilterIsNotNullOrEmpty(genderFilter, categoryFilter)).OrderBy(p => p.Name).ToList();
-            List<Product> products = dProducts.Select(dP => _Factory.CreateModel<Product>(dP)).ToList();
+            try
+            {
+                List<DProduct> dProducts = _DbContext.GetProducts();
+                dProducts = genderFilter == null || genderFilter == "" ?
+                    dProducts.Where(Verifications.GenderFilterIsNullOrEmpty(categoryFilter)).OrderBy(p => p.Name).ToList() :
+                    dProducts.Where(Verifications.GenderFilterIsNotNullOrEmpty(genderFilter, categoryFilter)).OrderBy(p => p.Name).ToList();
+                List<object> products = dProducts.Select(dP => (object)_Factory.CreateModel<Product>(dP)).ToList();
 
-            return products;
+                return products;
+            }
+            catch (Exception ex)
+            {
+                List<object> exList = new() { ex };
+                return exList;
+            }
         }
 
 
-        public List<Gender> GetAllGenders()
+        public List<object> GetAllGenders()
         {
-            List<CGender> cGenders = _DbContext.GetGenders();
-            List<Gender> genders = cGenders.Select(cG => _Factory.CreateModel<Gender>(cG)).ToList();
+            try
+            {
+                List<CGender> cGenders = _DbContext.GetGenders();
+                List<object> genders = cGenders.Select(cG => (object)_Factory.CreateModel<Gender>(cG)).ToList();
 
-            return genders;
+                return genders;
+            }
+            catch (Exception ex)
+            {
+                List<object> exList = new() { ex };
+                return exList;
+            }
         }
 
-        public List<Category> GetAllCategories()
+        public List<object> GetAllCategories()
         {
-            List<CCategory> cCategories = _DbContext.GetCategories();
-            List<Category> categories = cCategories.Select(cC => _Factory.CreateModel<Category>(cC)).ToList();
+            try
+            {
+                List<CCategory> cCategories = _DbContext.GetCategories();
+                List<object> categories = cCategories.Select(cC => (object)_Factory.CreateModel<Category>(cC)).ToList();
 
-            return categories;
+                return categories;
+            }
+            catch (Exception ex)
+            {
+                List<object> exList = new() { ex };
+                return exList;
+            }
         }
 
-        public List<Currency> GetAllCurrencies()
+        public List<object> GetAllCurrencies()
         {
-            List<CCurrency> cCurrencies = _DbContext.GetCurrencies();
-            List<Currency> currencies = cCurrencies.Select(cC => _Factory.CreateModel<Currency>(cC)).ToList();
+            try
+            {
+                List<CCurrency> cCurrencies = _DbContext.GetCurrencies();
+                List<object> currencies = cCurrencies.Select(cC => (object)_Factory.CreateModel<Currency>(cC)).ToList();
 
-            return currencies;
+                return currencies;
+            }
+            catch (Exception ex)
+            {
+                List<object> exList = new() { ex };
+                return exList;
+            }
         }
 
 

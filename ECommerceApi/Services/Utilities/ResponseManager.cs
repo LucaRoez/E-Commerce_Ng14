@@ -1,0 +1,151 @@
+﻿using ECommerceApi.Models;
+using ECommerceApi.Models.Http;
+using ECommerceApi.Services.HttpCalls;
+
+namespace ECommerceApi.Services.Utilities
+{
+    public class ResponseManager
+    {
+        private readonly IHttpService _Http;
+        public ResponseManager(IHttpService http)
+        {
+            _Http = http;
+        }
+
+        ////////////////    Main Controller    ////////////////
+        public Response ReturnProductResponse(int id)
+        {
+            Response result = new();
+            object response = _Http.GetProduct(id);
+            if (response is null)
+            {
+                result.StatusCode = 404;
+                result.Message = "There was a problem to get the Product requested, and got a null as response.";
+            }
+            else if (response is Exception)
+            {
+                Exception ex = (Exception)response;
+                result.StatusCode = ex.HResult;
+                result.Message = ex.Message;
+            }
+            else if (response is Product)
+            {
+                try
+                {
+                    result.IsSuccessful = true;
+                    result.StatusCode = 200;
+                    result.Data = (Product)response;
+                }
+                catch (Exception ex)
+                {
+                    result.StatusCode = ex.HResult;
+                    result.Message = ex.Message;
+                }
+            }
+            else
+            {
+                try
+                {
+                    Exception ex = (Exception)response;
+                    result.StatusCode = 500;
+                    result.Message = ex.Message;
+                }
+                catch (Exception ex)
+                {
+                    result.StatusCode = ex.HResult;
+                    result.Message = ex.Message;
+                }
+            }
+
+            return result;
+        }
+
+        public Response ReturnAllProductsResponse(int init, int length) => ParseList(_Http.GetAllProducts(init, length));
+        public Response ReturnMaleProductsResponse(int init, int length) => ParseList(_Http.GetMaleProducts(init, length));
+        public Response ReturnFemaleProductsResponse(int init, int length) => ParseList(_Http.GetFemaleProducts(init, length));
+        public Response ReturnBabyProductsResponse(int init, int length) => ParseList(_Http.GetBabyProducts(init, length));
+        public Response ReturnSummerProductsResponse(int init, int length) => ParseList(_Http.GetSummerProducts(init, length));
+        public Response ReturnWinterProductsResponse(int init, int length) => ParseList(_Http.GetWinterProducts(init, length));
+        public Response ReturnCasualProductsResponse(int init, int length) => ParseList(_Http.GetCasualProducts(init, length));
+        public Response ReturnFormalProductsResponse(int init, int length) => ParseList(_Http.GetFormalProducts(init, length));
+        public Response ReturnFashionProductsResponse(int init, int length) => ParseList(_Http.GetFashionProducts(init, length));
+        public Response ReturnFilteredProductsResponse(string? genderFilter, string? categoryFilter) => ParseList(_Http.GetFilteredProducts(genderFilter, categoryFilter));
+        public Response ReturnAllGendersResponse() => ParseList(_Http.GetAllGenders());
+        public Response ReturnAllCategoriesResponse() => ParseList(_Http.GetAllCategories());
+        public Response ReturnAllCurrenciesResponse() => ParseList(_Http.GetAllCurrencies());
+
+        private Response ParseList(List<object> response)
+        {
+            Response result = new();
+
+            if (response is null)
+            {
+                result.StatusCode = 404;
+                result.Message = "There was a problem to get the Product requested, and got a null as response.";
+            }
+            else if (response.FirstOrDefault() is Exception)
+            {
+                Exception ex = (Exception)response.FirstOrDefault();
+                result.StatusCode = ex.HResult;
+                result.Message = ex.Message;
+            }
+            else if (response.FirstOrDefault() is Product)
+            {
+                try
+                {
+                    result.IsSuccessful = true;
+                    result.StatusCode = 200;
+                    result.Datas = response.Cast<ModelBase>().ToList();
+                }
+                catch (Exception ex)
+                {
+                    result.StatusCode = ex.HResult;
+                    result.Message = ex.Message;
+                }
+            }
+            else
+            {
+                try
+                {
+                    Exception ex = (Exception)response.FirstOrDefault();
+                    result.StatusCode = 500;
+                    result.Message = ex.Message;
+                }
+                catch (Exception ex)
+                {
+                    result.StatusCode = ex.HResult;
+                    result.Message = ex.Message;
+                }
+            }
+
+            return result;
+        }
+
+        ////////////////    Admin Controller    ////////////////
+        public async Task<Response> ReturnResponse(Product product) => ParsePostAction(await _Http.PostProduct(product));
+
+        public async Task<Response> ReturnResponse(Gender gender) => ParsePostAction(await _Http.PostGender(gender));
+
+        public async Task<Response> ReturnResponse(Category category) => ParsePostAction(await _Http.PostCategory(category));
+
+        public async Task<Response> ReturnResponse(Currency currency) => ParsePostAction(await _Http.PostCurrency(currency));
+
+        private Response ParsePostAction(string response)
+        {
+            Response result = new();
+            result.IsSuccessful = Verifications.IsSuccessful(response) ? true : false;
+            result.Message = Verifications.IsSuccessful(response) ? "" : response;
+            result.StatusCode = Verifications.IsSuccessful(response) ? 200 :
+                Verifications.IsNotFound(response) ? 404 :
+                Verifications.IsForbidden(response) ? 403 :
+                Verifications.IsUnauthorized(response) ? 401 :
+                Verifications.IsConflict(response) ? 409 :
+                Verifications.IsInternalServerError(response) ? 500 :
+                Verifications.IsServiceUnavailable(response) ? 503 :
+                Verifications.IsBadRequest(response) ? 400 :
+                Verifications.IsUnableToProcess(response) ? 422 : 503;
+
+            return result;
+        }
+    }
+}

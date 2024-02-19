@@ -1,7 +1,7 @@
-﻿using ECommerce.Models;
-using ECommerce.Repository.Entities;
+﻿using ECommerceApi.Models;
+using ECommerceApi.Repository.Entities;
 
-namespace ECommerce.Services.DataTransfer
+namespace ECommerceApi.Services.DataTransfer
 {
     public class DTOFactory : IFactory
     {

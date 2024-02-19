@@ -1,6 +1,6 @@
-﻿using ECommerce.Repository.Entities;
+﻿using ECommerceApi.Repository.Entities;
 
-namespace ECommerce.Repository
+namespace ECommerceApi.Repository
 {
     public interface IRepository
     {

@@ -9,7 +9,7 @@
     "Parameters": [
       {
         "Name": "category",
-        "Type": "ECommerce.Models.Category",
+        "Type": "ECommerceApi.Models.Category",
         "IsRequired": true
       }
     ],
@@ -25,7 +25,7 @@
     "Parameters": [
       {
         "Name": "currency",
-        "Type": "ECommerce.Models.Currency",
+        "Type": "ECommerceApi.Models.Currency",
         "IsRequired": true
       }
     ],
@@ -41,7 +41,7 @@
     "Parameters": [
       {
         "Name": "gender",
-        "Type": "ECommerce.Models.Gender",
+        "Type": "ECommerceApi.Models.Gender",
         "IsRequired": true
       }
     ],
@@ -57,7 +57,7 @@
     "Parameters": [
       {
         "Name": "product",
-        "Type": "ECommerce.Models.Product",
+        "Type": "ECommerceApi.Models.Product",
         "IsRequired": true
       }
     ],

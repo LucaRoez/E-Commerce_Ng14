@@ -1,6 +1,5 @@
-﻿using ECommerce.Models;
-using ECommerce.Services.HttpCalls;
-using ECommerce.Services.Utilities;
+﻿using ECommerceApi.Models;
+using ECommerceApi.Services.Utilities;
 using ECommerceApi.Models.Http;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -9,8 +8,8 @@ namespace ECommerce.Controllers
 {
     public class AdminController : Controller
     {
-        private readonly IHttpService _Http;
-        public AdminController(IHttpService http)
+        private readonly ResponseManager _Http;
+        public AdminController(ResponseManager http)
         {
             _Http = http;
         }
@@ -19,19 +18,7 @@ namespace ECommerce.Controllers
         [Route("admin/product")]
         public async Task<IActionResult> PostProduct([FromBody] Product product)
         {
-            Response result = new();
-            string response = await _Http.PostProduct(product);
-            result.IsSuccessful = Verifications.IsSuccessful(response) ? true : false;
-            result.Message = Verifications.IsSuccessful(response) ? "" : response;
-            result.StatusCode = Verifications.IsSuccessful(response) ? 200 :
-                Verifications.IsNotFound(response) ? 404 :
-                Verifications.IsForbidden(response) ? 403 :
-                Verifications.IsUnauthorized(response) ? 401 :
-                Verifications.IsConflict(response) ? 409 :
-                Verifications.IsInternalServerError(response) ? 500 :
-                Verifications.IsServiceUnavailable(response) ? 503 :
-                Verifications.IsBadRequest(response) ? 400 :
-                Verifications.IsUnableToProcess(response) ? 422 : 503;
+            Response result = await _Http.ReturnResponse(product);
             if (result.StatusCode == 200) return Ok(result);
             else if (result.StatusCode == 404) return NotFound(result);
             else if (result.StatusCode == 403) return Forbid();
@@ -49,19 +36,7 @@ namespace ECommerce.Controllers
         [Route("admin/gender")]
         public async Task<IActionResult> PostGender([FromBody] Gender gender)
         {
-            Response result = new();
-            string response = await _Http.PostGender(gender);
-            result.IsSuccessful = Verifications.IsSuccessful(response) ? true : false;
-            result.Message = Verifications.IsSuccessful(response) ? "" : response;
-            result.StatusCode = Verifications.IsSuccessful(response) ? 200 :
-                Verifications.IsNotFound(response) ? 404 :
-                Verifications.IsForbidden(response) ? 403 :
-                Verifications.IsUnauthorized(response) ? 401 :
-                Verifications.IsConflict(response) ? 409 :
-                Verifications.IsInternalServerError(response) ? 500 :
-                Verifications.IsServiceUnavailable(response) ? 503 :
-                Verifications.IsBadRequest(response) ? 400 :
-                Verifications.IsUnableToProcess(response) ? 422 : 503;
+            Response result = await _Http.ReturnResponse(gender);
             if (result.StatusCode == 200) return Ok(result);
             else if (result.StatusCode == 404) return NotFound(result);
             else if (result.StatusCode == 403) return Forbid();
@@ -79,19 +54,7 @@ namespace ECommerce.Controllers
         [Route("admin/category")]
         public async Task<IActionResult> PostCategory([FromBody] Category category)
         {
-            Response result = new();
-            string response = await _Http.PostCategory(category);
-            result.IsSuccessful = Verifications.IsSuccessful(response) ? true : false;
-            result.Message = Verifications.IsSuccessful(response) ? "" : response;
-            result.StatusCode = Verifications.IsSuccessful(response) ? 200 :
-                Verifications.IsNotFound(response) ? 404 :
-                Verifications.IsForbidden(response) ? 403 :
-                Verifications.IsUnauthorized(response) ? 401 :
-                Verifications.IsConflict(response) ? 409 :
-                Verifications.IsInternalServerError(response) ? 500 :
-                Verifications.IsServiceUnavailable(response) ? 503 :
-                Verifications.IsBadRequest(response) ? 400 :
-                Verifications.IsUnableToProcess(response) ? 422 : 503;
+            Response result = await _Http.ReturnResponse(category);
             if (result.StatusCode == 200) return Ok(result);
             else if (result.StatusCode == 404) return NotFound(result);
             else if (result.StatusCode == 403) return Forbid();
@@ -109,19 +72,7 @@ namespace ECommerce.Controllers
         [Route("admin/currency")]
         public async Task<IActionResult> PostCurrency([FromBody] Currency currency)
         {
-            Response result = new();
-            string response = await _Http.PostCurrency(currency);
-            result.IsSuccessful = Verifications.IsSuccessful(response) ? true : false;
-            result.Message = Verifications.IsSuccessful(response) ? "" : response;
-            result.StatusCode = Verifications.IsSuccessful(response) ? 200 :
-                Verifications.IsNotFound(response) ? 404 :
-                Verifications.IsForbidden(response) ? 403 :
-                Verifications.IsUnauthorized(response) ? 401 :
-                Verifications.IsConflict(response) ? 409 :
-                Verifications.IsInternalServerError(response) ? 500 :
-                Verifications.IsServiceUnavailable(response) ? 503 :
-                Verifications.IsBadRequest(response) ? 400 :
-                Verifications.IsUnableToProcess(response) ? 422 : 503;
+            Response result = await _Http.ReturnResponse(currency);
             if (result.StatusCode == 200) return Ok(result);
             else if (result.StatusCode == 404) return NotFound(result);
             else if (result.StatusCode == 403) return Forbid();

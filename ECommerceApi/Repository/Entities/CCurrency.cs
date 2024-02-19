@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace ECommerce.Repository.Entities;
+﻿namespace ECommerceApi.Repository.Entities;
 
 public partial class CCurrency : EntityBase
 {
