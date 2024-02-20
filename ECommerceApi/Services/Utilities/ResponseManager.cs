@@ -34,7 +34,7 @@ namespace ECommerceApi.Services.Utilities
                 {
                     result.IsSuccessful = true;
                     result.StatusCode = 200;
-                    result.Data = (Product)response;
+                    result.Product = (Product)response;
                 }
                 catch (Exception ex)
                 {
@@ -78,7 +78,7 @@ namespace ECommerceApi.Services.Utilities
         {
             Response result = new();
 
-            if (response is null)
+            if (response.FirstOrDefault() is null)
             {
                 result.StatusCode = 404;
                 result.Message = "There was a problem to get the Product requested, and got a null as response.";
@@ -95,7 +95,49 @@ namespace ECommerceApi.Services.Utilities
                 {
                     result.IsSuccessful = true;
                     result.StatusCode = 200;
-                    result.Datas = response.Cast<ModelBase>().ToList();
+                    result.Products = response.Cast<Product>().ToList();
+                }
+                catch (Exception ex)
+                {
+                    result.StatusCode = ex.HResult;
+                    result.Message = ex.Message;
+                }
+            }
+            else if (response.FirstOrDefault() is Gender)
+            {
+                try
+                {
+                    result.IsSuccessful = true;
+                    result.StatusCode = 200;
+                    result.Genders = response.Cast<Gender>().ToList();
+                }
+                catch (Exception ex)
+                {
+                    result.StatusCode = ex.HResult;
+                    result.Message = ex.Message;
+                }
+            }
+            else if (response.FirstOrDefault() is Category)
+            {
+                try
+                {
+                    result.IsSuccessful = true;
+                    result.StatusCode = 200;
+                    result.Categories = response.Cast<Category>().ToList();
+                }
+                catch (Exception ex)
+                {
+                    result.StatusCode = ex.HResult;
+                    result.Message = ex.Message;
+                }
+            }
+            else if (response.FirstOrDefault() is Currency)
+            {
+                try
+                {
+                    result.IsSuccessful = true;
+                    result.StatusCode = 200;
+                    result.Currencies = response.Cast<Currency>().ToList();
                 }
                 catch (Exception ex)
                 {
@@ -134,7 +176,7 @@ namespace ECommerceApi.Services.Utilities
         {
             Response result = new();
             result.IsSuccessful = Verifications.IsSuccessful(response) ? true : false;
-            result.Message = Verifications.IsSuccessful(response) ? "" : response;
+            result.Message = response;
             result.StatusCode = Verifications.IsSuccessful(response) ? 200 :
                 Verifications.IsNotFound(response) ? 404 :
                 Verifications.IsForbidden(response) ? 403 :

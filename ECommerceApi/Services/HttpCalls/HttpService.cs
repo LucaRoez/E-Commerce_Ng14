@@ -268,8 +268,12 @@ namespace ECommerceApi.Services.HttpCalls
         {
             try
             {
-                await _DbContext.CreateProduct(_Factory.CreateEntity<DProduct>(product));
-                return "Product loaded successfully.";
+                int modified = await _DbContext.CreateProduct(_Factory.CreateEntity<DProduct>(product));
+                if (modified > 0)
+                {
+                    return "Product loaded successfully.";
+                }
+                return "There was an issue loading your Product.";
             }
             catch (Exception ex)
             {
@@ -281,8 +285,12 @@ namespace ECommerceApi.Services.HttpCalls
         {
             try
             {
-                await _DbContext.CreateGender(_Factory.CreateEntity<CGender>(gender));
-                return "Catalog loaded successfully.";
+                int modified = await _DbContext.CreateGender(_Factory.CreateEntity<CGender>(gender));
+                if (modified > 0)
+                {
+                    return "Catalog loaded successfully.";
+                }
+                return "There was a problem loading the catalog.";
             }
             catch (Exception ex)
             {
@@ -294,8 +302,12 @@ namespace ECommerceApi.Services.HttpCalls
         {
             try
             {
-                await _DbContext.CreateCategory(_Factory.CreateEntity<CCategory>(category));
-                return "Catalog loaded successfully.";
+                int modified = await _DbContext.CreateCategory(_Factory.CreateEntity<CCategory>(category));
+                if (modified > 0)
+                {
+                    return "Catalog loaded successfully.";
+                }
+                return "There was a problem loading the catalog.";
             }
             catch (Exception ex)
             {
@@ -307,8 +319,12 @@ namespace ECommerceApi.Services.HttpCalls
         {
             try
             {
-                await _DbContext.CreateCurrency(_Factory.CreateEntity<CCurrency>(currency));
-                return "Catalog loaded successfully.";
+                int modified = await _DbContext.CreateCurrency(_Factory.CreateEntity<CCurrency>(currency));
+                if (modified > 0)
+                {
+                    return "Catalog loaded successfully.";
+                }
+                return "There was a problem loading the catalog.";
             }
             catch (Exception ex)
             {
