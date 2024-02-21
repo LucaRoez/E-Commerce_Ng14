@@ -36,7 +36,7 @@ create table [d.Authors] (
 );
 
 create table [d.Images] (
-	Id bigint primary key,
+	Id bigint identity(1,1) primary key,
 	Src varchar(250) not null,
 	Alt varchar(50),
 	Width int not null,
@@ -65,7 +65,7 @@ create table [d.Products] (
 	Name varchar(50) not null,
 	Description varchar(5000) not null,
 	Price smallmoney,
-	CurrencyId tinyint foreign key references [c.Currencies](Id),
+	CurrencyId int foreign key references [c.Currencies](Id),
 	Discount decimal(5,2),
 	PresentationImage bigint foreign key references [d.Images](Id),
 	SecondImage bigint foreign key references [d.Images](Id),
@@ -78,6 +78,6 @@ create table [d.Products] (
 	Rate decimal(2,1),
 	Visits int not null,
 	CategoryId tinyint foreign key references [c.Categories](Id),
-	GenderId tinyint foreign key references [c.Gender](Id),
+	GenderId tinyint foreign key references [c.Genders](Id),
 	CreationDate datetime not null
 );

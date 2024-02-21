@@ -46,7 +46,7 @@ namespace ECommerceApi.Repository
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                _query = @"INSERT INTO [c.Currencies](Id, Name, Symbol, Issuer) VALUES (@Id, @Name, @Symbol, @Issuer)";
+                _query = @"INSERT INTO [c.Currencies](Name, Symbol, Issuer) VALUES (@Name, @Symbol, @Issuer)";
                 int affectedRows = await connection.ExecuteAsync(_query, currency);
                 return affectedRows;
             }
@@ -86,8 +86,8 @@ namespace ECommerceApi.Repository
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                _query = @"INSERT INTO [d.Authors](Id, AuthorName, Presentation, Email, Password) " +
-                    "VALUES (@Id, @AuthorName, @Presentation, @Email, @Password)";
+                _query = @"INSERT INTO [d.Authors](AuthorName, Presentation, Email, Password) " +
+                    "VALUES (@AuthorName, @Presentation, @Email, @Password)";
                 int affectedRows = await connection.ExecuteAsync(_query, author);
                 return affectedRows;
             }
@@ -107,8 +107,8 @@ namespace ECommerceApi.Repository
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                _query = @"INSERT INTO [d.Commentaries](Id, UserName, Body, IsEdited, Likes, Dislikes) " +
-                    "VALUES (@Id, @UserName, @Body, @IsEdited, @Likes, @Dislikes)";
+                _query = @"INSERT INTO [d.Commentaries](UserName, Body, IsEdited, Likes, Dislikes) " +
+                    "VALUES (@UserName, @Body, @IsEdited, @Likes, @Dislikes)";
                 int affectedRows = await connection.ExecuteAsync(_query, commentary);
                 return affectedRows;
             }
@@ -128,8 +128,8 @@ namespace ECommerceApi.Repository
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                _query = @"INSERT INTO [d.Images](Id, Src, Alt, Width, Height)" +
-                    "VALUES (@Id, @Src, @Alt, @Width, @Height)";
+                _query = @"INSERT INTO [d.Images](Src, Alt, Width, Height)" +
+                    "VALUES (@Src, @Alt, @Width, @Height)";
                 int affectedRows = await connection.ExecuteAsync(_query, image);
                 return affectedRows;
             }
@@ -149,9 +149,9 @@ namespace ECommerceApi.Repository
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                _query = @"INSERT INTO [d.Products](Id, Name, Description, Price, CurrencyId, Discount," +
+                _query = @"INSERT INTO [d.Products](Name, Description, Price, CurrencyId, Discount," +
                     " QuantityAvailable, SalesAmount, Rate, Visits, CategoryId, GenderId, CreationDate)" +
-                    "VALUES (@Id, @Name, @Description, @Price, @CurrencyId, @Discount, @QuantityAvailable" +
+                    "VALUES (@Name, @Description, @Price, @CurrencyId, @Discount, @QuantityAvailable" +
                     " @SalesAmount, @Rate, @Visits, @CategoryId, @GenderId, @CreationDate)";
                 int affectedRows = await connection.ExecuteAsync(_query, product);
                 return affectedRows;
@@ -172,8 +172,8 @@ namespace ECommerceApi.Repository
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                _query = @"INSERT INTO [d.Reviews](Id, Author, AuthorId, Body, Rate) " +
-                    "VALUES (@Id, @Author, @AuthorId, @Body, @Rate)";
+                _query = @"INSERT INTO [d.Reviews](Author, AuthorId, Body, Rate) " +
+                    "VALUES (@Author, @AuthorId, @Body, @Rate)";
                 int affectedRows = await connection.ExecuteAsync(_query, review);
                 return affectedRows;
             }
@@ -193,8 +193,8 @@ namespace ECommerceApi.Repository
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                _query = @"INSERT INTO [d.Users](Id, UserName, FirstName, LastName, Email, Password) " +
-                    "VALUES (@Id, @UserName, @FirstName, @LastName, @Email, @Password)";
+                _query = @"INSERT INTO [d.Users](UserName, FirstName, LastName, Email, Password) " +
+                    "VALUES (@UserName, @FirstName, @LastName, @Email, @Password)";
                 int affectedRows = await connection.ExecuteAsync(_query, user);
                 return affectedRows;
             }
