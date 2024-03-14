@@ -151,7 +151,7 @@ namespace ECommerceApi.Repository
             {
                 _query = @"INSERT INTO [d.Products](Name, Description, Price, CurrencyId, Discount," +
                     " QuantityAvailable, SalesAmount, Rate, Visits, CategoryId, GenderId, CreationDate)" +
-                    "VALUES (@Name, @Description, @Price, @CurrencyId, @Discount, @QuantityAvailable" +
+                    " VALUES (@Name, @Description, @Price, @CurrencyId, @Discount, @QuantityAvailable," +
                     " @SalesAmount, @Rate, @Visits, @CategoryId, @GenderId, @CreationDate)";
                 int affectedRows = await connection.ExecuteAsync(_query, product);
                 return affectedRows;

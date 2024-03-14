@@ -11,8 +11,7 @@ export class SearchComponent {
   products: Product[] = [];
   constructor(private _http: MainService) {
     this._http.GetProducts().subscribe(
-      result => this.products = result,
-      error => console.error(error.error)
+      response => this.products = response.products!
     )
   }
 }

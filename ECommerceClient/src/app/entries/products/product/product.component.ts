@@ -18,7 +18,7 @@ export class ProductComponent {
     this._route.paramMap.subscribe((params: ParamMap) => {
       let id = params.get('id');
       if (id) {
-        this._http.GetProduct(parseInt(id)).subscribe(p => this.product = p);
+        this._http.GetProduct(parseInt(id)).subscribe(response => this.product = response.product!);
       }
     })
   }

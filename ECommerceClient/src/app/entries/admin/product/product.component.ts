@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Category, Currency, Gender, Product } from '../../../models/models';
 import { AdminService, MainService } from '../../../services/services';
 
@@ -7,19 +7,25 @@ import { AdminService, MainService } from '../../../services/services';
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
-export class ProductComponent {
+export class ProductComponent implements OnInit {
   constructor(private _GetService: MainService, private _PostService: AdminService) {
+  }
+
+  ngOnInit(): void {
     this._GetService.GetGenders().subscribe(
-      result => { this.genders = result; },
-      error => { console.error(error) }
+      response => {
+        this.genders = response.genders!;
+      }
     )
     this._GetService.GetCategories().subscribe(
-      result => { this.categories = result; },
-      error => { console.error(error) }
+      response => {
+        this.categories = response.categories!;
+      }
     )
     this._GetService.GetCurrencies().subscribe(
-      result => { this.currencies = result; },
-      error => { console.error(error) }
+      response => {
+        this.currencies = response.currencies!;
+      }
     )
   }
 

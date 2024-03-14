@@ -22,9 +22,7 @@
       <mat-form-field>
         <mat-label>Currency</mat-label>
         <mat-select [(ngModel)]="currencyId" name="currency">
-          @for (currency of currencies; track currency) {
-            <mat-option [value]="currency.id">{{ currency.symbol }}</mat-option>
-          }
+          <mat-option *ngFor="let currency of currencies" [value]="currency.id">{{ currency.symbol }}</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field>
@@ -34,17 +32,13 @@
       <mat-form-field>
         <mat-label>Gender</mat-label>
         <mat-select [(ngModel)]="genderId" name="gender">
-          @for (gender of genders; track gender) {
-            <mat-option [value]="gender.id">{{ gender.name }}</mat-option>
-          }
+          <mat-option *ngFor="let gender of genders" [value]="gender.id">{{ gender.name }}</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field>
         <mat-label>Category</mat-label>
         <mat-select [(ngModel)]="categoryId" name="category">
-          @for (category of categories; track category) {
-            <mat-option [value]="category.id">{{ category.name }}</mat-option>
-          }
+          <mat-option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field>
