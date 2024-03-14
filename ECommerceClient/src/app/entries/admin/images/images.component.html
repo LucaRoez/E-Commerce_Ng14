@@ -25,7 +25,11 @@
 				<mat-label>Image Width</mat-label>
 				<input matInput name="input" type="number" [(ngModel)]="image.width" />
 			</mat-form-field>
-			<button mat-raised-button type="button" color="warn" (click)="PublishImage(image)">Publish Image</button>
+			<div class="button">
+				<button mat-raised-button type="button" color="warn" (click)="PublishImage(image)">
+					Publish Image
+				</button>
+			</div>
 		</div>
 	</mat-card-content>
 </mat-card>

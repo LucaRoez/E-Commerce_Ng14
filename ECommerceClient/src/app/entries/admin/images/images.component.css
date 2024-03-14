@@ -15,11 +15,16 @@
 }
 
 .input-container {
-	display: block;
+	display: inline-block;
 }
 
 mat-form-field {
 	margin: 0 .5rem;
+}
+
+div.button {
+    display: flex;
+    justify-content: center;
 }
 
 button {

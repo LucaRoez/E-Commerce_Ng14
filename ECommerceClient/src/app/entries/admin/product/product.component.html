@@ -47,9 +47,11 @@
         <mat-label>Quantity Available</mat-label>
         <input matInput name="input" type="number" [(ngModel)]="product.quantityAvailable" />
       </mat-form-field>
-      <button mat-raised-button type="button" color="warn" (click)="PublishProduct(product)">
-        Publish Product
-      </button>
+      <div class="button">
+        <button mat-raised-button type="button" color="warn" (click)="PublishProduct(product)">
+          Publish Product
+        </button>
+      </div>
     </div>
   </mat-card-content>
 </mat-card>
