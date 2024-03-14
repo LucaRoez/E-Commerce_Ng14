@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Category, Currency, Gender, Product } from "../models/models";
+import { Category, Currency, Gender, Product, Image } from "../models/models";
 import { Observable } from "rxjs";
 
 const httpOp = {
@@ -31,5 +31,9 @@ export class AdminService {
 
   adminProductPost(product: Product): Observable<Product> {
     return this._Http.post<Product>(this.url + 'product', product, httpOp);
+  }
+
+  adminImagePost(image: Image): Observable<Image> {
+    return this._Http.post<Image>(this.url + 'image', image, httpOp);
   }
 }

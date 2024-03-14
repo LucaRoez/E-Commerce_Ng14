@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Category, Currency, Gender } from '../../../models/models';
 import { AdminService } from '../../../services/admin.service';
+import { CatalogFormCard } from '../interfaces/catalog-form-card';
 
 @Component({
   selector: 'app-catalogs',
@@ -113,20 +114,4 @@ export class CatalogsComponent {
       }
     }
   }
-}
-
-class CatalogFormCard {
-  responseMessage: string = '';
-  formTitle: string = '';
-  isSuccess: boolean = false;
-  firstLabel: string = '';
-  firstNgModel: number = 0;
-  currencySymbol: string = '';
-  secondLabel: string = '';
-  secondNgModel: string = '';
-  isThird: boolean = false;
-  thirdLabel: string = '';
-  thirdNgModel: string = '';
-  buttonFunction?: (formCard: CatalogFormCard) => void;
-  buttonLabel: string = '';
 }

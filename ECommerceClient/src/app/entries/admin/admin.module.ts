@@ -13,13 +13,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
+import { ImagesComponent } from './images/images.component';
 
 
 @NgModule({
   declarations: [
     AdminComponent,
     CatalogsComponent,
-    ProductComponent
+    ProductComponent,
+    ImagesComponent
   ],
   imports: [
     CommonModule,

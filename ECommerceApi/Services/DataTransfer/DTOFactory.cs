@@ -11,6 +11,8 @@ namespace ECommerceApi.Services.DataTransfer
             {
                 case Product product when typeof(T) == typeof(DProduct):
                     return RecordNewProduct(product as Product) as T;
+                case Image image when typeof(T) == typeof(DImage):
+                    return RecordNewImage(image as Image) as T;
                 case Gender gender when typeof(T) == typeof(CGender):
                     return RecordNewGender(gender as Gender) as T;
                 case Category category when typeof(T) == typeof(CCategory):
@@ -27,6 +29,8 @@ namespace ECommerceApi.Services.DataTransfer
             {
                 case DProduct product when typeof(T) == typeof(Product):
                     return ShowRecordedProduct(product as DProduct) as T;
+                case DImage image when typeof(T) == typeof(Image):
+                    return ShowRecordedImage(image as DImage) as T;
                 case CGender gender when typeof(T) == typeof(Gender):
                     return ShowRecordedGender(gender as CGender) as T;
                 case CCategory category when typeof(T) == typeof(Category):
@@ -55,6 +59,19 @@ namespace ECommerceApi.Services.DataTransfer
                 CreationDate = dProduct.CreationDate
             };
             return product;
+        }
+
+        private Image ShowRecordedImage(DImage dImage)
+        {
+            Image image = new()
+            {
+                Id = dImage.Id,
+                Src = dImage.Src,
+                Alt = dImage.Alt,
+                Height = dImage.Height,
+                Width = dImage.Width
+            };
+            return image;
         }
 
         private Gender ShowRecordedGender(CGender cGender)
@@ -106,6 +123,18 @@ namespace ECommerceApi.Services.DataTransfer
                 CreationDate = DateTime.Now
             };
             return product;
+        }
+
+        private DImage RecordNewImage(Image model)
+        {
+            DImage image = new()
+            {
+                Src = model.Src,
+                Alt = model.Alt,
+                Height = model.Height,
+                Width = model.Width
+            };
+            return image;
         }
 
         private CGender RecordNewGender(Gender model)

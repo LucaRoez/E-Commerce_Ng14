@@ -1,6 +1,6 @@
 ﻿namespace ECommerceApi.Models
 {
-    public class Images
+    public class Image : ModelBase
     {
         public long? Id { get; set; }
         public string Src { get; set; }

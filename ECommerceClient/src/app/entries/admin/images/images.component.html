@@ -1,0 +1,31 @@
+<mat-card class="form-box">
+	<mat-card-header class="row">
+		<mat-card-title class="form-title">Add New Image</mat-card-title>
+    <ngb-alert *ngIf="response.message != ''"
+		 [ngClass]="{'success': response.isSuccessful, 'error': !response.isSuccessful}"
+		>
+      {{response.message}}
+    </ngb-alert>
+	</mat-card-header>
+	<mat-card-content class="card-body">
+		<div class="input-container">
+			<mat-form-field>
+				<mat-label>Source</mat-label>
+				<input matInput name="input" type="url" [(ngModel)]="image.src" />
+			</mat-form-field>
+			<mat-form-field>
+				<mat-label>Alternative Text</mat-label>
+				<input matInput name="input" type="text" [(ngModel)]="image.alt" />
+			</mat-form-field>
+			<mat-form-field>
+				<mat-label>Image Height</mat-label>
+				<input matInput name="input" type="number" [(ngModel)]="image.height" />
+			</mat-form-field>
+			<mat-form-field>
+				<mat-label>Image Width</mat-label>
+				<input matInput name="input" type="number" [(ngModel)]="image.width" />
+			</mat-form-field>
+			<button mat-raised-button type="button" color="warn" (click)="PublishImage(image)">Publish Image</button>
+		</div>
+	</mat-card-content>
+</mat-card>

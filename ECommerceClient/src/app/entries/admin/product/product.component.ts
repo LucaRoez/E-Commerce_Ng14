@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Category, Currency, Gender, Product } from '../../../models/models';
+import { Category, Currency, Gender, Product, Response } from '../../../models/models';
 import { AdminService, MainService } from '../../../services/services';
 
 @Component({
@@ -44,8 +44,11 @@ export class ProductComponent implements OnInit {
     quantityAvailable: null
   };
   
-  responseMessage: string = '';
-  isSuccess: boolean = false;
+  response: Response = {
+    message: '',
+    isSuccessful: false,
+    statusCode: 0
+  }
   PublishProduct(productSent: Product) {
     const newProduct: Product = {
       name: productSent.name,
@@ -59,12 +62,13 @@ export class ProductComponent implements OnInit {
     };
     this._PostService.adminProductPost(newProduct).subscribe(
       result => {
-        this.responseMessage = 'Product published successfully.\n' + result;
-        this.isSuccess = true;
+        this.response.message = 'Product published successfully.\n' + result;
+        this.response.isSuccessful = true;
       },
       error => {
-        this.responseMessage = error.message;
-        this.isSuccess = false;
+        this.response.message = error.message;
+        this.response.isSuccessful = false;
+        this.response.statusCode = error.status;
         console.error('message: ' + error.message +
           '\nstatus: ' + error.status +
           '\nbody: ' + error.error)

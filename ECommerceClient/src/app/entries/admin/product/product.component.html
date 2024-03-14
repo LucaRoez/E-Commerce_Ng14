@@ -1,8 +1,10 @@
 <mat-card class="form-box">
   <mat-card-header class="row">
-    <mat-card-title class="form-title">Add New </mat-card-title>
-    <ngb-alert *ngIf="responseMessage != ''" [ngClass]="{'success': isSuccess, 'error': !isSuccess}">
-      {{responseMessage}}
+    <mat-card-title class="form-title">Add New Product</mat-card-title>
+    <ngb-alert *ngIf="response.message != ''"
+      [ngClass]="{'success': response.isSuccessful, 'error': !response.isSuccessful}"
+    >
+      {{response.message}}
     </ngb-alert>
   </mat-card-header>
   <mat-card-content class="card-body">

@@ -281,6 +281,23 @@ namespace ECommerceApi.Services.HttpCalls
             }
         }
 
+        public async Task<string> PostImage(Image image)
+        {
+            try
+            {
+                int modified = await _DbContext.CreateImage(_Factory.CreateEntity<DImage>(image));
+                if (modified > 0)
+                {
+                    return "Image loaded successfully.";
+                }
+                return "There was an issue loading your Image.";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
         public async Task<string> PostGender(Gender gender)
         {
             try

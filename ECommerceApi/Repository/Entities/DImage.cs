@@ -2,7 +2,7 @@
 
 namespace ECommerceApi.Repository.Entities;
 
-public partial class DImage
+public partial class DImage : EntityBase
 {
     public long Id { get; set; }
 
