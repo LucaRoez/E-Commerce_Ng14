@@ -19,6 +19,10 @@ export class MainService {
     return this._Http.get<Response>(this.url + 'products/' + id);
   }
 
+  GetImages(): Observable<Response> {
+    return this._Http.get<Response>(this.url + 'images');
+  }
+
   GetGenders(): Observable<Response> {
     return this._Http.get<Response>(this.url + 'genders');
   }

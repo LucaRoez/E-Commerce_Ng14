@@ -70,6 +70,7 @@ namespace ECommerceApi.Services.Utilities
         public Response ReturnFormalProductsResponse(int init, int length) => ParseList(_Http.GetFormalProducts(init, length));
         public Response ReturnFashionProductsResponse(int init, int length) => ParseList(_Http.GetFashionProducts(init, length));
         public Response ReturnFilteredProductsResponse(string? genderFilter, string? categoryFilter) => ParseList(_Http.GetFilteredProducts(genderFilter, categoryFilter));
+        public Response ReturnAllImages() => ParseList(_Http.GetAllImages());
         public Response ReturnAllGendersResponse() => ParseList(_Http.GetAllGenders());
         public Response ReturnAllCategoriesResponse() => ParseList(_Http.GetAllCategories());
         public Response ReturnAllCurrenciesResponse() => ParseList(_Http.GetAllCurrencies());

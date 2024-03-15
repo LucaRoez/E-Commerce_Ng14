@@ -12,4 +12,10 @@ export interface Product {
   quantityAvailable?: null | number;
   rate?: null | number;
   visits?: number;
+  presentationImage?: string;
+  secondImage?: string;
+  thirdImage?: string;
+  fourthImage?: string;
+  fifthImage?: string;
+  sixth?: string;
 }

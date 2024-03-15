@@ -2,9 +2,9 @@
 	<mat-card-header class="row">
 		<mat-card-title class="form-title">Add New Image</mat-card-title>
     <ngb-alert *ngIf="response.message != ''"
-		 [ngClass]="{'success': response.isSuccessful, 'error': !response.isSuccessful}"
-		>
-      {{response.message}}
+		[ngClass]="{'success': response.isSuccessful, 'error': !response.isSuccessful}"
+	>
+    	{{response.message}}
     </ngb-alert>
 	</mat-card-header>
 	<mat-card-content class="card-body">

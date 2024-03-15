@@ -214,6 +214,22 @@ namespace ECommerceApi.Services.HttpCalls
         }
 
 
+        public List<object> GetAllImages()
+        {
+            try
+            {
+                List<DImage> dImages = _DbContext.GetImages();
+                List<object> images = dImages.Select(dI => (object)_Factory.CreateModel<Image>(dI)).ToList();
+
+                return images;
+            }
+            catch (Exception ex)
+            {
+                List<object> exList = new() { ex };
+                return exList;
+            }
+        }
+
         public List<object> GetAllGenders()
         {
             try

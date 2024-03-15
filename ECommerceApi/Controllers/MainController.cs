@@ -202,6 +202,23 @@ namespace ECommerce.Controllers
 
 
         [HttpGet]
+        [Route("images")]
+        public IActionResult GetImages()
+        {
+            Response result = _Http.ReturnAllImages();
+            if (result.StatusCode == 200) return Ok(result);
+            else if (result.StatusCode == 404) return NotFound(result);
+            else if (result.StatusCode == 403) return Forbid();
+            else if (result.StatusCode == 401) return Unauthorized(result);
+            else if (result.StatusCode == 409) return Conflict(result);
+            else if (result.StatusCode == 500) return StatusCode(500);
+            else if (result.StatusCode == 503) return StatusCode(503);
+            else if (result.StatusCode == 400) return BadRequest(result);
+            else if (result.StatusCode == 422) return StatusCode(422);
+            else return StatusCode(503);
+        }
+
+        [HttpGet]
         [Route("genders")]
         public IActionResult GetGenders()
         {
