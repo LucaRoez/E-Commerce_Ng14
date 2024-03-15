@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Category, Currency, Gender, Product, Image } from "../models/models";
+import { Category, Currency, Gender, Product, Image, Response } from "../models/models";
 import { Observable } from "rxjs";
 
 const httpOp = {
@@ -9,31 +9,33 @@ const httpOp = {
   })
 }
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
 export class AdminService {
   constructor(private _Http: HttpClient) {
   }
   private url = 'https://localhost:7103/admin/';
 
-  adminGenderPost(gender: Gender): Observable<Gender> {
-    return this._Http.post<Gender>(this.url + 'gender', gender, httpOp);
+  adminGenderPost(gender: Gender): Observable<Response> {
+    return this._Http.post<Response>(this.url + 'gender', gender, httpOp);
   }
 
-  adminCategoryPost(category: Category): Observable<Category> {
-    return this._Http.post<Category>(this.url + 'category', category, httpOp);
+  adminCategoryPost(category: Category): Observable<Response> {
+    return this._Http.post<Response>(this.url + 'category', category, httpOp);
   }
 
-  adminCurrencyPost(currency: Currency): Observable<Currency> {
-    return this._Http.post<Currency>(this.url + 'currency', currency, httpOp);
+  adminCurrencyPost(currency: Currency): Observable<Response> {
+    return this._Http.post<Response>(this.url + 'currency', currency, httpOp);
   }
 
-  adminProductPost(product: Product): Observable<Product> {
-    return this._Http.post<Product>(this.url + 'product', product, httpOp);
+  adminProductPost(product: Product): Observable<Response> {
+    return this._Http.post<Response>(this.url + 'product', product, httpOp);
   }
 
-  adminImagePost(image: Image): Observable<Image> {
-    return this._Http.post<Image>(this.url + 'image', image, httpOp);
+  adminImagePost(image: Image): Observable<Response> {
+    return this._Http.post<Response>(this.url + 'image', image, httpOp);
+  }
+
+  adminLinkImage(image: Image, product: Product, slot: number): Observable<Response> {
+    return this._Http.post<Response>(this.url + 'image/link', {image, product, slot}, httpOp);
   }
 }

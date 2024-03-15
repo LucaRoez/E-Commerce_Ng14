@@ -16,6 +16,7 @@ namespace ECommerceApi.Repository
         Task<int> CreateCommentary(DCommentary commentary);
         List<DImage> GetImages();
         Task<int> CreateImage(DImage image);
+        Task<int> LinkImageToProduct(DImage image, DProduct product, int slot);
         List<DProduct> GetProducts();
         Task<int> CreateProduct(DProduct product);
         List<DReview> GetReviews();

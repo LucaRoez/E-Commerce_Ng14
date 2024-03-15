@@ -49,6 +49,23 @@ namespace ECommerce.Controllers
         }
 
         [HttpPost]
+        [Route("admin/image")]
+        public async Task<IActionResult> PostLinkForImage([FromBody] Image image, [FromBody] Product product, [FromBody] int slot)
+        {
+            Response result = await _Http.ReturnResponse(image, product, slot);
+            if (result.StatusCode == 200) return Ok(result);
+            else if (result.StatusCode == 404) return NotFound(result);
+            else if (result.StatusCode == 403) return Forbid();
+            else if (result.StatusCode == 401) return Unauthorized(result);
+            else if (result.StatusCode == 409) return Conflict(result);
+            else if (result.StatusCode == 500) return StatusCode(500);
+            else if (result.StatusCode == 503) return StatusCode(503);
+            else if (result.StatusCode == 400) return BadRequest(result);
+            else if (result.StatusCode == 422) return StatusCode(422);
+            else return StatusCode(503);
+        }
+
+        [HttpPost]
         [Route("admin/gender")]
         public async Task<IActionResult> PostGender([FromBody] Gender gender)
         {

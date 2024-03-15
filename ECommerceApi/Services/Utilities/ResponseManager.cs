@@ -168,6 +168,9 @@ namespace ECommerceApi.Services.Utilities
 
         public async Task<Response> ReturnResponse(Image image) => ParsePostAction(await _Http.PostImage(image));
 
+        public async Task<Response> ReturnResponse(Image image, Product product, int slot) =>
+            ParsePostAction(await _Http.LinkImageToProduct(image, product, slot));
+
         public async Task<Response> ReturnResponse(Gender gender) => ParsePostAction(await _Http.PostGender(gender));
 
         public async Task<Response> ReturnResponse(Category category) => ParsePostAction(await _Http.PostCategory(category));

@@ -135,6 +135,57 @@ namespace ECommerceApi.Repository
             }
         }
 
+        public async Task<int> LinkImageToProduct(DImage image, DProduct product, int slot)
+        {
+            long imageId = image.Id;
+            long? productId = product.Id;
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                if (slot == 0)
+                {
+                    _query = string.Format(@"UPDATE [d.Products] SET PresentationImage = {0} WHERE Id = {1}", imageId, productId);
+                    int affectedRows = await connection.ExecuteAsync(_query);
+                    return affectedRows;
+                }
+                else if (slot == 1)
+                {
+                    _query = string.Format(@"UPDATE [d.Products] SET SecondImage = {0} WHERE Id = {1}", imageId, productId);
+                    int affectedRows = await connection.ExecuteAsync(_query);
+                    return affectedRows;
+                }
+                else if (slot == 2)
+                {
+                    _query = string.Format(@"UPDATE [d.Products] SET ThirdImage = {0} WHERE Id = {1}", imageId, productId);
+                    int affectedRows = await connection.ExecuteAsync(_query);
+                    return affectedRows;
+                }
+                else if (slot == 3)
+                {
+                    _query = string.Format(@"UPDATE [d.Products] SET FourthImage = {0} WHERE Id = {1}", imageId, productId);
+                    int affectedRows = await connection.ExecuteAsync(_query);
+                    return affectedRows;
+                }
+                else if (slot == 4)
+                {
+                    _query = string.Format(@"UPDATE [d.Products] SET FifthImage = {0} WHERE Id = {1}", imageId, productId);
+                    int affectedRows = await connection.ExecuteAsync(_query);
+                    return affectedRows;
+                }
+                else if (slot == 5)
+                {
+                    _query = string.Format(@"UPDATE [d.Products] SET SixthImage = {0} WHERE Id = {1}", imageId, productId);
+                    int affectedRows = await connection.ExecuteAsync(_query);
+                    return affectedRows;
+                }
+                else
+                {
+                    _query = string.Format(@"UPDATE [d.Products] SET PresentationImage = {0} WHERE Id = {1}", imageId, productId);
+                    int affectedRows = await connection.ExecuteAsync(_query);
+                    return affectedRows;
+                }
+            }
+        }
+
         public List<DProduct> GetProducts()
         {
             using (var connection = new SqlConnection(_connectionString))

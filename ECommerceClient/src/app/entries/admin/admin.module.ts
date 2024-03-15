@@ -14,6 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { ImagesComponent } from './images/images.component';
+import { AdminService } from '../../services/admin.service';
 
 
 @NgModule({
@@ -36,6 +37,9 @@ import { ImagesComponent } from './images/images.component';
   ],
   exports: [
     AdminComponent
+  ],
+  providers: [
+    AdminService
   ]
 })
 export class AdminModule { }

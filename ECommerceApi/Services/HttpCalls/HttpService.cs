@@ -298,6 +298,42 @@ namespace ECommerceApi.Services.HttpCalls
             }
         }
 
+        public async Task<string> LinkImageToProduct(Image image, Product product, int slot)
+        {
+            try
+            {
+                int modified = await _DbContext.LinkImageToProduct(_Factory.CreateEntity<DImage>(image), _Factory.CreateEntity<DProduct>(product), slot);
+                if (modified > 0)
+                {
+                    switch (slot)
+                    {
+                        case 0:
+                            return "Image linked to the product selected as its presentation successfully.";
+                        case 1:
+                            return "Image linked to the product selected as its secondary image successfully.";
+                        case 2:
+                            return "Image linked to the product selected as its third image successfully.";
+                        case 3:
+                            return "Image linked to the product selected as its fourth image successfully.";
+                        case 4:
+                            return "Image linked to the product selected as its fifth image successfully.";
+                        case 5:
+                            return "Image linked to the product selected as its sixth image successfully.";
+                        default:
+                            return "Image linked to the product selected as its presentation successfully.";
+                    }
+                }
+                else
+                {
+                    return "There was an error trying to link the image to the product selected.";
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
         public async Task<string> PostGender(Gender gender)
         {
             try
