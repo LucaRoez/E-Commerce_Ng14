@@ -3,16 +3,18 @@
     <app-searcher/>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-card *ngFor="let product of products">
-      <mat-card-content (click)="NavigateToProduct(product)">
+    <div class="product-container" *ngFor="let product of products"
+      [ngClass]="{ 'is-first': product.isFirst, 'is-last': product.isLastThree }"
+    >
+      <div class="product-image" (click)="NavigateToProduct(product)">
         <img [src]="product.presentationImage" />
-      </mat-card-content>
-      <mat-card-header>
+      </div>
+      <div class="product-captures">
         <a (click)="NavigateToProduct(product)">
           <h3>{{ product.name }}</h3>
         </a>
         <p>{{ product.price }}</p><p>{{ product.discount }}</p>
-      </mat-card-header>
-    </mat-card>
+      </div>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

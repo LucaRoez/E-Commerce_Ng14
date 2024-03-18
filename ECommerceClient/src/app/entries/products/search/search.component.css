@@ -10,11 +10,25 @@ mat-sidenav-content {
     padding-left: 1rem;
 }
 
-mat-card {
+div.product-container {
+    position: relative;
     height: 15rem;
+    width: 33%;
+    display: inline-block;
     margin-bottom: 2.5rem;
 }
 
-mat-card:last-child {
+div.product-container.is-first {
+    margin-left: 1%;
+}
+
+div.product-container.is-last {
     margin-bottom: 0;
+}
+
+div.product-container>div.product-captures {
+    width: 3rem;
+    position: absolute;
+    bottom: .5em;
+    left: 40%;
 }
