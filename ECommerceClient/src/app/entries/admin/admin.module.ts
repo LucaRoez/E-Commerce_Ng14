@@ -6,7 +6,7 @@ import { AdminComponent } from './admin.component';
 import { CatalogsComponent } from './catalogs/catalogs.component';
 import { ProductComponent } from './product/product.component';
 
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -15,6 +15,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { ImagesComponent } from './images/images.component';
 import { AdminService } from '../../services/admin.service';
+import { LinkImageComponent } from './images/link-image/link-image.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { AdminService } from '../../services/admin.service';
     AdminComponent,
     CatalogsComponent,
     ProductComponent,
-    ImagesComponent
+    ImagesComponent,
+    LinkImageComponent
   ],
   imports: [
     CommonModule,

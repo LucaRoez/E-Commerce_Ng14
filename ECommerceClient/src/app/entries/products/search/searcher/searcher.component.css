@@ -1,0 +1,60 @@
+div.searcher-container {
+    min-height: 50rem;
+    margin-left: 3rem;
+    padding: 5rem 1rem 2.5rem 5rem;
+    border: 1px solid rgb(204, 201, 201);
+    background-color: rgb(255, 255, 255);
+    border-radius: 1px;
+}
+
+section.dropdown-menus>div>div>div {
+    width: 100%;
+}
+
+section.dropdown-menus>div>div>div>button {
+    position: relative;
+    margin-bottom: 2rem;
+    color: rgb(26, 26, 26);
+    background-color: rgb(255, 255, 255);
+    min-width: 90%;
+    border: 1px solid rgb(1204, 201, 201);
+    border-radius: 50px;
+    padding: 3%;
+    text-align: left;
+    padding-left: .7rem;
+    overflow: hidden;
+}
+
+section.dropdown-menus>div>div>div>button::after {
+    content: '';
+    position: absolute;
+    top: 1.1em;
+}
+
+section.dropdown-menus>div>div>div>button#category::after {
+    margin-left: 6rem;
+}
+section.dropdown-menus>div>div>div>button#type::after {
+    margin-left: 7.65rem;
+}
+section.dropdown-menus>div>div>div>button#size::after {
+    margin-left: 7.9rem;
+}
+section.dropdown-menus>div>div>div>button#color::after {
+    margin-left: 7.4rem;
+}
+
+span {
+    font-weight: bolder;
+    display: block;
+    margin: .5rem .5rem 1rem;
+}
+
+section.prices-slider {
+    margin-bottom: 1.5rem;
+}
+
+mat-list>mat-list-item {
+    height: 1.3em;
+    margin-bottom: .3rem;
+}

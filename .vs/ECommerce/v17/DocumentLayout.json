@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\lucae\\OneDrive\\Documents\\My Web Sites\\ECommerce\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A47BA49E-5D1A-4921-B1E0-8A98551752CA}|ECommerceApi\\ECommerceApi.csproj|c:\\users\\lucae\\onedrive\\documents\\my web sites\\ecommerce\\ecommerceapi\\controllers\\maincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A47BA49E-5D1A-4921-B1E0-8A98551752CA}|ECommerceApi\\ECommerceApi.csproj|solutionrelative:ecommerceapi\\controllers\\maincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A47BA49E-5D1A-4921-B1E0-8A98551752CA}|ECommerceApi\\ECommerceApi.csproj|c:\\users\\lucae\\onedrive\\documents\\my web sites\\ecommerce\\ecommerceapi\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A47BA49E-5D1A-4921-B1E0-8A98551752CA}|ECommerceApi\\ECommerceApi.csproj|solutionrelative:ecommerceapi\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A47BA49E-5D1A-4921-B1E0-8A98551752CA}|ECommerceApi\\ECommerceApi.csproj|c:\\users\\lucae\\onedrive\\documents\\my web sites\\ecommerce\\ecommerceapi\\services\\httpcalls\\httpservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A47BA49E-5D1A-4921-B1E0-8A98551752CA}|ECommerceApi\\ECommerceApi.csproj|solutionrelative:ecommerceapi\\services\\httpcalls\\httpservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A47BA49E-5D1A-4921-B1E0-8A98551752CA}|ECommerceApi\\ECommerceApi.csproj|c:\\users\\lucae\\onedrive\\documents\\my web sites\\ecommerce\\ecommerceapi\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A47BA49E-5D1A-4921-B1E0-8A98551752CA}|ECommerceApi\\ECommerceApi.csproj|solutionrelative:ecommerceapi\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A47BA49E-5D1A-4921-B1E0-8A98551752CA}|ECommerceApi\\ECommerceApi.csproj|c:\\users\\lucae\\onedrive\\documents\\my web sites\\ecommerce\\ecommerceapi\\controllers\\maincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A47BA49E-5D1A-4921-B1E0-8A98551752CA}|ECommerceApi\\ECommerceApi.csproj|solutionrelative:ecommerceapi\\controllers\\maincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A47BA49E-5D1A-4921-B1E0-8A98551752CA}|ECommerceApi\\ECommerceApi.csproj|c:\\users\\lucae\\onedrive\\documents\\my web sites\\ecommerce\\ecommerceapi\\repository\\commercialcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
@@ -42,13 +42,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "AdminController.cs",
               "DocumentMoniker": "C:\\Users\\lucae\\OneDrive\\Documents\\My Web Sites\\ECommerce\\ECommerceApi\\Controllers\\AdminController.cs",
               "RelativeDocumentMoniker": "ECommerceApi\\Controllers\\AdminController.cs",
               "ToolTip": "C:\\Users\\lucae\\OneDrive\\Documents\\My Web Sites\\ECommerce\\ECommerceApi\\Controllers\\AdminController.cs",
               "RelativeToolTip": "ECommerceApi\\Controllers\\AdminController.cs",
-              "ViewState": "AQIAACAAAAAAAAAAAAAwwDwAAABGAAAA",
+              "ViewState": "AQIAABsAAAAAAAAAAAAuwDMAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-20T00:26:51.357Z",
               "EditorCaption": ""
@@ -63,21 +63,19 @@
               "RelativeToolTip": "ECommerceApi\\Services\\HttpCalls\\HttpService.cs",
               "ViewState": "AQIAALEAAAAAAAAAAAAkwN8AAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-19T23:40:40.51Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-19T23:40:40.51Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "MainController.cs",
               "DocumentMoniker": "C:\\Users\\lucae\\OneDrive\\Documents\\My Web Sites\\ECommerce\\ECommerceApi\\Controllers\\MainController.cs",
               "RelativeDocumentMoniker": "ECommerceApi\\Controllers\\MainController.cs",
               "ToolTip": "C:\\Users\\lucae\\OneDrive\\Documents\\My Web Sites\\ECommerce\\ECommerceApi\\Controllers\\MainController.cs",
               "RelativeToolTip": "ECommerceApi\\Controllers\\MainController.cs",
-              "ViewState": "AQIAADEAAAAAAAAAAAAgwM8AAAAzAAAA",
+              "ViewState": "AQIAAHcAAAAAAAAAAAAuwDAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-19T23:24:28.679Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-19T23:24:28.679Z"
             }
           ]
         }

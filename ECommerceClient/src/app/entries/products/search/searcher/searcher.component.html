@@ -1,1 +1,70 @@
-<p>searcher works!</p>
+<div class="searcher-container">
+    <section class="dropdown-menus">
+        <div class="row">
+            <div class="col">
+                <div ngbDropdown class="d-inline-block">
+                    <button ngbDropdownToggle type="button" id="category">Category</button>
+                    <div ngbDropdownMenu>
+                        <button ngbDropdownItem></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div ngbDropdown class="d-inline-block">
+                    <button ngbDropdownToggle type="button" id="type">Type</button>
+                    <div ngbDropdownMenu>
+                        <button ngbDropdownItem></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div ngbDropdown class="d-inline-block">
+                    <button ngbDropdownToggle type="button" id="size">Size</button>
+                    <div ngbDropdownMenu>
+                        <button ngbDropdownItem></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div ngbDropdown class="d-inline-block">
+                    <button ngbDropdownToggle type="button" id="color">Color</button>
+                    <div ngbDropdownMenu>
+                        <button ngbDropdownItem></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="prices-slider">
+        <span>Filter by Price</span>
+        <mat-slider step="5" [color]="'warn'" >
+            <input matSliderStartThumb [(ngModel)]="sliderMinValue">
+            <input matSliderEndThumb [(ngModel)]="sliderMaxValue">
+        </mat-slider>
+        <div class="slider-values-container">
+            {{sliderMinValue}} to {{sliderMaxValue}}
+        </div>
+    </section>
+    <section class="genre-list">
+        <span>Filter by Genre</span>
+        <mat-list>
+            <mat-list-item></mat-list-item>
+            <mat-list-item></mat-list-item>
+            <mat-list-item></mat-list-item>
+        </mat-list>
+    </section>
+    <section class="brand-list">
+    <span>Filter by Brand</span>
+        <mat-list>
+            <mat-list-item></mat-list-item>
+            <mat-list-item></mat-list-item>
+            <mat-list-item></mat-list-item>
+        </mat-list>
+    </section>
+</div>

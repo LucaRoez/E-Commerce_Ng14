@@ -1,14 +1,16 @@
-<mat-sidenav-container>
+<mat-sidenav-container class="search-container">
   <mat-sidenav mode="side" opened>
     <app-searcher/>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-card *ngFor="let product of products">
-      <mat-card-content>
+      <mat-card-content (click)="NavigateToProduct(product)">
         <img [src]="product.presentationImage" />
       </mat-card-content>
       <mat-card-header>
-        <h3>{{ product.name }}</h3>
+        <a (click)="NavigateToProduct(product)">
+          <h3>{{ product.name }}</h3>
+        </a>
         <p>{{ product.price }}</p><p>{{ product.discount }}</p>
       </mat-card-header>
     </mat-card>

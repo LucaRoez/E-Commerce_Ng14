@@ -49,6 +49,48 @@
   },
   {
     "ContainingType": "ECommerce.Controllers.AdminController",
+    "Method": "PostImage",
+    "RelativePath": "admin/image",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "image",
+        "Type": "ECommerceApi.Models.Image",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ECommerce.Controllers.AdminController",
+    "Method": "PostLinkForImage",
+    "RelativePath": "admin/link-image",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "image",
+        "Type": "ECommerceApi.Models.Image",
+        "IsRequired": true
+      },
+      {
+        "Name": "product",
+        "Type": "ECommerceApi.Models.Product",
+        "IsRequired": true
+      },
+      {
+        "Name": "slot",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ECommerce.Controllers.AdminController",
     "Method": "PostProduct",
     "RelativePath": "admin/product",
     "HttpMethod": "POST",
@@ -87,6 +129,16 @@
     "ContainingType": "ECommerce.Controllers.MainController",
     "Method": "GetGenders",
     "RelativePath": "genders",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ECommerce.Controllers.MainController",
+    "Method": "GetImages",
+    "RelativePath": "images",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

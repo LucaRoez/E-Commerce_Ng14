@@ -1,0 +1,20 @@
+.search-container {
+    min-height: 50rem;
+}
+
+mat-sidenav {
+    width: 30%;
+}
+
+mat-sidenav-content {
+    padding-left: 1rem;
+}
+
+mat-card {
+    height: 15rem;
+    margin-bottom: 2.5rem;
+}
+
+mat-card:last-child {
+    margin-bottom: 0;
+}

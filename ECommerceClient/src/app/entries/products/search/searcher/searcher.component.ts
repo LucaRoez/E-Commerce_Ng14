@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './searcher.component.css'
 })
 export class SearcherComponent {
-
+  sliderMinValue = 0;
+  sliderMaxValue = 100;
 }

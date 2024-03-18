@@ -49,7 +49,7 @@ namespace ECommerce.Controllers
         }
 
         [HttpPost]
-        [Route("admin/image")]
+        [Route("admin/link-image")]
         public async Task<IActionResult> PostLinkForImage([FromBody] Image image, [FromBody] Product product, [FromBody] int slot)
         {
             Response result = await _Http.ReturnResponse(image, product, slot);
