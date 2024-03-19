@@ -3,11 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\lucae\\OneDrive\\Documents\\My Web Sites\\ECommerce\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/E_Commerce_Database/True/SqlTable/dbo.d.Products.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/E_Commerce_Database/True/SqlTable/dbo.d.Images.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A47BA49E-5D1A-4921-B1E0-8A98551752CA}|ECommerceApi\\ECommerceApi.csproj|c:\\users\\lucae\\onedrive\\documents\\my web sites\\ecommerce\\ecommerceapi\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A47BA49E-5D1A-4921-B1E0-8A98551752CA}|ECommerceApi\\ECommerceApi.csproj|solutionrelative:ecommerceapi\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A47BA49E-5D1A-4921-B1E0-8A98551752CA}|ECommerceApi\\ECommerceApi.csproj|c:\\users\\lucae\\onedrive\\documents\\my web sites\\ecommerce\\ecommerceapi\\repository\\commercialcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A47BA49E-5D1A-4921-B1E0-8A98551752CA}|ECommerceApi\\ECommerceApi.csproj|solutionrelative:ecommerceapi\\repository\\commercialcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A47BA49E-5D1A-4921-B1E0-8A98551752CA}|ECommerceApi\\ECommerceApi.csproj|c:\\users\\lucae\\onedrive\\documents\\my web sites\\ecommerce\\ecommerceapi\\services\\httpcalls\\httpservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -18,8 +21,8 @@
       "RelativeMoniker": "D:0:0:{A47BA49E-5D1A-4921-B1E0-8A98551752CA}|ECommerceApi\\ECommerceApi.csproj|solutionrelative:ecommerceapi\\controllers\\maincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A47BA49E-5D1A-4921-B1E0-8A98551752CA}|ECommerceApi\\ECommerceApi.csproj|c:\\users\\lucae\\onedrive\\documents\\my web sites\\ecommerce\\ecommerceapi\\repository\\commercialcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A47BA49E-5D1A-4921-B1E0-8A98551752CA}|ECommerceApi\\ECommerceApi.csproj|solutionrelative:ecommerceapi\\repository\\commercialcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A47BA49E-5D1A-4921-B1E0-8A98551752CA}|ECommerceApi\\ECommerceApi.csproj|c:\\users\\lucae\\onedrive\\documents\\my web sites\\ecommerce\\ecommerceapi\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A47BA49E-5D1A-4921-B1E0-8A98551752CA}|ECommerceApi\\ECommerceApi.csproj|solutionrelative:ecommerceapi\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,6 +37,16 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "dbo.d.Products [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/E_Commerce_Database/True/SqlTable/dbo.d.Products.sql",
+              "ToolTip": "dbo.d.Products [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-03-19T14:22:54.536Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "dbo.d.Images [Data]",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/E_Commerce_Database/True/SqlTable/dbo.d.Images.sql",
               "ToolTip": "dbo.d.Images [Data]",
@@ -43,52 +56,55 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "CommercialContext.cs",
               "DocumentMoniker": "C:\\Users\\lucae\\OneDrive\\Documents\\My Web Sites\\ECommerce\\ECommerceApi\\Repository\\CommercialContext.cs",
               "RelativeDocumentMoniker": "ECommerceApi\\Repository\\CommercialContext.cs",
               "ToolTip": "C:\\Users\\lucae\\OneDrive\\Documents\\My Web Sites\\ECommerce\\ECommerceApi\\Repository\\CommercialContext.cs",
               "RelativeToolTip": "ECommerceApi\\Repository\\CommercialContext.cs",
-              "ViewState": "AQIAAIIAAAAAAAAAAAAUwAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-15T03:53:47.205Z"
+              "WhenOpened": "2024-03-19T13:41:52.726Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "AdminController.cs",
               "DocumentMoniker": "C:\\Users\\lucae\\OneDrive\\Documents\\My Web Sites\\ECommerce\\ECommerceApi\\Controllers\\AdminController.cs",
               "RelativeDocumentMoniker": "ECommerceApi\\Controllers\\AdminController.cs",
               "ToolTip": "C:\\Users\\lucae\\OneDrive\\Documents\\My Web Sites\\ECommerce\\ECommerceApi\\Controllers\\AdminController.cs",
               "RelativeToolTip": "ECommerceApi\\Controllers\\AdminController.cs",
-              "ViewState": "AQIAACQAAAAAAAAAAAAAwDMAAAAbAAAA",
+              "ViewState": "AQIAACoAAAAAAAAAAAAAwDMAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-20T00:26:51.357Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "HttpService.cs",
               "DocumentMoniker": "C:\\Users\\lucae\\OneDrive\\Documents\\My Web Sites\\ECommerce\\ECommerceApi\\Services\\HttpCalls\\HttpService.cs",
               "RelativeDocumentMoniker": "ECommerceApi\\Services\\HttpCalls\\HttpService.cs",
               "ToolTip": "C:\\Users\\lucae\\OneDrive\\Documents\\My Web Sites\\ECommerce\\ECommerceApi\\Services\\HttpCalls\\HttpService.cs",
               "RelativeToolTip": "ECommerceApi\\Services\\HttpCalls\\HttpService.cs",
-              "ViewState": "AQIAALEAAAAAAAAAAAAkwN8AAAAdAAAA",
+              "ViewState": "AQIAANcAAAAAAAAAAADwvzwBAABcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-19T23:40:40.51Z"
+              "WhenOpened": "2024-02-19T23:40:40.51Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "MainController.cs",
               "DocumentMoniker": "C:\\Users\\lucae\\OneDrive\\Documents\\My Web Sites\\ECommerce\\ECommerceApi\\Controllers\\MainController.cs",
               "RelativeDocumentMoniker": "ECommerceApi\\Controllers\\MainController.cs",
               "ToolTip": "C:\\Users\\lucae\\OneDrive\\Documents\\My Web Sites\\ECommerce\\ECommerceApi\\Controllers\\MainController.cs",
               "RelativeToolTip": "ECommerceApi\\Controllers\\MainController.cs",
-              "ViewState": "AQIAAHcAAAAAAAAAAAAuwDAAAAAAAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAADAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-19T23:24:28.679Z"
+              "WhenOpened": "2024-02-19T23:24:28.679Z",
+              "EditorCaption": ""
             }
           ]
         }

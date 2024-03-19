@@ -56,7 +56,13 @@ namespace ECommerceApi.Services.DataTransfer
                 GenderId = dProduct.GenderId,
                 Visits = dProduct.Visits,
                 Rate = dProduct.Rate,
-                CreationDate = dProduct.CreationDate
+                CreationDate = dProduct.CreationDate,
+                PresentationImageId = dProduct.PresentationImageId,
+                SecondImageId = dProduct.SecondImageId,
+                ThirdImageId = dProduct.ThirdImageId,
+                FourthImageId = dProduct.FourthImageId,
+                FifthImageId = dProduct.FifthImageId,
+                SixthImageId = dProduct.SixthImageId
             };
             return product;
         }
@@ -120,7 +126,13 @@ namespace ECommerceApi.Services.DataTransfer
                 GenderId = model.GenderId,
                 Visits = 0,
                 Rate = null,
-                CreationDate = DateTime.Now
+                CreationDate = DateTime.Now,
+                PresentationImageId = model.PresentationImageId,
+                SecondImageId = model.SecondImageId,
+                ThirdImageId = model.ThirdImageId,
+                FourthImageId = model.FourthImageId,
+                FifthImageId = model.FifthImageId,
+                SixthImageId = model.SixthImageId
             };
             return product;
         }

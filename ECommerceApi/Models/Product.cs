@@ -28,5 +28,11 @@ namespace ECommerceApi.Models
         public int Visits { get; set; }
         public decimal? Rate { get; set; }
         public DateTime CreationDate { get; set; }
+        public long? PresentationImageId { get; set; }
+        public long? SecondImageId { get; set; }
+        public long? ThirdImageId { get; set; }
+        public long? FourthImageId { get; set; }
+        public long? FifthImageId { get; set; }
+        public long? SixthImageId { get; set; }
     }
 }

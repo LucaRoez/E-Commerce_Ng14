@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Product, ProductUI, Response } from '../../../models/models';
+import { Product, Image, ProductUI, Response } from '../../../models/models';
 import { MainService, FunctionService } from '../../../services/services';
 import { Router } from '@angular/router'
+import { error } from 'console';
 
 @Component({
   selector: 'app-search',
@@ -10,6 +11,7 @@ import { Router } from '@angular/router'
 })
 export class SearchComponent implements OnInit {
   productsGot: Product[] = [];
+  images: Image[] | undefined = [];
   products: ProductUI[] = [];
   constructor(private _http: MainService, private _router: Router, private _functions: FunctionService) {
   }
@@ -27,13 +29,21 @@ export class SearchComponent implements OnInit {
         this.productsGot.map(p => {
           this.products.push(this._functions.PrepareProductToUI(p));
         });
+
+        this._http.GetImages().subscribe(response => {
+          this.images = response.images;
+          let imagesFiltered: Image[] = this.images ? this.images.filter(i => i !== undefined) : [];
+          this._functions.SetImagesToProducts(imagesFiltered, this.productsGot, this.products)
+        },
+        error => {
+          console.error(error.message);
+        });
     
         this.products.forEach((p, i) => {
           if (i == 0 || i % 3 == 0) {
             p.isFirst = true;
           }
-        });
-    
+        });    
         const lastThree = this.products.slice(-3);
         lastThree.map((p, i) => {
           p.isLastThree = true;

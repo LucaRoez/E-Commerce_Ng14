@@ -18,4 +18,11 @@ public partial class DProduct : EntityBase
     public virtual CCategory? Category { get; set; }
     public virtual CCurrency? Currency { get; set; }
     public virtual CGender? Gender { get; set; }
+    public long? PresentationImageId { get; set; }
+    public long? SecondImageId { get; set; }
+    public long? ThirdImageId { get; set; }
+    public long? FourthImageId { get; set; }
+    public long? FifthImageId { get; set; }
+    public long? SixthImageId { get; set; }
+
 }
