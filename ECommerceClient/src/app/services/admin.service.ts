@@ -35,7 +35,7 @@ export class AdminService {
     return this._Http.post<Response>(this.url + 'image', image, httpOp);
   }
 
-  adminLinkImage(image: Image, product: Product, slot: number): Observable<Response> {
+  adminLinkImage(image: Image | undefined, product: Product | undefined, slot: number): Observable<Response> {
     return this._Http.post<Response>(this.url + 'image/link', {image, product, slot}, httpOp);
   }
 }

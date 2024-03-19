@@ -12,15 +12,21 @@ export interface Product {
   quantityAvailable?: null | number;
   rate?: null | number;
   visits?: number;
+  presentationImageId?: null | number;
+  secondImageId?: null | number;
+  thirdImageId?: null | number;
+  fourthImageId?: null | number;
+  fifthImageId?: null | number;
+  sixthImageId?: null | number;
+}
+
+export interface ProductUI extends Product {
+  isFirst: false | true;
+  isLastThree: false | true;
   presentationImage?: null | string;
   secondImage?: null | string;
   thirdImage?: null | string;
   fourthImage?: null | string;
   fifthImage?: null | string;
   sixthImage?: null | string;
-}
-
-export interface ProductUI extends Product {
-  isFirst: false | true;
-  isLastThree: false | true;
 }

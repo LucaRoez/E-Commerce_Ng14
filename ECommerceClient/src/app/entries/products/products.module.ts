@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, CurrencyPipe, DecimalPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ProductsComponent } from './products.component';
@@ -24,6 +24,8 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     FormsModule,
     RouterModule,
+    CurrencyPipe,
+    DecimalPipe,
     MatSidenavModule,
     MatCardModule,
     MatSliderModule,

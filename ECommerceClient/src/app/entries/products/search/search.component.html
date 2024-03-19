@@ -13,7 +13,16 @@
         <a (click)="NavigateToProduct(product)">
           <h3>{{ product.name }}</h3>
         </a>
-        <p>{{ product.price }}</p><p>{{ product.discount }}</p>
+        <div class="price">
+          <p>
+            {{ product.price != null || product.price != undefined ?
+              (product.price | number: "1.0-2" | currency: "USD") : "-" }}
+          </p>
+          <p>
+            {{ product.discount != null || product.discount != undefined ?
+              (product.price | percent: "2") : "-" }}
+          </p>
+        </div>
       </div>
     </div>
   </mat-sidenav-content>

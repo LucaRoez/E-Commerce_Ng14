@@ -2,7 +2,7 @@
 	<mat-card-header class="row">
 		<mat-card-title class="form-title">Add New Image</mat-card-title>
     <ngb-alert *ngIf="response.message != ''"
-		[ngClass]="{'success': response.isSuccessful, 'error': !response.isSuccessful}"
+		[type]="response.isSuccessful ? 'success' : 'danger'"
 	>
     	{{response.message}}
     </ngb-alert>
@@ -33,4 +33,4 @@
 		</div>
 	</mat-card-content>
 </mat-card>
-<app-link-image />
+<app-link-image [thisImage]="image" (alertMessage)="response" />

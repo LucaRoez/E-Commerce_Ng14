@@ -26,9 +26,28 @@ div.product-container.is-last {
     margin-bottom: 0;
 }
 
+div.product-container>div.image {
+    min-height: 100%;
+}
+
+div.product-container>div.image>img {
+    object-fit: cover;
+}
+
 div.product-container>div.product-captures {
-    width: 3rem;
+    width: 100%;
     position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
     bottom: .5em;
-    left: 40%;
+}
+
+div.product-container>div.product-captures>a>h3 {
+    margin-bottom: 0;
+}
+
+div.product-container>div.product-captures>div.price>p {
+    display: inline;
 }

@@ -4,6 +4,27 @@
 	</mat-card-header>
 	<mat-card-content class="card-body">
 		<div class="input-container">
+			<mat-form-field>
+				<mat-label>Product Id</mat-label>
+				<input matInput name="input" type="number" [(ngModel)]="productTaken.id" />
+			</mat-form-field>
+			<mat-form-field>
+				<mat-label>Product Name</mat-label>
+				<input matInput name="input" type="text" [(ngModel)]="productTaken.name" />
+			</mat-form-field>
+			<mat-form-field>
+				<mat-label>Image Slot in the Product</mat-label>
+				<mat-select [(ngModel)]="slotSelected">
+				  @for (slot of slots; track slots) {
+					<mat-option [value]="slot.value">{{slot.name}}</mat-option>
+				  }
+				</mat-select>
+			</mat-form-field>
+			<div class="button">
+				<button mat-raised-button type="button" color="warn" (click)="LinkImageToProduct(slotSelected.value)">
+					Link Image Above to This Product
+				</button>
+			</div>
 		</div>
 	</mat-card-content>
 </mat-card>
