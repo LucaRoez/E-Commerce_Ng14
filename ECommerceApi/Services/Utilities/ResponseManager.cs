@@ -146,6 +146,20 @@ namespace ECommerceApi.Services.Utilities
                     result.Message = ex.Message;
                 }
             }
+            else if (response.FirstOrDefault() is Image)
+            {
+                try
+                {
+                    result.IsSuccessful = true;
+                    result.StatusCode = 200;
+                    result.Images = response.Cast<Image>().ToList();
+                }
+                catch (Exception ex)
+                {
+                    result.StatusCode = ex.HResult;
+                    result.Message = ex.Message;
+                }
+            }
             else
             {
                 try

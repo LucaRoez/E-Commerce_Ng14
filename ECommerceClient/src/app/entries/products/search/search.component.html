@@ -20,7 +20,7 @@
           </p>
           <p>
             {{ product.discount != null || product.discount != undefined ?
-              (product.price | percent: "2") : "-" }}
+              (product.discount | percent: "2") : "-" }}
           </p>
         </div>
       </div>

@@ -33,7 +33,7 @@ export class SearchComponent implements OnInit {
         this._http.GetImages().subscribe(response => {
           this.images = response.images;
           let imagesFiltered: Image[] = this.images ? this.images.filter(i => i !== undefined) : [];
-          this._functions.SetImagesToProducts(imagesFiltered, this.productsGot, this.products)
+          this.products = this._functions.SetImagesToProducts(imagesFiltered, this.productsGot, this.products);
         },
         error => {
           console.error(error.message);

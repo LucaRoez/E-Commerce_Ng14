@@ -44,7 +44,7 @@ export class LinkImageComponent {
   ]
   slotSelected = { name: 'Presentation Image', value: 0 };
 
-  response!: Response;
+  @Input() response!: Response;
 
   @Input() thisImage: Image | undefined = undefined;
   @Output() alertMessage = new EventEmitter<Response>();
@@ -52,6 +52,9 @@ export class LinkImageComponent {
     if (this.productTaken.id !== 0) {
       this._MainService.GetProduct(this.productTaken.id).subscribe(response => {
         this.product = response.product;
+        this._MainService.GetImages().subscribe(result => {
+          this.thisImage = result.images?.find(i => i.src === this.thisImage?.src);
+        });
         this.response.isSuccessful = true;
       },
       error => {
@@ -66,6 +69,9 @@ export class LinkImageComponent {
         const products = this._MainService.GetProducts();
         products.subscribe(search => {
           this.product = search.products?.find(p => p.name === this.productTaken.name);
+          this._MainService.GetImages().subscribe(result => {
+            this.thisImage = result.images?.find(i => i.src === this.thisImage?.src);
+          });
           this.response.isSuccessful = true;
         },
         error => {
@@ -86,6 +92,12 @@ export class LinkImageComponent {
       this._PostService.adminLinkImage(this.thisImage, this.product, slot).subscribe(result => {
         this.response.message = 'Image linked successfully.\n' + result;
         this.response.statusCode = 200;
+        this.alertMessage.emit(this.response);
+      },
+      error => {
+        this.response.isSuccessful = false;
+        this.response.message = error.message;
+        this.response.statusCode = error.statusCode;
         this.alertMessage.emit(this.response);
       });
     }
