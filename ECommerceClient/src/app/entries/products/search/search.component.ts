@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product, Image, ProductUI, Response } from '../../../models/models';
 import { MainService, FunctionService } from '../../../services/services';
-import { Router } from '@angular/router'
-import { error } from 'console';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',

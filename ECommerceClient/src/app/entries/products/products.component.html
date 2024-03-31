@@ -1,11 +1,16 @@
 <section class="search-header">
     <div class="row">
-        <h1>Category</h1>
+        <h1>{{ currentInput }}</h1>
     </div>
     <div class="row">
-        <h4>Home | Category</h4>
+        <h4><a (click)="GetClicked(backInput)">{{ backInput }}</a> | <a (click)="GetClicked(currentInput)">{{ currentInput }}</a></h4>
     </div>
 </section>
 <section class="search-body">
-    <app-search />
+    <div *ngIf="isSearch; else isProduct" class="row">
+        <app-search />
+    </div>
+    <ng-template #isProduct class="row">
+        <app-product />
+    </ng-template>
 </section>

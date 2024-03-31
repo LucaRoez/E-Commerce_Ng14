@@ -63,8 +63,7 @@
               "RelativeToolTip": "ECommerceApi\\Services\\HttpCalls\\HttpService.cs",
               "ViewState": "AQIAANgAAAAAAAAAAAA9wOYAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-19T23:40:40.51Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-19T23:40:40.51Z"
             },
             {
               "$type": "Document",
@@ -76,8 +75,7 @@
               "RelativeToolTip": "ECommerceApi\\Controllers\\MainController.cs",
               "ViewState": "AQIAAKoAAAAAAAAAAAA7wNoAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-19T23:24:28.679Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-19T23:24:28.679Z"
             }
           ]
         }
