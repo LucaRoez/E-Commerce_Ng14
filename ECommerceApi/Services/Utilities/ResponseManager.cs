@@ -70,7 +70,53 @@ namespace ECommerceApi.Services.Utilities
         public Response ReturnFormalProductsResponse(int init, int length) => ParseList(_Http.GetFormalProducts(init, length));
         public Response ReturnFashionProductsResponse(int init, int length) => ParseList(_Http.GetFashionProducts(init, length));
         public Response ReturnFilteredProductsResponse(string? genderFilter, string? categoryFilter) => ParseList(_Http.GetFilteredProducts(genderFilter, categoryFilter));
-        public Response ReturnAllImages() => ParseList(_Http.GetAllImages());
+        public Response ReturnImageResponse(int id)
+        {
+            Response result = new();
+            object response = _Http.GetImage(id);
+            if (response is null)
+            {
+                result.StatusCode = 404;
+                result.Message = "There was a problem to get the Image requested, and got a null as response.";
+            }
+            else if (response is Exception)
+            {
+                Exception ex = (Exception)response;
+                result.StatusCode = ex.HResult;
+                result.Message = ex.Message;
+            }
+            else if (response is Image)
+            {
+                try
+                {
+                    result.IsSuccessful = true;
+                    result.StatusCode = 200;
+                    result.Image = (Image)response;
+                }
+                catch (Exception ex)
+                {
+                    result.StatusCode = ex.HResult;
+                    result.Message = ex.Message;
+                }
+            }
+            else
+            {
+                try
+                {
+                    Exception ex = (Exception)response;
+                    result.StatusCode = 500;
+                    result.Message = ex.Message;
+                }
+                catch (Exception ex)
+                {
+                    result.StatusCode = ex.HResult;
+                    result.Message = ex.Message;
+                }
+            }
+
+            return result;
+        }
+        public Response ReturnAllImagesResponse() => ParseList(_Http.GetAllImages());
         public Response ReturnAllGendersResponse() => ParseList(_Http.GetAllGenders());
         public Response ReturnAllCategoriesResponse() => ParseList(_Http.GetAllCategories());
         public Response ReturnAllCurrenciesResponse() => ParseList(_Http.GetAllCurrencies());

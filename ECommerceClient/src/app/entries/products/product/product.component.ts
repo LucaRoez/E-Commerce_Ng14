@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { Product } from '../../../models/models';
-import { MainService } from '../../../services/main.service';
+import { Product, ProductUI, Response } from '../../../models/models';
+import { MainService, FunctionService } from '../../../services/services';
 
 @Component({
   selector: 'app-product',
@@ -9,22 +9,55 @@ import { MainService } from '../../../services/main.service';
   styleUrl: './product.component.css'
 })
 export class ProductComponent {
-  constructor(private _http: MainService, private _route: ActivatedRoute, private _router: Router) {}
-
-  product: Product = {
+  productGot: Product = {
     name: '',
     description: ''
   };
+  product: ProductUI = {
+    name: '',
+    description: '',
+    isFirst: false, isLastThree: false
+  }
+  response: Response = {
+    isSuccessful: false,
+    message: '',
+    statusCode: 0
+  }
+
+  constructor(
+    private _http: MainService, private _route: ActivatedRoute,
+    private _router: Router,
+    private _functions: FunctionService
+  ) {
+  }
   
   ngOnInit(): void {
     this._route.paramMap.subscribe((params: ParamMap) => {
       let id = params.get('id');
       if (id) {
-        this._http.GetProduct(parseInt(id)).subscribe(response => this.product = response.product!);
+        this._http.GetProduct(parseInt(id)).subscribe(response => {
+          this.productGot = response.product!;
+          this._http.GetImage(this.productGot.presentationImageId ? this.productGot.presentationImageId : 0)
+            .subscribe(response => {
+              this.product =
+                this._functions.SetImageToProduct(
+                  response.image ? response.image : null,
+                  this.productGot, this.product
+              );
+            }
+          );
+          this.response.isSuccessful = true;
+          this.response.statusCode = response.statusCode;
+          this.response.message = response.message;
+        },
+        error => {
+          console.error(error);
+          this.response.message = error;
+        });
       }
     })
 
-    if (this.product === null || this.product === undefined) {
+    if (this.productGot === null || this.productGot === undefined) {
       this._router.navigate(['product-search']);
     }
   }

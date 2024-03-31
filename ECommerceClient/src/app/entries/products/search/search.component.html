@@ -7,7 +7,9 @@
       [ngClass]="{ 'is-first': product.isFirst, 'is-last': product.isLastThree }"
     >
       <div class="product-image" (click)="NavigateToProduct(product)">
-        <img src="../../assets/img/home/trending/{{product.presentationImage}}" />
+        <img src="../../assets/img/home/trending/{{product.presentationImage}}"
+          [alt]="product.presentationImageAlt"
+        />
       </div>
       <div class="product-captures">
         <a (click)="NavigateToProduct(product)">

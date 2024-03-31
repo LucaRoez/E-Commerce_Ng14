@@ -16,6 +16,7 @@ namespace ECommerceApi.Services.HttpCalls
         List<object> GetFashionProducts(int init, int length);
         List<object> GetFilteredProducts(string? genderFilter, string? categoryFilter);
 
+        object GetImage(int id);
         List<object> GetAllImages();
         List<object> GetAllGenders();
         List<object> GetAllCategories();

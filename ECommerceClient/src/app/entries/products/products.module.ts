@@ -12,6 +12,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatListModule } from '@angular/material/list';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
     MatCardModule,
     MatSliderModule,
     MatListModule,
-    NgbDropdownModule
+    NgbDropdownModule,
+    MatTabsModule
   ],
   exports: [
     ProductsComponent

@@ -1,12 +1,47 @@
 <div class="container">
     <div class="row">
         <section class="product-presentation">
-            product presentation
+            <div class="col">
+                <div class="product-image">
+                    <img src="../../assets/img/home/trending/{{product.presentationImage}}"
+                        [alt]="product.presentationImageAlt"
+                    />
+                </div>
+            </div>
+            <div class="col">
+                <div class="product-title">
+                    <h1>{{ product.name }}</h1>
+                    <h6></h6>
+                </div>
+                <div class="pricing-section">
+                    <h1>{{ product.price }}</h1>
+                    <div class="rating">
+                        
+                    </div>
+                    <div class="option-buttons">
+                        <button class="product-btn">Add To Cart</button>
+                        <button class="product-btn"><i class="fas fa-share-alt"></i></button>
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
     <div class="row">
         <section class="product-details">
-            product details
+            <mat-tab-group>
+                <mat-tab label="Description">
+                    
+                </mat-tab>
+                <mat-tab label="Author">
+                    
+                </mat-tab>
+                <mat-tab label="Comments">
+                    
+                </mat-tab>
+                <mat-tab label="Review">
+                    
+                </mat-tab>
+            </mat-tab-group>
         </section>
     </div>
 </div>

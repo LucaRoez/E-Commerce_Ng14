@@ -23,6 +23,10 @@ export class MainService {
     return this._Http.get<Response>(this.url + 'images');
   }
 
+  GetImage(id: number): Observable<Response> {
+    return this._Http.get<Response>(this.url + 'images/' + id);
+  }
+
   GetGenders(): Observable<Response> {
     return this._Http.get<Response>(this.url + 'genders');
   }

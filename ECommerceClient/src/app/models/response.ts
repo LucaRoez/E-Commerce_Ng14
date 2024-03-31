@@ -6,6 +6,7 @@ export interface Response {
     message: string;
     product?: Product;
     products?: Product[];
+    image?: Image;
     images?: Image[]
     genders?: Gender[];
     categories?: Category[];

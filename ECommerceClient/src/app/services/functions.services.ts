@@ -17,6 +17,7 @@ export class FunctionService {
 				if (image.id === product.presentationImageId) {
 					pUI = products.find(pUI => pUI.id === product.id)
 					pUI ? pUI.presentationImage = image.src : undefined;
+					pUI ? pUI.presentationImageAlt = image.alt : undefined;
 					break;
 				}
 				else if (image.id === product.secondImageId) {
@@ -47,5 +48,12 @@ export class FunctionService {
 			}
 		}
 		return products;
+	}
+
+	SetImageToProduct(image: Image | null, productCalled: Product, product: ProductUI): ProductUI {
+		product = { ...productCalled, ...product };
+		product.presentationImage = image?.src;
+		product.presentationImageAlt = image?.alt;
+		return product;
 	}
 }

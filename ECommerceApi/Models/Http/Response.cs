@@ -7,6 +7,7 @@
         public string Message { get; set; }
         public Product Product { get; set; }
         public List<Product> Products { get; set; }
+        public Image Image { get; set; }
         public List<Image> Images { get; set; }
         public List<Gender> Genders { get; set; }
         public List<Category> Categories { get; set; }

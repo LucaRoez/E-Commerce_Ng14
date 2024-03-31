@@ -213,6 +213,21 @@ namespace ECommerceApi.Services.HttpCalls
             }
         }
 
+        public object GetImage(int id)
+        {
+            try
+            {
+                List<DImage> dImages = _DbContext.GetImages();
+                DImage dImage = dImages.FirstOrDefault(p => p.Id == id);
+                Image image = _Factory.CreateModel<Image>(dImage);
+
+                return image;
+            }
+            catch (Exception ex)
+            {
+                return ex;
+            }
+        }
 
         public List<object> GetAllImages()
         {

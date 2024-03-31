@@ -9,7 +9,7 @@ import { ProductComponent } from './product/product.component';
   styleUrl: './products.component.css'
 })
 export class ProductsComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private _router: Router) {}
 
   currentInput!: string;
   backInput!: string;
@@ -18,7 +18,7 @@ export class ProductsComponent implements OnInit {
   @ViewChild(ProductComponent) product!: ProductComponent;
 
   ngOnInit(): void {    
-    this.isSearch = this.router.url.includes('product-search') ? true : false;
+    this.isSearch = this._router.url.includes('product-search') ? true : false;
     this.currentInput = this.isSearch ? "Category" : "Product Detail";
     this.backInput = this.isSearch ? "Home" : "Category";
   }
@@ -26,10 +26,10 @@ export class ProductsComponent implements OnInit {
   GetClicked(input: string) {
     if (input === this.backInput) {
       let route: string = this.backInput === "Home" ? '' : 'product-search';
-      this.router.navigate([route]);
+      this._router.navigate([route]);
     }
     else {
-      this.router.navigate([this.router.url]);
+      this._router.navigate([this._router.url]);
     }
   }
 }

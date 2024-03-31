@@ -24,6 +24,7 @@ export interface ProductUI extends Product {
   isFirst: false | true;
   isLastThree: false | true;
   presentationImage?: null | string;
+  presentationImageAlt?: null | string;
   secondImage?: null | string;
   thirdImage?: null | string;
   fourthImage?: null | string;
