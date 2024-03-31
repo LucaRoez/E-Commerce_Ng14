@@ -50,8 +50,7 @@ export class FunctionService {
 		return products;
 	}
 
-	SetImageToProduct(image: Image | null, productCalled: Product, product: ProductUI): ProductUI {
-		product = { ...productCalled, ...product };
+	SetImageToProduct(image: Image | null, product: ProductUI): ProductUI {
 		product.presentationImage = image?.src;
 		product.presentationImageAlt = image?.alt;
 		return product;

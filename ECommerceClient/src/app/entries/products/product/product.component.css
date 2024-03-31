@@ -16,3 +16,7 @@ section>div>div.product-image>img {
     max-height: 20rem;
     object-fit: cover;
 }
+
+section>div>div.product-title, section>div>div.pricing-section {
+    padding: 2% 7%;
+}

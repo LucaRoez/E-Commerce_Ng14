@@ -37,13 +37,11 @@ export class ProductComponent {
       if (id) {
         this._http.GetProduct(parseInt(id)).subscribe(response => {
           this.productGot = response.product!;
+          this.product = { ...this.product, ...this.productGot };
           this._http.GetImage(this.productGot.presentationImageId ? this.productGot.presentationImageId : 0)
             .subscribe(response => {
               this.product =
-                this._functions.SetImageToProduct(
-                  response.image ? response.image : null,
-                  this.productGot, this.product
-              );
+                this._functions.SetImageToProduct(response.image ? response.image : null, this.product);
             }
           );
           this.response.isSuccessful = true;
