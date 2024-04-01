@@ -21,10 +21,7 @@ namespace ECommerceApi.Services.HttpCalls
         {
             try
             {
-                List<DProduct> dProducts = _DbContext.GetProducts();
-                DProduct dProduct = dProducts.FirstOrDefault(p => p.Id == id);
-                Product product = _Factory.CreateModel<Product>(dProduct);
-
+                Product product = _Factory.CreateModel<Product>(_DbContext.GetProduct(id));
                 return product;
             }
             catch (Exception ex)
@@ -217,10 +214,7 @@ namespace ECommerceApi.Services.HttpCalls
         {
             try
             {
-                List<DImage> dImages = _DbContext.GetImages();
-                DImage dImage = dImages.FirstOrDefault(i => i.Id == id);
-                Image image = _Factory.CreateModel<Image>(dImage);
-
+                Image image = _Factory.CreateModel<Image>(_DbContext.GetImage(id));
                 return image;
             }
             catch (Exception ex)
@@ -297,10 +291,7 @@ namespace ECommerceApi.Services.HttpCalls
         {
             try
             {
-                List<DAuthor> dAuthors = _DbContext.GetAuthors();
-                DAuthor dAuthor = dAuthors.FirstOrDefault(a => a.Id == id);
-                Author author = _Factory.CreateModel<Author>(dAuthor);
-
+                Author author = _Factory.CreateModel<Author>(_DbContext.GetAuthor(id));
                 return author;
             }
             catch (Exception ex)
@@ -329,10 +320,7 @@ namespace ECommerceApi.Services.HttpCalls
         {
             try
             {
-                List<DReview> dReviews = _DbContext.GetReviews();
-                DReview dReview = dReviews.FirstOrDefault(p => p.Id == id);
-                Review review = _Factory.CreateModel<Review>(dReview);
-
+                Review review = _Factory.CreateModel<Review>(_DbContext.GetReview(id));
                 return review;
             }
             catch (Exception ex)

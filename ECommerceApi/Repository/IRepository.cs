@@ -11,17 +11,22 @@ namespace ECommerceApi.Repository
         List<CGender> GetGenders();
         Task<int> CreateGender(CGender gender);
         List<DAuthor> GetAuthors();
+        DAuthor? GetAuthor(int id);
         Task<int> CreateAuthor(DAuthor author);
         List<DCommentary> GetCommentaries();
         Task<int> CreateCommentary(DCommentary commentary);
         List<DImage> GetImages();
+        DImage? GetImage(int id);
         Task<int> CreateImage(DImage image);
         Task<int> LinkImageToProduct(DImage image, DProduct product, int slot);
         List<DProduct> GetProducts();
+        DProduct? GetProduct(int id);
         Task<int> CreateProduct(DProduct product);
         List<DReview> GetReviews();
+        DReview? GetReview(int id);
         Task<int> CreateReview(DReview review);
         List<DUser> GetUsers();
+        DUser? GetUser(int id);
         Task<int> CreateUser(DUser user);
     }
 }

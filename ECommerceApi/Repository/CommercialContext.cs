@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using ECommerceApi.Models;
 using ECommerceApi.Repository.Entities;
 using Microsoft.Data.SqlClient;
 
@@ -82,6 +83,16 @@ namespace ECommerceApi.Repository
             }
         }
 
+        public DAuthor? GetAuthor(int id)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                _query = string.Format("SELECT * FROM [d.Authors] WHERE Id = {0}", id);
+                DAuthor? dAuthor = connection.QuerySingleOrDefault<DAuthor>(_query);
+                return dAuthor;
+            }
+        }
+
         public async Task<int> CreateAuthor(DAuthor author)
         {
             using (var connection = new SqlConnection(_connectionString))
@@ -121,6 +132,16 @@ namespace ECommerceApi.Repository
                 _query = "SELECT * FROM [d.Images]";
                 IEnumerable<DImage> dImages = connection.Query<DImage>(_query);
                 return dImages.ToList();
+            }
+        }
+
+        public DImage? GetImage(int id)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                _query = string.Format("SELECT * FROM [d.Images] WHERE Id = {0}", id);
+                DImage? dImage = connection.QuerySingleOrDefault<DImage>(_query);
+                return dImage;
             }
         }
 
@@ -196,6 +217,16 @@ namespace ECommerceApi.Repository
             }
         }
 
+        public DProduct? GetProduct(int id)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                _query = string.Format("SELECT * FROM [d.Products] WHERE Id = {0}", id);
+                DProduct? dProduct = connection.QuerySingleOrDefault<DProduct>(_query);
+                return dProduct;
+            }
+        }
+
         public async Task<int> CreateProduct(DProduct product)
         {
             using (var connection = new SqlConnection(_connectionString))
@@ -219,6 +250,16 @@ namespace ECommerceApi.Repository
             }
         }
 
+        public DReview? GetReview(int id)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                _query = string.Format("SELECT * FROM [d.Reviews] WHERE Id = {0}", id);
+                DReview? dReview = connection.QuerySingleOrDefault<DReview>(_query);
+                return dReview;
+            }
+        }
+
         public async Task<int> CreateReview(DReview review)
         {
             using (var connection = new SqlConnection(_connectionString))
@@ -237,6 +278,16 @@ namespace ECommerceApi.Repository
                 _query = "SELECT * FROM [d.Users]";
                 IEnumerable<DUser> dUsers = connection.Query<DUser>(_query);
                 return dUsers.ToList();
+            }
+        }
+
+        public DUser? GetUser(int id)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                _query = string.Format("SELECT * FROM [d.Users] WHERE Id = {0}", id);
+                DUser? dUser = connection.QuerySingleOrDefault<DUser>(_query);
+                return dUser;
             }
         }
 
