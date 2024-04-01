@@ -218,7 +218,7 @@ namespace ECommerceApi.Services.HttpCalls
             try
             {
                 List<DImage> dImages = _DbContext.GetImages();
-                DImage dImage = dImages.FirstOrDefault(p => p.Id == id);
+                DImage dImage = dImages.FirstOrDefault(i => i.Id == id);
                 Image image = _Factory.CreateModel<Image>(dImage);
 
                 return image;
@@ -293,6 +293,22 @@ namespace ECommerceApi.Services.HttpCalls
             }
         }
 
+        public object GetAuthor(int id)
+        {
+            try
+            {
+                List<DAuthor> dAuthors = _DbContext.GetAuthors();
+                DAuthor dAuthor = dAuthors.FirstOrDefault(a => a.Id == id);
+                Author author = _Factory.CreateModel<Author>(dAuthor);
+
+                return author;
+            }
+            catch (Exception ex)
+            {
+                return ex;
+            }
+        }
+
         public List<object> GetAllAuthors()
         {
             try
@@ -306,6 +322,22 @@ namespace ECommerceApi.Services.HttpCalls
             {
                 List<object> exList = new() { ex };
                 return exList;
+            }
+        }
+
+        public object GetReview(int id)
+        {
+            try
+            {
+                List<DReview> dReviews = _DbContext.GetReviews();
+                DReview dReview = dReviews.FirstOrDefault(p => p.Id == id);
+                Review review = _Factory.CreateModel<Review>(dReview);
+
+                return review;
+            }
+            catch (Exception ex)
+            {
+                return ex;
             }
         }
 

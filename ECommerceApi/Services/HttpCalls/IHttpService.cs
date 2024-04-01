@@ -22,7 +22,9 @@ namespace ECommerceApi.Services.HttpCalls
         List<object> GetAllCategories();
         List<object> GetAllCurrencies();
 
+        object GetAuthor(int id);
         List<object> GetAllAuthors();
+        object GetReview(int id);
         List<object> GetAllReviews();
 
 

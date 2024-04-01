@@ -38,4 +38,20 @@ export class MainService {
   GetCurrencies(): Observable<Response> {
     return this._Http.get<Response>(this.url + 'currencies');
   }
+
+  GetAuthors(): Observable<Response> {
+    return this._Http.get<Response>(this.url + 'authors');
+  }
+  
+  GetAuthor(id: number): Observable<Response> {
+    return this._Http.get<Response>(this.url + 'authors/' + id);
+  }
+
+  GetReviews(): Observable<Response> {
+    return this._Http.get<Response>(this.url + 'reviews');
+  }
+  
+  GetReview(id: number): Observable<Response> {
+    return this._Http.get<Response>(this.url + 'reviews/' + id);
+  }
 }

@@ -12,7 +12,9 @@
         public List<Gender> Genders { get; set; }
         public List<Category> Categories { get; set; }
         public List<Currency> Currencies { get; set; }
+        public Author Author { get; set; }
         public List<Author> Authors { get; set; }
+        public Review Review { get; set; }
         public List<Review> Reviews { get; set; }
 
         public Response()

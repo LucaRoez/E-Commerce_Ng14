@@ -13,14 +13,54 @@ namespace ECommerceApi.Services.Utilities
         }
 
         ////////////////    Main Controller    ////////////////
-        public Response ReturnProductResponse(int id)
+        public Response ReturnProductResponse(int id) => ParseObject(new Product(), id);
+
+        public Response ReturnAllProductsResponse(int init, int length) => ParseList(_Http.GetAllProducts(init, length));
+        public Response ReturnMaleProductsResponse(int init, int length) => ParseList(_Http.GetMaleProducts(init, length));
+        public Response ReturnFemaleProductsResponse(int init, int length) => ParseList(_Http.GetFemaleProducts(init, length));
+        public Response ReturnBabyProductsResponse(int init, int length) => ParseList(_Http.GetBabyProducts(init, length));
+        public Response ReturnSummerProductsResponse(int init, int length) => ParseList(_Http.GetSummerProducts(init, length));
+        public Response ReturnWinterProductsResponse(int init, int length) => ParseList(_Http.GetWinterProducts(init, length));
+        public Response ReturnCasualProductsResponse(int init, int length) => ParseList(_Http.GetCasualProducts(init, length));
+        public Response ReturnFormalProductsResponse(int init, int length) => ParseList(_Http.GetFormalProducts(init, length));
+        public Response ReturnFashionProductsResponse(int init, int length) => ParseList(_Http.GetFashionProducts(init, length));
+        public Response ReturnFilteredProductsResponse(string? genderFilter, string? categoryFilter) => ParseList(_Http.GetFilteredProducts(genderFilter, categoryFilter));
+
+        public Response ReturnImageResponse(int id) => ParseObject(new Image(), id);
+        public Response ReturnAllImagesResponse() => ParseList(_Http.GetAllImages());
+        public Response ReturnAllGendersResponse() => ParseList(_Http.GetAllGenders());
+        public Response ReturnAllCategoriesResponse() => ParseList(_Http.GetAllCategories());
+        public Response ReturnAllCurrenciesResponse() => ParseList(_Http.GetAllCurrencies());
+
+        public Response ReturnAuthorResponse(int id) => ParseObject(new Author(), id);
+        public Response ReturnAllAuthorsResponse() => ParseList(_Http.GetAllAuthors());
+        public Response ReturnReviewResponse(int id) => ParseObject(new Review(), id);
+        public Response ReturnAllReviewsResponse() => ParseList(_Http.GetAllReviews());
+
+
+        private Response ParseObject(object search, int id)
         {
             Response result = new();
-            object response = _Http.GetProduct(id);
-            if (response is null)
+            object response = new();
+            response = Verifications.IsProduct(search) ? _Http.GetProduct(id) :
+                Verifications.IsImage(search) ? _Http.GetImage(id) :
+                Verifications.IsAuthor(search) ? _Http.GetAuthor(id) :
+                Verifications.IsReview(search) ? _Http.GetReview(id) : "No Object Inserted";
+
+            string objectType = Verifications.IsProduct(response) ? "product" :
+                Verifications.IsImage(response) ? "image" :
+                Verifications.IsAuthor(response) ? "author" :
+                Verifications.IsReview(response) ? "review" : "No Object Inserted";
+
+            if (response.Equals("No Object Inserted"))
+            {
+                result.StatusCode = 400;
+                result.Message = "Must be inserted one object type to search in our database. Please insert one and try again.";
+            }
+            else if (response is null)
             {
                 result.StatusCode = 404;
-                result.Message = "There was a problem to get the Product requested, and got a null as response.";
+                result.Message = string.Format("There was a problem to get the {0} requested, and got a null as response.", objectType);
             }
             else if (response is Exception)
             {
@@ -42,50 +82,6 @@ namespace ECommerceApi.Services.Utilities
                     result.Message = ex.Message;
                 }
             }
-            else
-            {
-                try
-                {
-                    Exception ex = (Exception)response;
-                    result.StatusCode = 500;
-                    result.Message = ex.Message;
-                }
-                catch (Exception ex)
-                {
-                    result.StatusCode = ex.HResult;
-                    result.Message = ex.Message;
-                }
-            }
-
-            return result;
-        }
-
-        public Response ReturnAllProductsResponse(int init, int length) => ParseList(_Http.GetAllProducts(init, length));
-        public Response ReturnMaleProductsResponse(int init, int length) => ParseList(_Http.GetMaleProducts(init, length));
-        public Response ReturnFemaleProductsResponse(int init, int length) => ParseList(_Http.GetFemaleProducts(init, length));
-        public Response ReturnBabyProductsResponse(int init, int length) => ParseList(_Http.GetBabyProducts(init, length));
-        public Response ReturnSummerProductsResponse(int init, int length) => ParseList(_Http.GetSummerProducts(init, length));
-        public Response ReturnWinterProductsResponse(int init, int length) => ParseList(_Http.GetWinterProducts(init, length));
-        public Response ReturnCasualProductsResponse(int init, int length) => ParseList(_Http.GetCasualProducts(init, length));
-        public Response ReturnFormalProductsResponse(int init, int length) => ParseList(_Http.GetFormalProducts(init, length));
-        public Response ReturnFashionProductsResponse(int init, int length) => ParseList(_Http.GetFashionProducts(init, length));
-        public Response ReturnFilteredProductsResponse(string? genderFilter, string? categoryFilter) => ParseList(_Http.GetFilteredProducts(genderFilter, categoryFilter));
-
-        public Response ReturnImageResponse(int id)
-        {
-            Response result = new();
-            object response = _Http.GetImage(id);
-            if (response is null)
-            {
-                result.StatusCode = 404;
-                result.Message = "There was a problem to get the Image requested, and got a null as response.";
-            }
-            else if (response is Exception)
-            {
-                Exception ex = (Exception)response;
-                result.StatusCode = ex.HResult;
-                result.Message = ex.Message;
-            }
             else if (response is Image)
             {
                 try
@@ -100,6 +96,34 @@ namespace ECommerceApi.Services.Utilities
                     result.Message = ex.Message;
                 }
             }
+            else if (response is Author)
+            {
+                try
+                {
+                    result.IsSuccessful = true;
+                    result.StatusCode = 200;
+                    result.Author = (Author)response;
+                }
+                catch (Exception ex)
+                {
+                    result.StatusCode = ex.HResult;
+                    result.Message = ex.Message;
+                }
+            }
+            else if (response is Review)
+            {
+                try
+                {
+                    result.IsSuccessful = true;
+                    result.StatusCode = 200;
+                    result.Review = (Review)response;
+                }
+                catch (Exception ex)
+                {
+                    result.StatusCode = ex.HResult;
+                    result.Message = ex.Message;
+                }
+            }
             else
             {
                 try
@@ -117,13 +141,6 @@ namespace ECommerceApi.Services.Utilities
 
             return result;
         }
-        public Response ReturnAllImagesResponse() => ParseList(_Http.GetAllImages());
-        public Response ReturnAllGendersResponse() => ParseList(_Http.GetAllGenders());
-        public Response ReturnAllCategoriesResponse() => ParseList(_Http.GetAllCategories());
-        public Response ReturnAllCurrenciesResponse() => ParseList(_Http.GetAllCurrencies());
-
-        public Response ReturnAllAuthorsResponse() => ParseList(_Http.GetAllAuthors());
-        public Response ReturnAllReviewsResponse() => ParseList(_Http.GetAllReviews());
 
         private Response ParseList(List<object> response)
         {

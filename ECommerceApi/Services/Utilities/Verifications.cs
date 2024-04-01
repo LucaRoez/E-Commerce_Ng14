@@ -1,4 +1,5 @@
 ﻿using ECommerceApi.Repository.Entities;
+using ECommerceApi.Models;
 
 namespace ECommerceApi.Services.Utilities
 {
@@ -25,5 +26,11 @@ namespace ECommerceApi.Services.Utilities
             if (category == null || category == "") return p => p.Gender.Name == gender;
             else return p => p.Gender.Name == gender && p.Category.Name == category;
         }
+
+        public static bool IsProduct(object sample) => sample != null && sample is Product;
+        public static bool IsImage(object sample) => sample != null && sample is Image;
+        public static bool IsAuthor(object sample) => sample != null && sample is Author;
+        public static bool IsReview(object sample) => sample != null && sample is Review;
+        public static bool IsNoObjectInserted(object sample) => sample != null && sample.Equals("No Object Inserted");
     }
 }
