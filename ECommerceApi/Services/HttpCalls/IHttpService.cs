@@ -22,6 +22,9 @@ namespace ECommerceApi.Services.HttpCalls
         List<object> GetAllCategories();
         List<object> GetAllCurrencies();
 
+        List<object> GetAllAuthors();
+        List<object> GetAllReviews();
+
 
         Task<string> PostProduct(Product product);
         Task<string> PostImage(Image image);

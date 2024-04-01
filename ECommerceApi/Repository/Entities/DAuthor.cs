@@ -2,9 +2,9 @@
 
 namespace ECommerceApi.Repository.Entities;
 
-public partial class DAuthor
+public partial class DAuthor : EntityBase
 {
-    public short Id { get; set; }
+    public short? Id { get; set; }
 
     [Required(ErrorMessage = "This is a mandatory field.")]
     [MaxLength(20, ErrorMessage = "It can not have more than 20 characters.")]
@@ -22,6 +22,8 @@ public partial class DAuthor
     [MaxLength(250, ErrorMessage = "It can not have more than 250 characters.")]
     [RegularExpression("^(?=.*[!#$%&*-+.,_])(?=.*\\d)(?=.*[A-Z]).*$", ErrorMessage = "At least one upper case, numeric digit and one special character is required.")]
     public string Password { get; set; } = null!;
+
+    public long? ReviewId { get; set; }
 
     public virtual ICollection<DReview> DReviews { get; } = new List<DReview>();
 }

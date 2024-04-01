@@ -293,6 +293,38 @@ namespace ECommerceApi.Services.HttpCalls
             }
         }
 
+        public List<object> GetAllAuthors()
+        {
+            try
+            {
+                List<DAuthor> dAuthors = _DbContext.GetAuthors();
+                List<object> authors = dAuthors.Select(dA => (object)_Factory.CreateModel<Author>(dA)).ToList();
+
+                return authors;
+            }
+            catch (Exception ex)
+            {
+                List<object> exList = new() { ex };
+                return exList;
+            }
+        }
+
+        public List<object> GetAllReviews()
+        {
+            try
+            {
+                List<DReview> dReviews = _DbContext.GetReviews();
+                List<object> reviews = dReviews.Select(dR => (object)_Factory.CreateModel<Review>(dR)).ToList();
+
+                return reviews;
+            }
+            catch (Exception ex)
+            {
+                List<object> exList = new() { ex };
+                return exList;
+            }
+        }
+
 
         ////////////////////    Post Methods    ////////////////////
         public async Task<string> PostProduct(Product product)

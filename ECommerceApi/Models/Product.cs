@@ -34,5 +34,6 @@ namespace ECommerceApi.Models
         public long? FourthImageId { get; set; }
         public long? FifthImageId { get; set; }
         public long? SixthImageId { get; set; }
+        public long? ReviewId { get; set; }
     }
 }

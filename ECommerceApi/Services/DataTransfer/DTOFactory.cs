@@ -19,6 +19,10 @@ namespace ECommerceApi.Services.DataTransfer
                     return RecordNewCategory(category as Category) as T;
                 case Currency currency when typeof(T) == typeof(CCurrency):
                     return RecordNewCurrency(currency as Currency) as T;
+                case Author author when typeof(T) == typeof(DAuthor):
+                    return RecordNewAuthor(author as Author) as T;
+                case Review review when typeof(T) == typeof(DReview):
+                    return RecordNewReview(review as Review) as T;
                 default: return null;
             }
         }
@@ -37,6 +41,10 @@ namespace ECommerceApi.Services.DataTransfer
                     return ShowRecordedCategory(category as CCategory) as T;
                 case CCurrency currency when typeof(T) == typeof(Currency):
                     return ShowRecordedCurrency(currency as CCurrency) as T;
+                case DAuthor author when typeof(T) == typeof(Author):
+                    return ShowRecordedAuthor(author as DAuthor) as T;
+                case DReview review when typeof(T) == typeof(Review):
+                    return ShowRecordedReview(review as DReview) as T;
                 default: return null;
             }
         }
@@ -62,7 +70,8 @@ namespace ECommerceApi.Services.DataTransfer
                 ThirdImageId = dProduct.ThirdImageId,
                 FourthImageId = dProduct.FourthImageId,
                 FifthImageId = dProduct.FifthImageId,
-                SixthImageId = dProduct.SixthImageId
+                SixthImageId = dProduct.SixthImageId,
+                ReviewId = dProduct.ReviewId
             };
             return product;
         }
@@ -112,6 +121,35 @@ namespace ECommerceApi.Services.DataTransfer
             return currency;
         }
 
+        private Review ShowRecordedReview(DReview dReview)
+        {
+            Review review = new()
+            {
+                Id = dReview.Id,
+                Author = dReview.Author,
+                AuthorId = dReview.AuthorId,
+                Body = dReview.Body,
+                Rate = dReview.Rate,
+                Product = dReview.Product,
+                ProductId = dReview.ProductId
+            };
+            return review;
+        }
+
+        private Author ShowRecordedAuthor(DAuthor dAuthor)
+        {
+            Author author = new()
+            {
+                Id = dAuthor.Id,
+                AuthorName = dAuthor.AuthorName,
+                Email = dAuthor.Email,
+                Password = dAuthor.Password,
+                ReviewId = dAuthor.ReviewId
+            };
+            return author;
+        }
+
+
         private DProduct RecordNewProduct(Product model)
         {
             DProduct product = new()
@@ -132,7 +170,8 @@ namespace ECommerceApi.Services.DataTransfer
                 ThirdImageId = model.ThirdImageId,
                 FourthImageId = model.FourthImageId,
                 FifthImageId = model.FifthImageId,
-                SixthImageId = model.SixthImageId
+                SixthImageId = model.SixthImageId,
+                ReviewId = model.ReviewId
             };
             return product;
         }
@@ -178,6 +217,34 @@ namespace ECommerceApi.Services.DataTransfer
                 Issuer = model.Issuer
             };
             return category;
+        }
+
+        private DReview RecordNewReview(Review model)
+        {
+            DReview dReview = new()
+            {
+                Id = model.Id,
+                Author = model.Author,
+                AuthorId = model.AuthorId,
+                Body = model.Body,
+                Rate = model.Rate,
+                Product = model.Product,
+                ProductId = model.ProductId
+            };
+            return dReview;
+        }
+
+        private DAuthor RecordNewAuthor(Author model)
+        {
+            DAuthor author = new()
+            {
+                Id = model.Id,
+                AuthorName = model.AuthorName,
+                Email = model.Email,
+                Password = model.Password,
+                ReviewId = model.ReviewId
+            };
+            return author;
         }
     }
 }

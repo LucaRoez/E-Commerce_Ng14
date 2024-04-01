@@ -18,6 +18,7 @@ export interface Product {
   fourthImageId?: null | number;
   fifthImageId?: null | number;
   sixthImageId?: null | number;
+  reviewId?: null | number;
 }
 
 export interface ProductUI extends Product {

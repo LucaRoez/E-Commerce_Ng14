@@ -2,9 +2,9 @@
 
 namespace ECommerceApi.Repository.Entities;
 
-public partial class DReview
+public partial class DReview : EntityBase
 {
-    public long Id { get; set; }
+    public long? Id { get; set; }
 
     [Required(ErrorMessage = "This is a mandatory field.")]
     [MaxLength(20, ErrorMessage = "It can not have more than 20 characters.")]
@@ -19,5 +19,13 @@ public partial class DReview
     [Required(ErrorMessage = "This is a mandatory field.")]
     public decimal Rate { get; set; }
 
+    [Required(ErrorMessage = "This is a mandatory field.")]
+    [MaxLength(50, ErrorMessage = "It can not have more than 50 characters.")]
+    public string Product { get; set; } = null!;
+
+    public long? ProductId { get; set; }
+
     public virtual DAuthor? AuthorNavigation { get; set; }
+
+    public virtual DProduct? ProductNavigation { get; set; }
 }

@@ -70,6 +70,7 @@ namespace ECommerceApi.Services.Utilities
         public Response ReturnFormalProductsResponse(int init, int length) => ParseList(_Http.GetFormalProducts(init, length));
         public Response ReturnFashionProductsResponse(int init, int length) => ParseList(_Http.GetFashionProducts(init, length));
         public Response ReturnFilteredProductsResponse(string? genderFilter, string? categoryFilter) => ParseList(_Http.GetFilteredProducts(genderFilter, categoryFilter));
+
         public Response ReturnImageResponse(int id)
         {
             Response result = new();
@@ -120,6 +121,9 @@ namespace ECommerceApi.Services.Utilities
         public Response ReturnAllGendersResponse() => ParseList(_Http.GetAllGenders());
         public Response ReturnAllCategoriesResponse() => ParseList(_Http.GetAllCategories());
         public Response ReturnAllCurrenciesResponse() => ParseList(_Http.GetAllCurrencies());
+
+        public Response ReturnAllAuthorsResponse() => ParseList(_Http.GetAllAuthors());
+        public Response ReturnAllReviewsResponse() => ParseList(_Http.GetAllReviews());
 
         private Response ParseList(List<object> response)
         {
@@ -199,6 +203,34 @@ namespace ECommerceApi.Services.Utilities
                     result.IsSuccessful = true;
                     result.StatusCode = 200;
                     result.Images = response.Cast<Image>().ToList();
+                }
+                catch (Exception ex)
+                {
+                    result.StatusCode = ex.HResult;
+                    result.Message = ex.Message;
+                }
+            }
+            else if (response.FirstOrDefault() is Author)
+            {
+                try
+                {
+                    result.IsSuccessful = true;
+                    result.StatusCode = 200;
+                    result.Authors = response.Cast<Author>().ToList();
+                }
+                catch (Exception ex)
+                {
+                    result.StatusCode = ex.HResult;
+                    result.Message = ex.Message;
+                }
+            }
+            else if (response.FirstOrDefault() is Review)
+            {
+                try
+                {
+                    result.IsSuccessful = true;
+                    result.StatusCode = 200;
+                    result.Reviews = response.Cast<Review>().ToList();
                 }
                 catch (Exception ex)
                 {
