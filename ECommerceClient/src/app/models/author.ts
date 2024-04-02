@@ -1,8 +1,12 @@
+import { Product } from "./product";
+import { Review } from "./review";
+
 export interface Author {
-    id: number,
+    id?: null | number,
     authorName: string,
-    presentation: string,
+    presentation?: null | string,
     email: string,
-    password: string,
-    reviewId: number
+    password?: null | string,
+    linkedProducts?: null | Product[],
+    linkedReviews?: null | Review[]
 }

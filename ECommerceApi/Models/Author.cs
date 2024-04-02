@@ -26,7 +26,6 @@ namespace ECommerceApi.Models
         public string Password { get; set; }
 
         public ICollection<Product>? LinkedProducts { get; set; }
-
         public ICollection<Review>? LinkedReviews { get; set; }
     }
 }

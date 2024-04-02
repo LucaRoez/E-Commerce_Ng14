@@ -11,7 +11,16 @@
             <div class="col">
                 <div class="product-title">
                     <h1>{{ product.name }}</h1>
-                    <h6>By </h6>
+                    <h6 *ngIf="authors != undefined">
+                        By <h6 *ngFor="let author of authors; let l = last">
+                            @if (l) {
+                                {{ author.authorName }}
+                            }
+                            @else {
+                                {{ author.authorName }}, 
+                            }
+                        </h6>
+                    </h6>
                 </div>
                 <div class="pricing-section">
                     <h1>{{ product.price }}</h1>

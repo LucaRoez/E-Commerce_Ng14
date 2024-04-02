@@ -18,13 +18,13 @@ namespace ECommerceApi.Services.Utilities
         public static Func<DProduct, bool> GenderFilterIsNullOrEmpty(string? category)
         {
             if (category == null || category == "") return p => p.Name != null && p.Name != "";
-            else return p => p.Category.Name == category;
+            else return p => p.CategoryNavigation.Name == category;
         }
 
         public static Func<DProduct, bool> GenderFilterIsNotNullOrEmpty(string gender, string? category)
         {
-            if (category == null || category == "") return p => p.Gender.Name == gender;
-            else return p => p.Gender.Name == gender && p.Category.Name == category;
+            if (category == null || category == "") return p => p.GenderNavigation.Name == gender;
+            else return p => p.GenderNavigation.Name == gender && p.CategoryNavigation.Name == category;
         }
 
         public static bool IsProduct(object sample) => sample != null && sample is Product;

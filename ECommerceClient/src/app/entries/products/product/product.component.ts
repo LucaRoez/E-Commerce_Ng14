@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { Product, ProductUI, Response } from '../../../models/models';
+import { Product, ProductUI, Author, Review, Response } from '../../../models/models';
 import { MainService, FunctionService } from '../../../services/services';
+import { error } from 'console';
 
 @Component({
   selector: 'app-product',
@@ -17,12 +18,14 @@ export class ProductComponent {
     name: '',
     description: '',
     isFirst: false, isLastThree: false
-  }
+  };
+  authors: Author[] | undefined = [];
+  reviews: Review[] | undefined = [];
   response: Response = {
     isSuccessful: false,
     message: '',
     statusCode: 0
-  }
+  };
 
   constructor(
     private _http: MainService, private _route: ActivatedRoute,
@@ -44,6 +47,23 @@ export class ProductComponent {
                 this._functions.SetImageToProduct(response.image ? response.image : null, this.product);
             }
           );
+          if (this.product.linkedAuthors) {
+            for (let author of this.product.linkedAuthors)
+            {
+              if (typeof author.id == 'number')
+                this._http.GetAuthor(author.id).subscribe(response => {
+                  if (typeof response.author != 'undefined')
+                    this.authors?.push(response.author);
+                },
+                error => {
+                  console.error(error);
+                });
+            }
+          }
+          if (this.product.linkedReviews)
+            this._http.GetReviews().subscribe(response => {
+              this.reviews = response.reviews;
+            });
           this.response.isSuccessful = true;
           this.response.statusCode = response.statusCode;
           this.response.message = response.message;

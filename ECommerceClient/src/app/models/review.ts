@@ -1,9 +1,9 @@
 export interface Review {
-    id: number,
+    id?: null | number,
     author: string,
     authorId: number,
     body: string,
     rate: number,
-    product: number,
+    product: string,
     productId: number
 }

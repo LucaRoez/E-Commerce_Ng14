@@ -70,8 +70,7 @@ namespace ECommerceApi.Services.DataTransfer
                 ThirdImageId = dProduct.ThirdImageId,
                 FourthImageId = dProduct.FourthImageId,
                 FifthImageId = dProduct.FifthImageId,
-                SixthImageId = dProduct.SixthImageId,
-                ReviewId = dProduct.ReviewId
+                SixthImageId = dProduct.SixthImageId
             };
             return product;
         }
@@ -143,8 +142,7 @@ namespace ECommerceApi.Services.DataTransfer
                 Id = dAuthor.Id,
                 AuthorName = dAuthor.AuthorName,
                 Email = dAuthor.Email,
-                Password = dAuthor.Password,
-                ReviewId = dAuthor.ReviewId
+                Password = dAuthor.Password
             };
             return author;
         }
@@ -170,8 +168,7 @@ namespace ECommerceApi.Services.DataTransfer
                 ThirdImageId = model.ThirdImageId,
                 FourthImageId = model.FourthImageId,
                 FifthImageId = model.FifthImageId,
-                SixthImageId = model.SixthImageId,
-                ReviewId = model.ReviewId
+                SixthImageId = model.SixthImageId
             };
             return product;
         }
@@ -241,8 +238,7 @@ namespace ECommerceApi.Services.DataTransfer
                 Id = model.Id,
                 AuthorName = model.AuthorName,
                 Email = model.Email,
-                Password = model.Password,
-                ReviewId = model.ReviewId
+                Password = model.Password
             };
             return author;
         }

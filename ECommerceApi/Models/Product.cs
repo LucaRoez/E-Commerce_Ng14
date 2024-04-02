@@ -37,7 +37,6 @@ namespace ECommerceApi.Models
         public long? ReviewId { get; set; }
 
         public ICollection<Author>? LinkedAuthors { get; set; }
-
         public ICollection<Review>? LinkedReviews { get; set; }
     }
 }

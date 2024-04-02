@@ -52,7 +52,7 @@ namespace ECommerceApi.Services.HttpCalls
             try
             {
                 List<DProduct> dProducts = _DbContext.GetProducts();
-                dProducts.Where(p => p.Gender.Name == "Male")
+                dProducts.Where(p => p.GenderNavigation.Name == "Male")
                     .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
                 List<object> products = dProducts.Select(dP => (object)_Factory.CreateModel<Product>(dP)).ToList();
 
@@ -70,7 +70,7 @@ namespace ECommerceApi.Services.HttpCalls
             try
             {
                 List<DProduct> dProducts = _DbContext.GetProducts();
-                dProducts.Where(p => p.Gender.Name == "Female")
+                dProducts.Where(p => p.GenderNavigation.Name == "Female")
                     .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
                 List<object> products = dProducts.Select(dP => (object)_Factory.CreateModel<Product>(dP)).ToList();
 
@@ -88,7 +88,7 @@ namespace ECommerceApi.Services.HttpCalls
             try
             {
                 List<DProduct> dProducts = _DbContext.GetProducts();
-                dProducts.Where(p => p.Gender.Name == "Baby")
+                dProducts.Where(p => p.GenderNavigation.Name == "Baby")
                     .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
                 List<object> products = dProducts.Select(dP => (object)_Factory.CreateModel<Product>(dP)).ToList();
 
@@ -106,7 +106,7 @@ namespace ECommerceApi.Services.HttpCalls
             try
             {
                 List<DProduct> dProducts = _DbContext.GetProducts();
-                dProducts.Where(p => p.Category.Name == "Summer")
+                dProducts.Where(p => p.CategoryNavigation.Name == "Summer")
                     .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
                 List<object> products = dProducts.Select(dP => (object)_Factory.CreateModel<Product>(dP)).ToList();
 
@@ -124,7 +124,7 @@ namespace ECommerceApi.Services.HttpCalls
             try
             {
                 List<DProduct> dProducts = _DbContext.GetProducts();
-                dProducts.Where(p => p.Category.Name == "Winter")
+                dProducts.Where(p => p.CategoryNavigation.Name == "Winter")
                     .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
                 List<object> products = dProducts.Select(dP => (object)_Factory.CreateModel<Product>(dP)).ToList();
 
@@ -142,7 +142,7 @@ namespace ECommerceApi.Services.HttpCalls
             try
             {
                 List<DProduct> dProducts = _DbContext.GetProducts();
-                dProducts.Where(p => p.Category.Name == "Casual")
+                dProducts.Where(p => p.CategoryNavigation.Name == "Casual")
                     .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
                 List<object> products = dProducts.Select(dP => (object)_Factory.CreateModel<Product>(dP)).ToList();
 
@@ -160,7 +160,7 @@ namespace ECommerceApi.Services.HttpCalls
             try
             {
                 List<DProduct> dProducts = _DbContext.GetProducts();
-                dProducts.Where(p => p.Category.Name == "Formal")
+                dProducts.Where(p => p.CategoryNavigation.Name == "Formal")
                     .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
                 List<object> products = dProducts.Select(dP => (object)_Factory.CreateModel<Product>(dP)).ToList();
 
@@ -178,7 +178,7 @@ namespace ECommerceApi.Services.HttpCalls
             try
             {
                 List<DProduct> dProducts = _DbContext.GetProducts();
-                dProducts.Where(p => p.Category.Name == "Fashion")
+                dProducts.Where(p => p.CategoryNavigation.Name == "Fashion")
                     .OrderBy(p => p.Name).Skip((init - 1) * length).Take(length).ToList();
                 List<object> products = dProducts.Select(dP => (object)_Factory.CreateModel<Product>(dP)).ToList();
 
