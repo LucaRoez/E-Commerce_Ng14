@@ -39,16 +39,39 @@
         <section class="product-details">
             <mat-tab-group>
                 <mat-tab label="Description">
-                    
+                    {{ product.description }}
                 </mat-tab>
-                <mat-tab label="Author">
-                    
+                <mat-tab *ngIf="product.linkedAuthors !== null && product.linkedAuthors !== undefined" label="Author">
+                    @if (product.linkedAuthors.length > 1) {
+                        <mat-tab-group>
+                            <mat-tab *ngFor="let author of authors" label="{{ author.authorName }}">
+                                {{ author.presentation }}
+                            </mat-tab>
+                        </mat-tab-group>
+                    }
+                    @else {
+                        @if (authors !== undefined) {
+                            {{ authors[0].presentation }}
+                        }
+                    }
                 </mat-tab>
                 <mat-tab label="Comments">
                     
                 </mat-tab>
-                <mat-tab label="Review">
-                    
+                <mat-tab *ngIf="product.linkedReviews !== null && product.linkedReviews !== undefined" label="Review">
+                    @if (product.linkedReviews.length > 1){
+                        <mat-tab-group>
+                            <mat-tab *ngFor="let review of reviews" label="By {{ review.author }}">
+                                {{ review.body }}
+                            </mat-tab>
+                        </mat-tab-group>
+                    }
+                    @else {
+                        @if (reviews !== undefined) {
+                            <h4>By {{ reviews[0].author }}</h4>
+                            <p>{{ reviews[0].body }}</p>
+                        }
+                    }
                 </mat-tab>
             </mat-tab-group>
         </section>
