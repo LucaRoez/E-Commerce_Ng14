@@ -1,8 +1,8 @@
 div.searcher-container {
+    margin-left: 20%;
     min-height: 50rem;
-    margin-left: 3rem;
-    padding: 5rem 1rem 2.5rem 5rem;
-    border: 1px solid rgb(204, 201, 201);
+    padding: 5rem 1rem 2.5rem 4rem;
+    border: 1px solid rgb(231, 224, 224);
     background-color: rgb(255, 255, 255);
     border-radius: 1px;
 }
@@ -32,16 +32,16 @@ section.dropdown-menus>div>div>div>button::after {
 }
 
 section.dropdown-menus>div>div>div>button#category::after {
-    margin-left: 6rem;
+    margin-left: 3rem;
 }
 section.dropdown-menus>div>div>div>button#type::after {
-    margin-left: 7.65rem;
+    margin-left: 4.65rem;
 }
 section.dropdown-menus>div>div>div>button#size::after {
-    margin-left: 7.9rem;
+    margin-left: 4.9rem;
 }
 section.dropdown-menus>div>div>div>button#color::after {
-    margin-left: 7.4rem;
+    margin-left: 4.4rem;
 }
 
 span {

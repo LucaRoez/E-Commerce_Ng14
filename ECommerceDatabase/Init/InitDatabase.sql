@@ -32,8 +32,7 @@ create table [d.Authors] (
 	AuthorName varchar(20) not null,
 	Presentation varchar(50),
 	Email varchar(50) not null,
-	Password varchar(250) not null,
-	ReviewId bigint foreign key references [d.Reviews](Id)
+	Password varchar(250) not null
 );
 
 create table [d.Images] (
@@ -45,7 +44,7 @@ create table [d.Images] (
 );
 
 create table [d.Reviews] (
-	Id bigint identity(1,1) primary key,
+	Id int identity(1,1) primary key,
 	Author varchar(20) not null,
 	AuthorId smallint foreign key references [d.Authors](Id),
 	Product varchar(50) not null,
@@ -82,6 +81,11 @@ create table [d.Products] (
 	Visits int not null,
 	CategoryId tinyint foreign key references [c.Categories](Id),
 	GenderId tinyint foreign key references [c.Genders](Id),
-	CreationDate datetime not null,
-	ReviewId bigint foreign key references [d.Reviews](Id)
+	CreationDate datetime not null
+);
+
+create table [l.Author_Product] (
+	Id int identity(1,1) primary key,
+	AuthorId smallint foreign key references [d.Authors](Id),
+	ProductId bigint foreign key references [d.Products](Id)
 );

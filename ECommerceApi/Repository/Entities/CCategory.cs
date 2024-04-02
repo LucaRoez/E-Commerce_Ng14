@@ -6,5 +6,5 @@ public class CCategory : EntityBase
 
     public string Name { get; set; } = null!;
 
-    public virtual ICollection<DProduct> DProducts { get; } = new List<DProduct>();
+    public virtual ICollection<DProduct>? DProductsNavigation { get; set; }
 }

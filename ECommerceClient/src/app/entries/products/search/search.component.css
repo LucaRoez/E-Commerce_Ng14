@@ -3,7 +3,7 @@
 }
 
 mat-sidenav {
-    width: 30%;
+    width: 25%;
 }
 
 mat-sidenav-content {
@@ -13,13 +13,14 @@ mat-sidenav-content {
 div.product-container {
     position: relative;
     height: 15rem;
-    width: 33%;
+    width: 28%;
     display: inline-block;
     margin-bottom: 2.5rem;
+    margin-left: 8%;
 }
 
 div.product-container.is-first {
-    margin-left: 1%;
+    margin-left: 0;
 }
 
 div.product-container.is-last {

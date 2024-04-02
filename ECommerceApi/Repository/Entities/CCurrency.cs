@@ -10,5 +10,5 @@ public partial class CCurrency : EntityBase
 
     public string? Issuer { get; set; }
 
-    public virtual ICollection<DProduct> DProducts { get; } = new List<DProduct>();
+    public virtual ICollection<DProduct>? DProductsNavigation { get; set; }
 }
