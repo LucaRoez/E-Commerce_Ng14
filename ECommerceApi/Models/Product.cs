@@ -36,7 +36,7 @@ namespace ECommerceApi.Models
         public long? SixthImageId { get; set; }
         public long? ReviewId { get; set; }
 
-        public ICollection<Author>? LinkedAuthors { get; set; }
-        public ICollection<Review>? LinkedReviews { get; set; }
+        public List<Author>? LinkedAuthors { get; set; }
+        public List<Review>? LinkedReviews { get; set; }
     }
 }

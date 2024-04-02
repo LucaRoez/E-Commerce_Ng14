@@ -93,6 +93,17 @@ namespace ECommerceApi.Repository
             }
         }
 
+        public List<DAuthor> GetRelatedAuthorsBasedOnProduct(int id)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                _query = string.Format("SELECT * FROM [d.Authors] a JOIN [l.Author_Product] ap ON a.Id = ap.AuthorId " +
+                    "JOIN [d.Products] p ON p.Id = ap.ProductId WHERE p.Id = {0}", id);
+                IEnumerable<DAuthor> dAuthors = connection.Query<DAuthor>(_query);
+                return dAuthors.ToList();
+            }
+        }
+
         public async Task<int> CreateAuthor(DAuthor author)
         {
             using (var connection = new SqlConnection(_connectionString))
@@ -257,6 +268,16 @@ namespace ECommerceApi.Repository
                 _query = string.Format("SELECT * FROM [d.Reviews] WHERE Id = {0}", id);
                 DReview? dReview = connection.QuerySingleOrDefault<DReview>(_query);
                 return dReview;
+            }
+        }
+
+        public List<DReview> GetRelatedReviewsBasedOnProduct(int id)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                _query = string.Format("SELECT * FROM [d.Reviews] WHERE ProductId = {0}", id);
+                IEnumerable<DReview> dReviews = connection.Query<DReview>(_query);
+                return dReviews.ToList();
             }
         }
 

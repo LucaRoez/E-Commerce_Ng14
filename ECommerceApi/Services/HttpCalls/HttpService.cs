@@ -10,10 +10,12 @@ namespace ECommerceApi.Services.HttpCalls
     {
         private readonly IRepository _DbContext;
         private readonly IFactory _Factory;
-        public HttpService(IRepository dbContext, IFactory factory)
+        private readonly AuxiliarFunctions _Func;
+        public HttpService(IRepository dbContext, IFactory factory, AuxiliarFunctions func)
         {
             _DbContext = dbContext;
             _Factory = factory;
+            _Func = func;
         }
 
         ////////////////////    Get Methods    ////////////////////
@@ -22,6 +24,23 @@ namespace ECommerceApi.Services.HttpCalls
             try
             {
                 Product product = _Factory.CreateModel<Product>(_DbContext.GetProduct(id));
+                if (product != null)
+                {
+                    product.LinkedAuthors = new();
+                    foreach (DAuthor dAuthor in _Func.TakeRelatedAuthorsBasedOnProduct(id))
+                    {
+                        Author author = _Factory.CreateModel<Author>(dAuthor);
+                        product.LinkedAuthors.Add(author);
+                    }
+
+                    product.LinkedReviews = new();
+                    foreach (DReview dReview in _Func.TakeRelatedReviewsBasedOnProduct(id))
+                    {
+                        Review review = _Factory.CreateModel<Review>(dReview);
+                        product.LinkedReviews.Add(review);
+                    }
+                }
+
                 return product;
             }
             catch (Exception ex)

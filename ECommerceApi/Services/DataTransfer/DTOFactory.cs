@@ -142,7 +142,9 @@ namespace ECommerceApi.Services.DataTransfer
                 Id = dAuthor.Id,
                 AuthorName = dAuthor.AuthorName,
                 Email = dAuthor.Email,
-                Password = dAuthor.Password
+                Password = dAuthor.Password,
+                LinkedProducts = null,
+                LinkedReviews = null
             };
             return author;
         }
