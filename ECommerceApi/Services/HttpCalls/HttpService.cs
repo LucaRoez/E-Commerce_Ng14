@@ -383,6 +383,40 @@ namespace ECommerceApi.Services.HttpCalls
             }
         }
 
+        public async Task<string> PostAuthor(Author author)
+        {
+            try
+            {
+                int modified = await _DbContext.CreateAuthor(_Factory.CreateEntity<DAuthor>(author));
+                if (modified > 0)
+                {
+                    return "Author loaded successfully.";
+                }
+                return "There was an issue loading your Author.";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        public async Task<string> PostReview(Review review)
+        {
+            try
+            {
+                int modified = await _DbContext.CreateReview(_Factory.CreateEntity<DReview>(review));
+                if (modified > 0)
+                {
+                    return "Review loaded successfully.";
+                }
+                return "There was an issue loading your Review.";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
         public async Task<string> PostImage(Image image)
         {
             try

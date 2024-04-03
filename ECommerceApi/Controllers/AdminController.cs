@@ -1,7 +1,6 @@
 ﻿using ECommerceApi.Models;
 using ECommerceApi.Services.Utilities;
 using ECommerceApi.Models.Http;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerce.Controllers
@@ -19,6 +18,40 @@ namespace ECommerce.Controllers
         public async Task<IActionResult> PostProduct([FromBody] Product product)
         {
             Response result = await _Http.ReturnResponse(product);
+            if (result.StatusCode == 200) return Ok(result);
+            else if (result.StatusCode == 404) return NotFound(result);
+            else if (result.StatusCode == 403) return Forbid();
+            else if (result.StatusCode == 401) return Unauthorized(result);
+            else if (result.StatusCode == 409) return Conflict(result);
+            else if (result.StatusCode == 500) return StatusCode(500);
+            else if (result.StatusCode == 503) return StatusCode(503);
+            else if (result.StatusCode == 400) return BadRequest(result);
+            else if (result.StatusCode == 422) return StatusCode(422);
+            else return StatusCode(503);
+        }
+
+        [HttpPost]
+        [Route("admin/author")]
+        public async Task<IActionResult> PostAuthor([FromBody] Author author)
+        {
+            Response result = await _Http.ReturnResponse(author);
+            if (result.StatusCode == 200) return Ok(result);
+            else if (result.StatusCode == 404) return NotFound(result);
+            else if (result.StatusCode == 403) return Forbid();
+            else if (result.StatusCode == 401) return Unauthorized(result);
+            else if (result.StatusCode == 409) return Conflict(result);
+            else if (result.StatusCode == 500) return StatusCode(500);
+            else if (result.StatusCode == 503) return StatusCode(503);
+            else if (result.StatusCode == 400) return BadRequest(result);
+            else if (result.StatusCode == 422) return StatusCode(422);
+            else return StatusCode(503);
+        }
+
+        [HttpPost]
+        [Route("admin/review")]
+        public async Task<IActionResult> PostReview([FromBody] Review review)
+        {
+            Response result = await _Http.ReturnResponse(review);
             if (result.StatusCode == 200) return Ok(result);
             else if (result.StatusCode == 404) return NotFound(result);
             else if (result.StatusCode == 403) return Forbid();

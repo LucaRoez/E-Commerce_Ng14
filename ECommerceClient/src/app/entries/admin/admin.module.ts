@@ -16,6 +16,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { ImagesComponent } from './images/images.component';
 import { AdminService } from '../../services/admin.service';
 import { LinkImageComponent } from './images/link-image/link-image.component';
+import { UsersComponent } from './users/users.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { LinkImageComponent } from './images/link-image/link-image.component';
     CatalogsComponent,
     ProductComponent,
     ImagesComponent,
-    LinkImageComponent
+    LinkImageComponent,
+    UsersComponent
   ],
   imports: [
     CommonModule,

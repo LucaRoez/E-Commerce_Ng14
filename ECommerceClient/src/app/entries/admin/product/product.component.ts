@@ -49,7 +49,7 @@ export class ProductComponent implements OnInit {
     isSuccessful: false,
     statusCode: 0
   }
-  PublishProduct(productSent: Product) {
+  PublishProduct(productSent: Product): void {
     const newProduct: Product = {
       name: productSent.name,
       description: productSent.description,

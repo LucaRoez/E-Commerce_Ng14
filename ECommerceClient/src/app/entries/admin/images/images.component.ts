@@ -23,7 +23,7 @@ export class ImagesComponent {
     isSuccessful: false,
     statusCode: 0
   }
-  PublishImage(imageSent: Image) {
+  PublishImage(imageSent: Image): void {
     const newImage: Image = {
       id: 0,
       src: imageSent.src,

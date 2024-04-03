@@ -276,6 +276,10 @@ namespace ECommerceApi.Services.Utilities
         ////////////////    Admin Controller    ////////////////
         public async Task<Response> ReturnResponse(Product product) => ParsePostAction(await _Http.PostProduct(product));
 
+        public async Task<Response> ReturnResponse(Author author) => ParsePostAction(await _Http.PostAuthor(author));
+
+        public async Task<Response> ReturnResponse(Review review) => ParsePostAction(await _Http.PostReview(review));
+
         public async Task<Response> ReturnResponse(Image image) => ParsePostAction(await _Http.PostImage(image));
 
         public async Task<Response> ReturnResponse(Image image, Product product, int slot) =>

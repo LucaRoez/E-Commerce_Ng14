@@ -65,7 +65,7 @@ export class CatalogsComponent {
     }
   ];
   
-  buttonFunction(formCard: CatalogFormCard) {
+  buttonFunction(formCard: CatalogFormCard): void {
     switch (formCard.formTitle) {
       case "Gender Category": {
         const gender: Gender = { id: formCard.firstNgModel, name: formCard.secondNgModel };

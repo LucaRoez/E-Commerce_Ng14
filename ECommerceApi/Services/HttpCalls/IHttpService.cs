@@ -29,6 +29,8 @@ namespace ECommerceApi.Services.HttpCalls
 
 
         Task<string> PostProduct(Product product);
+        Task<string> PostAuthor(Author author);
+        Task<string> PostReview(Review review);
         Task<string> PostImage(Image image);
         Task<string> LinkImageToProduct(Image image, Product product, int slot);
         Task<string> PostGender(Gender gender);
