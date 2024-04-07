@@ -1,1 +1,39 @@
-<p>login works!</p>
+<mat-card class="form-box">
+	<mat-card-header class="row">
+		<mat-card-title class="form-title">Add New Author</mat-card-title>
+		<ngb-alert *ngIf="response.message != ''"
+			[ngClass]="{'success': response.isSuccessful, 'error': !response.isSuccessful}"
+		>
+			{{response.message}}
+		</ngb-alert>
+	</mat-card-header>
+	<mat-card-content class="card-body">
+		<div class="input-container">
+			<mat-form-field>
+                <mat-label>Author Name</mat-label>
+                <input matInput name="name" type="text" formControlName="name" />
+            </mat-form-field>
+			<mat-form-field>
+                <mat-label>Author Presentation</mat-label>
+                <textarea matInput name="presentation" type="text" formControlName="presentation"></textarea>
+            </mat-form-field>
+			<mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput name="email" type="email" formControlName="email" />
+            </mat-form-field>
+			<mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput name="password" type="password" formControlName="password" />
+            </mat-form-field>
+			<mat-form-field>
+                <mat-label>Confirm Password</mat-label>
+                <input matInput name="confirmpass" type="password" formControlName="confirmpass" />
+            </mat-form-field>
+			<div class="button">
+				<button mat-raised-button type="button" color="warn" (click)="PublishAuthor(author)">
+					Publish Author
+				</button>
+			</div>
+		</div>
+	</mat-card-content>
+</mat-card>
