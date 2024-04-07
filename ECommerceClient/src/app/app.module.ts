@@ -17,6 +17,7 @@ import { GlobalDialogsComponent } from './shared/global-dialogs/global-dialogs.c
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminService, MainService } from './services/services';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthModule } from './entries/auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -27,15 +28,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     HomeModule,
     ProductsModule,
     CartModule,
     SaleModule,
     AdminModule,
+    AuthModule,
     BrowserAnimationsModule,
-    NgbModule
+    NgbModule,
+    AppRoutingModule
   ],
   providers: [
     MainService,

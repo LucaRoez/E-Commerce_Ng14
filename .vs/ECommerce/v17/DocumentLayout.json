@@ -42,8 +42,7 @@
               "RelativeToolTip": "ECommerceApi\\Repository\\CommercialContext.cs",
               "ViewState": "AQIAANsAAAAAAAAAAAAQwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-02T23:27:49.615Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-02T23:27:49.615Z"
             },
             {
               "$type": "Document",
@@ -55,8 +54,7 @@
               "RelativeToolTip": "ECommerceApi\\Services\\HttpCalls\\HttpService.cs",
               "ViewState": "AQIAAFABAAAAAAAAAAAowJIBAAA7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-02T23:02:35.665Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-02T23:02:35.665Z"
             },
             {
               "$type": "Document",
@@ -68,8 +66,7 @@
               "RelativeToolTip": "ECommerceApi\\Services\\Utilities\\ResponseManager.cs",
               "ViewState": "AQIAACMAAAAAAAAAAIA9wBgBAABrAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-02T22:54:26.765Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-02T22:54:26.765Z"
             },
             {
               "$type": "Document",
@@ -79,7 +76,7 @@
               "RelativeDocumentMoniker": "ECommerceApi\\Controllers\\AdminController.cs",
               "ToolTip": "C:\\Users\\lucae\\OneDrive\\Documents\\My Web Sites\\ECommerce\\ECommerceApi\\Controllers\\AdminController.cs",
               "RelativeToolTip": "ECommerceApi\\Controllers\\AdminController.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAA6wDMAAABNAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAqwDMAAABNAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-20T00:26:51.357Z",
               "EditorCaption": ""

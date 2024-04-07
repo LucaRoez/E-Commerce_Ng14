@@ -13,6 +13,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatListModule } from '@angular/material/list';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatTabsModule } from '@angular/material/tabs';
+import { ProductsRoutingModule } from './products-routing.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,6 @@ import { MatTabsModule } from '@angular/material/tabs';
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule,
     CurrencyPipe,
     DecimalPipe,
     MatSidenavModule,
@@ -32,7 +32,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatSliderModule,
     MatListModule,
     NgbDropdownModule,
-    MatTabsModule
+    MatTabsModule,
+    ProductsRoutingModule
   ],
   exports: [
     ProductsComponent
