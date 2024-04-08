@@ -1,6 +1,7 @@
 <mat-card class="form-box">
 	<mat-card-header class="row">
 		<mat-card-title class="form-title">Add New Author</mat-card-title>
+		<p>Enter Login details to get access</p>
 		<ngb-alert *ngIf="response.message != ''"
 			[ngClass]="{'success': response.isSuccessful, 'error': !response.isSuccessful}"
 		>
