@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Product, ProductUI, Author, Review, Response } from '../../../models/models';
 import { MainService, FunctionService } from '../../../services/services';
-import { error } from 'console';
 
 @Component({
   selector: 'app-product',

@@ -8,14 +8,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 
 import { AuthRoutingModule } from './auth-routing.module';
-import { LoginComponent } from './login/login.component';
+import { LogupComponent } from './logup/logup.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormExtensionsModule } from '../../shared/form-extentions/form-extensions.module';
 
 
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LogupComponent
   ],
   imports: [
     CommonModule,
@@ -26,10 +27,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
+    FormExtensionsModule,
     AuthRoutingModule
   ],
   exports: [
-    LoginComponent
+    LogupComponent
   ]
 })
 export class AuthModule { }

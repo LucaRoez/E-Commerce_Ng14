@@ -1,15 +1,15 @@
 .form-box {
 	margin: 1% 25%;
 	padding: 1%;
-	box-shadow: 3px 0px 10px #aaa,
-		-3px 0px 10px #aaa;
+	box-shadow: 6px 0px 15px #ddd,
+		-6px 0px 15px #ddd;
 }
 
 mat-card-header {
 	width: 100%;
 	display: flex;
 	text-align: center;
-	margin: 1% 0;
+	margin: 1% 0 3% 0;
 }
 
 mat-card-title {
@@ -22,6 +22,11 @@ mat-card-content>div>mat-form-field {
 	padding: 0 10%;
 }
 
+input, textarea {
+	margin-top: 1rem;
+	padding: .2rem;
+}
+
 div.button {
 	width: 100%;
 	display: flex;
@@ -29,11 +34,7 @@ div.button {
 	margin: 1% 0;
 }
 
-.errors-container>p {
-	color: rgb(248, 7, 7);
-}
-
 .ng-touched.ng-invalid:is(input, textarea),
 .ng-dirty.ng-invalid:is(input, textarea) {
-	outline: 2px groove rgb(248, 7, 7);
+	outline: 1px groove rgb(248, 7, 7);
 }

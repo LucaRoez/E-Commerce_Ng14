@@ -1,0 +1,66 @@
+<mat-card class="form-box">
+	<mat-card-header class="row">
+		<mat-card-title class="form-title">Add New Author</mat-card-title>
+		<p>Enter Login details to get access</p>
+		<ngb-alert *ngIf="response.message != ''"
+			[ngClass]="{'success': response.isSuccessful, 'error': !response.isSuccessful}"
+		>
+			{{response.message}}
+		</ngb-alert>
+	</mat-card-header>
+	<mat-card-content [formGroup]="formControl" class="card-body">
+		<div class="input-container">
+			<mat-form-field>
+                <mat-label>Author Name</mat-label>
+                <input matInput name="name" type="text" formControlName="name" />
+            </mat-form-field>
+			<form-error-container [abstractControl]="nameControl">
+				<form-error-message validationError="required" />
+				<form-error-message validationError="minlength" />
+				<form-error-message validationError="maxlength" />
+			</form-error-container>
+			<mat-form-field>
+                <mat-label>Author Presentation</mat-label>
+                <textarea matInput name="presentation" type="text" formControlName="presentation"></textarea>
+            </mat-form-field>
+			<form-error-container [abstractControl]="presentationControl">
+				<form-error-message validationError="maxlength" />
+			</form-error-container>
+			<mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput name="email" type="email" formControlName="email" />
+            </mat-form-field>
+			<form-error-container [abstractControl]="emailControl">
+				<form-error-message validationError="required" />
+				<form-error-message validationError="maxlength" />
+				<form-error-message validationError="email" />
+			</form-error-container>
+			<mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput name="password" type="password" formControlName="password" />
+            </mat-form-field>
+			<form-error-container [abstractControl]="passControl">
+				<form-error-message validationError="required" />
+				<form-error-message validationError="pattern" />
+			</form-error-container>
+			<mat-form-field>
+                <mat-label>Confirm Password</mat-label>
+                <input matInput name="confirmpass" type="password" formControlName="confirmpass" />
+            </mat-form-field>
+			<form-error-container [abstractControl]="confirmControl">
+				<form-error-message validationError="required" />
+				<form-error-message validationError="pattern" />
+			</form-error-container>
+			<form-error-container [abstractControl]="formControl">
+				<form-error-message validationError="passMustBeEqual" />
+			</form-error-container>
+			<div class="button">
+				<button mat-raised-button type="button" color="warn" (click)="PublishAuthor()"
+					[disabled]="formControl.invalid"
+				>
+					Publish Author
+				</button>
+			</div>
+		</div>
+	</mat-card-content>
+</mat-card>

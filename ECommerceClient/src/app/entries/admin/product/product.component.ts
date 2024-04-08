@@ -8,21 +8,21 @@ import { AdminService, MainService } from '../../../services/services';
   styleUrl: './product.component.css'
 })
 export class ProductComponent implements OnInit {
-  constructor(private _GetService: MainService, private _PostService: AdminService) {
+  constructor(private _getService: MainService, private _postService: AdminService) {
   }
 
   ngOnInit(): void {
-    this._GetService.GetGenders().subscribe(
+    this._getService.GetGenders().subscribe(
       response => {
         this.genders = response.genders!;
       }
     )
-    this._GetService.GetCategories().subscribe(
+    this._getService.GetCategories().subscribe(
       response => {
         this.categories = response.categories!;
       }
     )
-    this._GetService.GetCurrencies().subscribe(
+    this._getService.GetCurrencies().subscribe(
       response => {
         this.currencies = response.currencies!;
       }
@@ -60,7 +60,7 @@ export class ProductComponent implements OnInit {
       categoryId: this.categoryId,
       quantityAvailable: productSent.quantityAvailable
     };
-    this._PostService.adminProductPost(newProduct).subscribe(
+    this._postService.adminProductPost(newProduct).subscribe(
       result => {
         this.response.message = 'Product published successfully.\n' + result;
         this.response.isSuccessful = true;

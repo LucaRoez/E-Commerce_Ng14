@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, CurrencyPipe, DecimalPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 import { ProductsComponent } from './products.component';
 import { SearchComponent } from './search/search.component';
 import { ProductComponent } from './product/product.component';

@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
-import { Product, Image, ProductUI } from "../models/models";
+import { Product, Image, ProductUI, Author } from "../models/models";
+import { FormGroup } from "@angular/forms";
 
 @Injectable({
 	providedIn: 'root'
@@ -55,4 +56,13 @@ export class FunctionService {
 		product.presentationImageAlt = image?.alt;
 		return product;
 	}
+	
+  ParseAuthor(author: Author, formObject: FormGroup): Author {
+    author.authorName = formObject.value.name;
+		author.presentation = formObject.value.presentation;
+		author.email = formObject.value.email;
+		author.password = formObject.value.password;
+
+		return author;
+  }
 }

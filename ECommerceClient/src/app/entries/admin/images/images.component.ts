@@ -8,7 +8,7 @@ import { Image, Response } from '../../../models/models'
   styleUrl: './images.component.css'
 })
 export class ImagesComponent {
-  constructor(private _PostService: AdminService) {}
+  constructor(private _postService: AdminService) {}
 
   image: Image = {
     id: 0,
@@ -31,7 +31,7 @@ export class ImagesComponent {
       height: imageSent.height,
       width: imageSent.width
     };
-    this._PostService.adminImagePost(newImage).subscribe(
+    this._postService.adminImagePost(newImage).subscribe(
       result => {
         this.response.message = 'Image published successfully.\n' + result;
         this.response.isSuccessful = true;

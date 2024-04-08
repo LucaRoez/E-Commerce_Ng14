@@ -8,7 +8,7 @@ import { AdminService, MainService } from '../../../../services/services';
   styleUrl: './link-image.component.css'
 })
 export class LinkImageComponent {
-  constructor(private _PostService: AdminService, private _MainService: MainService) {}
+  constructor(private _postService: AdminService, private _mainService: MainService) {}
 
   productTaken = {
     id: 0,
@@ -50,9 +50,9 @@ export class LinkImageComponent {
   @Output() alertMessage = new EventEmitter<Response>();
   LinkImageToProduct(slot: number) {
     if (this.productTaken.id !== 0) {
-      this._MainService.GetProduct(this.productTaken.id).subscribe(response => {
+      this._mainService.GetProduct(this.productTaken.id).subscribe(response => {
         this.product = response.product;
-        this._MainService.GetImages().subscribe(result => {
+        this._mainService.GetImages().subscribe(result => {
           this.thisImage = result.images?.find(i => i.src === this.thisImage?.src);
         });
         this.response.isSuccessful = true;
@@ -66,10 +66,10 @@ export class LinkImageComponent {
     }
     else {
       if (this.productTaken.name !== '') {
-        const products = this._MainService.GetProducts();
+        const products = this._mainService.GetProducts();
         products.subscribe(search => {
           this.product = search.products?.find(p => p.name === this.productTaken.name);
-          this._MainService.GetImages().subscribe(result => {
+          this._mainService.GetImages().subscribe(result => {
             this.thisImage = result.images?.find(i => i.src === this.thisImage?.src);
           });
           this.response.isSuccessful = true;
@@ -89,7 +89,7 @@ export class LinkImageComponent {
       }
     }
     if (this.response.isSuccessful == true) {
-      this._PostService.adminLinkImage(this.thisImage, this.product, slot).subscribe(result => {
+      this._postService.adminLinkImage(this.thisImage, this.product, slot).subscribe(result => {
         this.response.message = 'Image linked successfully.\n' + result;
         this.response.statusCode = 200;
         this.alertMessage.emit(this.response);
