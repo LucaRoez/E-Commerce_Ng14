@@ -1,0 +1,8 @@
+.errors-container>p {
+    color: rgb(248, 7, 7);
+}
+
+.ng-touched.ng-invalid:is(input, textarea),
+.ng-dirty.ng-invalid:is(input, textarea) {
+    outline: 2px groove rgb(248, 7, 7);
+}

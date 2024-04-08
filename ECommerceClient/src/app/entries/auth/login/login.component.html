@@ -7,30 +7,53 @@
 			{{response.message}}
 		</ngb-alert>
 	</mat-card-header>
-	<mat-card-content class="card-body">
+	<mat-card-content [formGroup]="formControl" class="card-body">
 		<div class="input-container">
 			<mat-form-field>
                 <mat-label>Author Name</mat-label>
                 <input matInput name="name" type="text" formControlName="name" />
             </mat-form-field>
+			<div class="errors-container" *ngIf="nameControl.invalid && (nameControl.touched || nameControl.dirty)">
+				<p class="error-message" *ngIf="nameControl.hasError('required')">Author name is a mandatory field</p>
+				<p class="error-message" *ngIf="nameControl.hasError('minlength')">Author name has to have at least 3 characters</p>
+				<p class="error-message" *ngIf="nameControl.hasError('maxlength')">Author name hasn't to have more than 20 characters</p>
+			</div>
 			<mat-form-field>
                 <mat-label>Author Presentation</mat-label>
                 <textarea matInput name="presentation" type="text" formControlName="presentation"></textarea>
             </mat-form-field>
+			<div class="errors-container" *ngIf="presentationControl.invalid && (presentationControl.touched || presentationControl.dirty)">
+				<p class="error-message" *ngIf="presentationControl.hasError('maxlength')">Author presentation hasn't to have more than 50 characters</p>
+			</div>
 			<mat-form-field>
                 <mat-label>Email</mat-label>
                 <input matInput name="email" type="email" formControlName="email" />
             </mat-form-field>
+			<div class="errors-container" *ngIf="emailControl.invalid && (emailControl.touched || emailControl.dirty)">
+				<p class="error-message" *ngIf="emailControl.hasError('required')">Email is a mandatory field</p>
+				<p class="error-message" *ngIf="emailControl.hasError('maxlength')">Email hasn't to have more than 80 characters</p>
+				<p class="error-message" *ngIf="emailControl.hasError('email')">Email field has to have an email format</p>
+			</div>
 			<mat-form-field>
                 <mat-label>Password</mat-label>
                 <input matInput name="password" type="password" formControlName="password" />
             </mat-form-field>
+			<div class="errors-container" *ngIf="passControl.invalid && (passControl.touched || passControl.dirty)">
+				<p class="error-message" *ngIf="passControl.hasError('required')">Password is a mandatory field</p>
+				<p class="error-message" *ngIf="passControl.hasError('pattern')">Password has to have at least one special character, one decimal and one uppercase letter</p>
+			</div>
 			<mat-form-field>
                 <mat-label>Confirm Password</mat-label>
                 <input matInput name="confirmpass" type="password" formControlName="confirmpass" />
             </mat-form-field>
+			<div class="errors-container" *ngIf="confirmControl.invalid && (confirmControl.touched || confirmControl.dirty)">
+				<p class="error-message" *ngIf="confirmControl.hasError('required')">Password confirmation is a mandatory field</p>
+				<p class="error-message" *ngIf="confirmControl.hasError('pattern')">Password confirmation must to follow the same pattern rules than password field</p>
+			</div>
 			<div class="button">
-				<button mat-raised-button type="button" color="warn" (click)="PublishAuthor(author)">
+				<button mat-raised-button type="button" color="warn" (click)="PublishAuthor()"
+					[disabled]="formControl.invalid"
+				>
 					Publish Author
 				</button>
 			</div>

@@ -10,8 +10,8 @@ namespace ECommerceApi.Services.HttpCalls
     {
         private readonly IRepository _DbContext;
         private readonly IFactory _Factory;
-        private readonly AuxiliarFunctions _Func;
-        public HttpService(IRepository dbContext, IFactory factory, AuxiliarFunctions func)
+        private readonly AuxiliaryFunctions _Func;
+        public HttpService(IRepository dbContext, IFactory factory, AuxiliaryFunctions func)
         {
             _DbContext = dbContext;
             _Factory = factory;

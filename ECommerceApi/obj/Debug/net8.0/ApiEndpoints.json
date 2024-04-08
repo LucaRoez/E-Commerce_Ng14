@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "ECommerce.Controllers.AdminController",
+    "Method": "PostAuthor",
+    "RelativePath": "admin/author",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "author",
+        "Type": "ECommerceApi.Models.Author",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ECommerce.Controllers.AdminController",
     "Method": "PostCategory",
     "RelativePath": "admin/category",
     "HttpMethod": "POST",
@@ -100,6 +116,22 @@
       {
         "Name": "product",
         "Type": "ECommerceApi.Models.Product",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ECommerce.Controllers.AdminController",
+    "Method": "PostReview",
+    "RelativePath": "admin/review",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "review",
+        "Type": "ECommerceApi.Models.Review",
         "IsRequired": true
       }
     ],

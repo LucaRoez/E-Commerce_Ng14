@@ -22,6 +22,7 @@ services.AddCors(op =>
 );
 
 services.AddTransient<IRepository, CommercialContext>();
+services.AddTransient<AuxiliaryFunctions>();
 services.AddTransient<IHttpService, HttpService>();
 services.AddTransient<IFactory, DTOFactory>();
 services.AddTransient<ResponseManager>();
